@@ -72,6 +72,8 @@ public class Var {
 	boolean timer_finish = false;
 
 	static boolean musik = true;
+	static boolean zeigeLebenGegner = false;
+	static boolean startCounter = false;
 	
 	static boolean moveup=false,movedown=false,moveright=false,moveleft=false,space=false,esc=false;
 	

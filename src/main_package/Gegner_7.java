@@ -3,21 +3,35 @@ package main_package;
 public class Gegner_7 extends Gegner {
 
 	private boolean komplettImBild = false;
+<<<<<<< HEAD
 	
 	public Gegner_7(Var var) {
 		super(var);
 		leben_default = 1000;
+=======
+	private int yspeed = 0;
+
+	public Gegner_7() {
+		super();
+		leben_default = 5000;
+>>>>>>> 71b81ab1edbb93783e96afc87e94ad0cdba6c246
 		leben = leben_default;
 		kollisionsSchaden = 1000;
-		xspeed = -8;
+		xspeed = -20;
 		yspeed = 2;
 		schuss = true;
 		gegner_bild = Var.gegner_7;
 		schuss_periode = 60;
+		Var.zeigeLebenGegner=true;
 	}
 
 	public void schiessen() {
+<<<<<<< HEAD
 		new Schuesse_Gegner_3(schiff, this.xpos, this.ypos + this.gegner_bild.getHeight()/2- Var.gegner_schuss3_Bild.getHeight()/2,var);
+=======
+		new Schuesse_Gegner_3(schiff, this.xpos,
+				this.ypos + this.gegner_bild.getHeight() / 2 - Var.gegner_schuss3_Bild.getHeight() / 2);
+>>>>>>> 71b81ab1edbb93783e96afc87e94ad0cdba6c246
 	}
 
 	public void bewegen_y() {
@@ -31,22 +45,27 @@ public class Gegner_7 extends Gegner {
 
 	}
 
-	public void bewegen_x() {
-		xpos = xpos + xspeed;
-		if(xpos<Var.spielfeld_screenwidth-gegner_bild.getWidth()){
+	public void sonstige_Befehle() {
+		if (xpos < Var.spielfeld_screenwidth - gegner_bild.getWidth()) {
 			xspeed = -2;
 			komplettImBild = true;
+		}
+		if (xpos > Var.spielfeld_screenwidth - gegner_bild.getWidth()) {
+			xspeed = -20;
+			komplettImBild = false;
 		}
 		if (raumschiff_uebergeben && komplettImBild) {
 			if (xpos < Var.spielfeld_screenwidth / 2 && schiff.gibRaumschiff_xpos() < this.xpos) {
 				xspeed = 0;
-			}
-			else if (schiff.gibRaumschiff_xpos() > this.xpos){
+			} else if (schiff.gibRaumschiff_xpos() > this.xpos) {
 				xspeed = 2;
-			}
-			else if (schiff.gibRaumschiff_xpos() < this.xpos){
+			} else if (schiff.gibRaumschiff_xpos() < this.xpos) {
 				xspeed = -2;
 			}
+		}
+		if (counter >= 1 && schiff.gibRaumschiff_leben() > 0){
+			Var.timer_finish=true;
+			Var.verloren=true;
 		}
 	}
 }

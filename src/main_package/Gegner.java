@@ -7,8 +7,14 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public abstract class Gegner {
+<<<<<<< HEAD
 	protected Var var;
 	protected int leben;
+=======
+
+	protected int counter = -1;
+	protected int leben = 100;
+>>>>>>> 71b81ab1edbb93783e96afc87e94ad0cdba6c246
 	protected int leben_default;
 	protected int kollisionsSchaden;
 	protected int schussSchaden;
@@ -53,7 +59,12 @@ public abstract class Gegner {
 		ypos=(int) (Math.random()*(Var.spielfeld_screenheight-80));
 		xpos=Var.spielfeld_screenwidth+ (int) (Math.random()*1500);
 		leben = leben_default;
+		counter++;
 	}
+	public void sonstige_Befehle(){
+
+	}
+	
 	
 	public boolean isSchuss(){
 		return schuss;

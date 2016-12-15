@@ -74,7 +74,6 @@ public class Schuesse_Raumschiff_Steuerung {
 			if (gegner.gibleben() <= 0) {
 				score.setAktuellerScore(gegner.getPunkte());
 				gegner.reset();
-				
 				this.gegner = null;
 			}
 		}
