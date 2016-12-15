@@ -26,6 +26,7 @@ public class Gegner_Steuerung {
 					if (Var.pause != true && Var.verloren != true) {
 						gegner.bewegen_x();
 						gegner.bewegen_y();
+						gegner.sonstige_Befehle();
 						if (gegner.gibxpos() < -gegner.getImage().getWidth()) {
 							gegner.reset();
 							counter = 0;

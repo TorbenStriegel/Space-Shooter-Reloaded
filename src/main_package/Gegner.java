@@ -53,6 +53,10 @@ public abstract class Gegner {
 		xpos=Var.spielfeld_screenwidth+ (int) (Math.random()*1500);
 		leben = leben_default;
 	}
+	public void sonstige_Befehle(){
+
+	}
+	
 	
 	public boolean isSchuss(){
 		return schuss;

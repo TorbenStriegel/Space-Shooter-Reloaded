@@ -14,7 +14,7 @@ public class Schild_Steuerung {
 		timer_1.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (Var.pause != true && Var.verloren != true) {	
+				if (Var.pause != true && !Var.verloren) {	
 					if (raumschiff.gibRaumschiff_schild() < raumschiff.gibRaumschiff_schildMax()){
 						raumschiff.setRaumschiff_schildanzeigen(true);
 						raumschiff.setSchild(raumschiff.gibRaumschiff_schild() + raumschiff.gibRaumschiff_schildPlus());

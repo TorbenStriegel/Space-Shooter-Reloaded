@@ -127,7 +127,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			}else{
 				g.setColor(Color.RED);
 				g.setFont(new Font("Arial", Font.BOLD, 60));
-				g.drawString("GAME OVER", (Var.spielfeld_screenwidth / 2 - 200), (Var.spielfeld_screenheight / 2 - 30));
+				g.drawString("GAME OVER", (Var.spielfeld_screenwidth / 2 - 210), (Var.spielfeld_screenheight / 2 - 30));
 			}
 			g.setFont(new Font("Arial", Font.BOLD, 30));
 			g.drawString("Dein Score: " + score.getFinalScore(), (Var.spielfeld_screenwidth / 2 - 150),(Var.spielfeld_screenheight / 2 + 10));
@@ -135,7 +135,6 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 				beendet = true;
 				zeichneButton();
 			}*/
-		
 		}
 		repaint();
 	}

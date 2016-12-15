@@ -61,9 +61,7 @@ public class KeyHandler implements KeyListener{ //implementiere Interface um Kla
 			}else{
 				Var.pause=true;
 			}
-			
 		}
-			
 	}
 
 	@Override

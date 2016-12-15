@@ -16,7 +16,7 @@ public class Spieltimer {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (!Var.pause){
+				if (!Var.pause&&!Var.verloren){
 					zeit_Millisekunden--;
 					if (zeit_Millisekunden<= 0) {
 						Var.verloren = true;

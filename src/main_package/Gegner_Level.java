@@ -93,7 +93,7 @@ public class Gegner_Level {
 			gegner[a] = new Gegner_2();
 		}
 		for (int a = 50; a < gegner.length; a++) {
-			gegner[a] = new Gegner_8();
+			gegner[a] = new Gegner_3();
 		}
 		spieltimer = new Spieltimer(90);
 	}
