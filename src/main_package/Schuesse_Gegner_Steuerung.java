@@ -10,8 +10,10 @@ public class Schuesse_Gegner_Steuerung {
 	private Raumschiff schiff;
 	private Timer timer;
 	private boolean zerstort;
+	private Var var;
 	
-	public Schuesse_Gegner_Steuerung(Schuesse schuesse_schiff, Raumschiff schiff) {
+	public Schuesse_Gegner_Steuerung(Schuesse schuesse_schiff, Raumschiff schiff,Var var) {
+		this.var=var;
 		this.schiff=schiff;
 		this.schuss = schuesse_schiff;
 		timer = new Timer();
@@ -19,7 +21,7 @@ public class Schuesse_Gegner_Steuerung {
 			@Override
 			public void run() {
 				if (!zerstort) {
-					if (Var.pause != true && Var.verloren != true) {
+					if (Var.pause != true && var.verloren != true) {
 						schuss.setSchuss_xpos();
 
 						if (schuss.gibSchuss_xpos() <0-schuss.gibImage().getWidth()) {
@@ -57,7 +59,7 @@ public class Schuesse_Gegner_Steuerung {
 						}
 					
 				} else {
-					Var.geschossliste.remove(schuss);
+					var.getGeschossliste().remove(schuss);
 				}
 			}
 		}, 0, 24);

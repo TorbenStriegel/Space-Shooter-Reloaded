@@ -2,8 +2,8 @@ package main_package;
 
 public class Gegner_4 extends Gegner {
 
-	public Gegner_4() {
-		super();
+	public Gegner_4(Var var){
+		super(var);
 		leben_default = 80;
 		leben = leben_default;
 		kollisionsSchaden = 100;

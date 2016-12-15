@@ -26,7 +26,7 @@ public class GUI_Spielfeld {
 		label_Spielfeld.setBounds(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
 		jFrame_Spielfeld.getContentPane().add(label_Spielfeld);
 		label_Spielfeld.setVisible(true);
-//		label_Spielfeld.setSpielfeld(jFrame_Spielfeld);
+		label_Spielfeld.setSpielfeld(jFrame_Spielfeld);
 	}
 	
 	

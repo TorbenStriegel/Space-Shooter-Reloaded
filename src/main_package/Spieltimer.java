@@ -9,7 +9,7 @@ public class Spieltimer {
 	private int zeit_Millisekunden = 0;
 	private int zeit_Start = 0;
 	
-	public Spieltimer(int millisekunden) {
+	public Spieltimer(int millisekunden,Var var) {
 		zeit_Millisekunden = millisekunden;
 		zeit_Start = zeit_Millisekunden;
 		timer = new Timer();
@@ -19,8 +19,8 @@ public class Spieltimer {
 				if (!Var.pause){
 					zeit_Millisekunden--;
 					if (zeit_Millisekunden<= 0) {
-						Var.verloren = true;
-						Var.timer_finish = true;
+						var.verloren = true;
+						var.timer_finish = true;
 					}
 				}
 			}

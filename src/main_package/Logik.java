@@ -6,7 +6,7 @@ public class Logik {
 	Spieltimer spieltimer;
 	MySQL_Datenbank mySQL_Datenbank;
 	Gegner[] gegner_Array = new Gegner[Var.anzahlGegner];
-	Var var;
+	Var var =new Var();;
 	GUI_Startfenster start;
 	Hintergrund hintergrund;
 	KeyHandler keyHandler;
@@ -23,18 +23,17 @@ public class Logik {
 	
 	
 	Logik(){
-		var =new Var();
+		
 		mySQL_Datenbank = new MySQL_Datenbank();
-		start =new GUI_Startfenster(this, mySQL_Datenbank);
+		start =new GUI_Startfenster(this, mySQL_Datenbank,var);
 		
 	}
 	
-	/*Logik(int reset){
-		raumschiff=null;
+	Logik(int reset){
+		/*raumschiff=null;
 		spieltimer=null;
 		mySQL_Datenbank=null;
 		gegner_Array=null;
-		var=null;
 		start=null;
 		hintergrund=null;
 		keyHandler=null;
@@ -47,17 +46,16 @@ public class Logik {
 		schild =null;
 		gui_spiel=null;
 		audio =null;
-		
-		System.gc();
+		*/
 			
 		
-		
+
 		gegner_Array = new Gegner[Var.anzahlGegner];
-		var =new Var();
+		var.reset();
 		mySQL_Datenbank = new MySQL_Datenbank();
-		start =new GUI_Startfenster(this, mySQL_Datenbank);
+		start =new GUI_Startfenster(this, mySQL_Datenbank,var);
 		
-	}*/
+	}
 	
 
 	public void starten(String name,int raumschiffTyp,GUI_Startfenster fenster,int level){
@@ -65,11 +63,11 @@ public class Logik {
 
 	    hintergrund=new Hintergrund();
 	    keyHandler = new KeyHandler();
-	    score = new Score(level, raumschiffTyp,mySQL_Datenbank);
-	    raumschiff_Level = new Raumschiff_Level(raumschiffTyp, score);
+	    score = new Score(level, raumschiffTyp,mySQL_Datenbank,var);
+	    raumschiff_Level = new Raumschiff_Level(raumschiffTyp, score,var);
 	    raumschiff = raumschiff_Level.gibRaumschiff();
-	    raumschiff_Steuerung = new Raumschiff_Steuerung(raumschiff);
-	    gegner_Level = new Gegner_Level(level);
+	    raumschiff_Steuerung = new Raumschiff_Steuerung(raumschiff,var);
+	    gegner_Level = new Gegner_Level(level,var);
 	    gegner_Array = gegner_Level.getGegner_Array();
 	    spieltimer = gegner_Level.getSpieltimer();
 	    for (int i = 0; i < gegner_Array.length; i++) {
@@ -77,9 +75,9 @@ public class Logik {
 		}
 	    raumschiff.setGegner(gegner_Array);
 	    gegner_Kollision = new Gegner_Kollision(gegner_Level,raumschiff);
-	    label_Spielfeld = new Label_Spielfeld(gegner_Level,raumschiff,score,spieltimer);
+	    label_Spielfeld = new Label_Spielfeld(gegner_Level,raumschiff,score,spieltimer,var);
 	    gui_spiel = new GUI_Spielfeld(label_Spielfeld);
-	    schild = new Schild_Steuerung(raumschiff);
+	    schild = new Schild_Steuerung(raumschiff,var);
 	    if(Var.musik){
 	    	audio = new AudioPlayer();
 	    }

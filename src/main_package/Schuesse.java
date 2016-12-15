@@ -17,9 +17,11 @@ public abstract class Schuesse {
 	protected int schuss_ypos = 0;
 	protected BufferedImage schuss_bild;
 	protected int leben;
+	protected Var var;
 	
-	public Schuesse() {
-		Var.geschossliste.add(this);
+	public Schuesse(Var var) {
+		this.var=var;
+		var.getGeschossliste().add(this);
 	}
 
 	public int getSchaden(){

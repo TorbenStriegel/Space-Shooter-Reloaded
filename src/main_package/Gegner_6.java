@@ -3,9 +3,9 @@ package main_package;
 public class Gegner_6 extends Gegner{
 	int random_zahl=0;
 	int zahl=0;
-	public Gegner_6() {
+	public Gegner_6(Var var) {
 		// TODO Auto-generated constructor stub
-		super();
+		super(var);
 		leben_default = 200;
 		leben = leben_default;
 		kollisionsSchaden = 100;
@@ -20,7 +20,7 @@ public class Gegner_6 extends Gegner{
 	}
 	
 	public void schiessen(){
-		new Schuesse_Gegner_2(schiff, this.xpos, this.ypos+this.gegner_bild.getHeight()/2-Var.gegner_schuss1_Bild.getHeight()/2);
+		new Schuesse_Gegner_2(schiff, this.xpos, this.ypos+this.gegner_bild.getHeight()/2-Var.gegner_schuss1_Bild.getHeight()/2,var);
 		
 	}
 	

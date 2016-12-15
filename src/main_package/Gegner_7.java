@@ -4,8 +4,8 @@ public class Gegner_7 extends Gegner {
 
 	private boolean komplettImBild = false;
 	
-	public Gegner_7() {
-		super();
+	public Gegner_7(Var var) {
+		super(var);
 		leben_default = 1000;
 		leben = leben_default;
 		kollisionsSchaden = 1000;
@@ -17,7 +17,7 @@ public class Gegner_7 extends Gegner {
 	}
 
 	public void schiessen() {
-		new Schuesse_Gegner_3(schiff, this.xpos, this.ypos + this.gegner_bild.getHeight()/2- Var.gegner_schuss3_Bild.getHeight()/2);
+		new Schuesse_Gegner_3(schiff, this.xpos, this.ypos + this.gegner_bild.getHeight()/2- Var.gegner_schuss3_Bild.getHeight()/2,var);
 	}
 
 	public void bewegen_y() {

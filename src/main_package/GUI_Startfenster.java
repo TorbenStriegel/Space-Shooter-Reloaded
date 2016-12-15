@@ -49,7 +49,7 @@ public class GUI_Startfenster extends JFrame {
 	private int musik=0;
 	private int raumschiffTyp =0; //0=ship_1 1=ship_2
 	 
-	public GUI_Startfenster(Logik l, MySQL_Datenbank mySQL_Datenbank) {
+	public GUI_Startfenster(Logik l, MySQL_Datenbank mySQL_Datenbank,Var var) {
 		this.mySQL_Datenbank = mySQL_Datenbank;
 		actionm1=new SwingActionm1(this);
 		actionm2=new SwingActionm2(this);
@@ -225,7 +225,7 @@ public class GUI_Startfenster extends JFrame {
 		btnNewButton111.setLocation(Var.spielfeld_screenwidth/2-btnNewButton_1.getWidth()*3,Var.spielfeld_screenheight/2-(int)(btnNewButton_1.getHeight()*3.5));
 		contentPane.add(btnNewButton111);
 		
-		labelstart = new Label_Start_Info(raumschiffTyp);
+		labelstart = new Label_Start_Info(raumschiffTyp,var);
 		labelstart.setSize(Var.spielfeld_screenwidth/4,400);
 		labelstart.setLocation(Var.spielfeld_screenwidth/2-(int)(labelstart.getWidth()*1.8),Var.spielfeld_screenheight/2-labelstart.getHeight()/2);
 		labelstart.setVisible(true);

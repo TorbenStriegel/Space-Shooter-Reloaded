@@ -15,9 +15,12 @@ public class Score {
 	private MySQL_Datenbank mySQL_Datenbank;
 	private int level = 0;
 	private int raumschiffTyp = 0;
+	private Var var ;
+	private double finalscore;
 	
-	public Score(int level, int raumschiffTyp,MySQL_Datenbank mySQL_Datenbank) {
+	public Score(int level, int raumschiffTyp,MySQL_Datenbank mySQL_Datenbank,Var var) {
 		this.level = level;
+		this.var =var;
 		this.raumschiffTyp = raumschiffTyp;
 		this.mySQL_Datenbank = mySQL_Datenbank;
 		timer_1 = new Timer();
@@ -25,7 +28,7 @@ public class Score {
 			@Override
 			public void run() {
 				schuesseGesamt = (int) (schuesseGetroffen + schuesseDaneben);
-				if(schuesseGesamt != 0 && !Var.verloren){
+				if(schuesseGesamt != 0 && !var.verloren){
 					treffergenauigkeit = (schuesseGetroffen/schuesseGesamt)*100;
 				}
 			}
@@ -35,7 +38,7 @@ public class Score {
 		timer_2.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (Var.verloren && !MySQL_hochgeladen && Var.timer_finish){
+				if (var.verloren && !MySQL_hochgeladen && var.timer_finish){
 					System.out.println("Wird in Score eingetragen");
 					scoreEintragen();
 					System.out.println("Platzierung wird berechnet");
@@ -48,7 +51,11 @@ public class Score {
 
 
 	public void setAktuellerScore(int aktuellerScoreAendernUm) {
-		aktuellerScore = aktuellerScore + aktuellerScoreAendernUm;
+		if(!var.verloren){
+			aktuellerScore = aktuellerScore + aktuellerScoreAendernUm;
+			finalscore = aktuellerScore;
+		}
+		
 	}
 	public void scoreEintragen(){
 		mySQL_Datenbank.Werte_eintragen(raumschiffTyp, level, Var.name, getFinalScore(), getTreffergenauigkeit(), getSchuesseGetroffen());
@@ -64,7 +71,7 @@ public class Score {
 		return aktuellerScore;
 	}
 	public int getFinalScore() {
-		return (int) (aktuellerScore+aktuellerScore*(treffergenauigkeit/100));
+		return (int) (finalscore);
 	}
 	public int getTreffergenauigkeit() {
 		return (int) treffergenauigkeit;

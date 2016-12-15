@@ -18,17 +18,19 @@ import javax.swing.border.LineBorder;
 
 public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Funktionen vorhanden sind
 	
-	//private boolean beendet=false;
-	//private JFrame spielfeld;
+	private boolean beendet=false;
+	private JFrame spielfeld;
+	private Var var;
 	private Gegner_Level gegner_level;
 	private Raumschiff raumschiff;
 	private Score score;
 	private Spieltimer spieltimer;
 	boolean gegner = false;
 	private Gegner[] gegner_Arrays = new Gegner[Var.anzahlGegner];
-	//private final Action action = new SwingAction();
+	private final Action action = new SwingAction();
 
-	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer) {
+	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer,Var var) {
+		this.var =var;
 		this.gegner_level = gegner_level;
 		this.raumschiff = raumschiff;
 		this.score = score;
@@ -36,7 +38,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 		gegner_Arrays = gegner_level.getGegner_Array();
 		gegner = true;
 		System.out.println("übergeben");
-		 //beendet=false;
+		 beendet=false;
 	}
 
 	@Override
@@ -47,8 +49,9 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 		Graphics2D g2d = (Graphics2D) g;
 
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-		if (Var.pause != true && Var.verloren != true) {
+		
+		if (Var.pause != true && var.verloren != true) {
+			
 			g.drawImage(Var.background_1, Var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
 					null);
 			g.drawImage(Var.background_2, Var.background_x2, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
@@ -69,10 +72,10 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 						null);
 			}
 
-			for (int i = 0; i < Var.geschossliste.size(); i++) {
+			for (int i = 0; i < var.getGeschossliste().size(); i++) {
 				try {
 
-					g.drawImage(Var.geschossliste.get(i).gibImage(), Var.geschossliste.get(i).gibSchuss_xpos(), Var.geschossliste.get(i).gibSchuss_ypos(), null);
+					g.drawImage(var.getGeschossliste().get(i).gibImage(), var.getGeschossliste().get(i).gibSchuss_xpos(), var.getGeschossliste().get(i).gibSchuss_ypos(), null);
 					} catch (Exception e) {
 				}
 				}
@@ -106,7 +109,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			g.setColor(Color.RED);
 			g.setFont(new Font("Arial", Font.BOLD, 30));
 			g.drawString("Level:" + gegner_level.getLevel(), (Var.spielfeld_screenwidth - 150), 35);
-//			beendet=false;
+			beendet=false;
 		} else if (Var.pause) {
 			g.drawImage(Var.background_1, Var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
 					null);
@@ -117,10 +120,10 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			g.drawString("Pause", (Var.spielfeld_screenwidth / 2 - 100), (Var.spielfeld_screenheight / 2));
 			g.setColor(new Color(100, 100, 100, 128));
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
-		} else if (Var.verloren) {
+		} else if (var.verloren) {
 			g.setColor(Color.BLACK);
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
-			if(Var.timer_finish){
+			if(var.timer_finish){
 				g.setColor(Color.GREEN);
 				g.setFont(new Font("Arial", Font.BOLD, 60));
 				g.drawString("Dein Platz:"+score.getPlatzierung(), (Var.spielfeld_screenwidth / 2 - 200), (Var.spielfeld_screenheight / 2 - 30));
@@ -131,10 +134,10 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			}
 			g.setFont(new Font("Arial", Font.BOLD, 30));
 			g.drawString("Dein Score: " + score.getFinalScore(), (Var.spielfeld_screenwidth / 2 - 150),(Var.spielfeld_screenheight / 2 + 10));
-			/*if (!beendet){
+			if (!beendet){
 				beendet = true;
 				zeichneButton();
-			}*/
+			}
 		
 		}
 		repaint();
@@ -146,7 +149,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 
 
 	
-	/*public void setSpielfeld(JFrame jFrame_Spielfeld){
+	public void setSpielfeld(JFrame jFrame_Spielfeld){
 		spielfeld=jFrame_Spielfeld;
 	}
 	
@@ -171,8 +174,8 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 		public void actionPerformed(ActionEvent e) {
 			
 			spielfeld.dispose();
-			new Logik(1);
+			new Logik();
 		}
-	}*/
+	}
 
 }

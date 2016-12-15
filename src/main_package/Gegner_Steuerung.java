@@ -8,8 +8,9 @@ public class Gegner_Steuerung {
 	Timer timer;
 	Gegner gegner;
 	private int counter = 0;
+	 
 
-	public Gegner_Steuerung(Gegner gegner) {
+	public Gegner_Steuerung(Gegner gegner,Var var) {
 		this.gegner = gegner;
 		
 		if (gegner.isSchuss()) {
@@ -20,10 +21,12 @@ public class Gegner_Steuerung {
 
 			@Override
 			public void run() {
-
+				if (var.verloren) {
+					timer.cancel();
+				}
 				if (Var.pause != true) {
 
-					if (Var.pause != true && Var.verloren != true) {
+					if (Var.pause != true && var.verloren != true) {
 						gegner.bewegen_x();
 						gegner.bewegen_y();
 						if (gegner.gibxpos() < -gegner.getImage().getWidth()) {

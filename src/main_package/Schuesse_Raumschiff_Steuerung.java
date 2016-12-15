@@ -11,16 +11,21 @@ public class Schuesse_Raumschiff_Steuerung {
 	private Score score;
 	private Timer timer;
 	private boolean zerstort;
+	private Var var;
 
-	public Schuesse_Raumschiff_Steuerung(Schuesse schuss1, Gegner[] gegner, Score score) {
+	public Schuesse_Raumschiff_Steuerung(Schuesse schuss1, Gegner[] gegner, Score score,Var var ) {
 		this.schuss = schuss1;
+		this.var=var;
 		this.score = score;
 		timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
+				if (var.verloren) {
+					timer.cancel();
+				}
 				if (!zerstort) {
-					if (Var.pause != true && Var.verloren != true) {
+					if (Var.pause != true && var.verloren != true) {
 						schuss.setSchuss_xpos();
 
 						if (schuss.gibSchuss_xpos() > Var.spielfeld_screenwidth) {
@@ -50,7 +55,7 @@ public class Schuesse_Raumschiff_Steuerung {
 						}
 					}
 				} else {
-					Var.geschossliste.remove(schuss);
+					var.getGeschossliste().remove(schuss);
 				}
 			}
 		}, 0, 24);

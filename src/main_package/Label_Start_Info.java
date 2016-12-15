@@ -15,7 +15,9 @@ public class Label_Start_Info extends JLabel {
 	private Raumschiff schiff;
 	private int schussschaden;
 	private Schuesse schuss;
-	public Label_Start_Info(int raumschifftyp) {
+	private Var var;
+	public Label_Start_Info(int raumschifftyp,Var var) {
+		this.var = var;
 		this.raumschifftyp=raumschifftyp;
 		aendern(raumschifftyp);
 	}
@@ -24,26 +26,26 @@ public class Label_Start_Info extends JLabel {
 		raumschifftyp =i;
 		switch (raumschifftyp) {
 		case 0:
-			schiff=new Raumschiff_1(null,true);
-			schuss=new Schuesse_Raumschiff_1(null, 0, 0, null, true);
+			schiff=new Raumschiff_1(null,true,var);
+			schuss=new Schuesse_Raumschiff_1(null, 0, 0, null, true,var);
 			schussschaden=schuss.getSchaden();
 			raumschiffname="X-Wing";
 			break;
 		case 1:
-			schiff=new Raumschiff_2(null,true);
-			schuss=new Schuesse_Raumschiff_2(null, 0, 0, null, true);
+			schiff=new Raumschiff_2(null,true,var);
+			schuss=new Schuesse_Raumschiff_2(null, 0, 0, null, true,var);
 			schussschaden=schuss.getSchaden();
 			raumschiffname="Tempest";
 			break;
 		case 2:
-			schiff=new Raumschiff_3(null,true);
-			schuss=new Schuesse_Raumschiff_3(null, 0, 0, null, true);
+			schiff=new Raumschiff_3(null,true,var);
+			schuss=new Schuesse_Raumschiff_3(null, 0, 0, null, true,var);
 			schussschaden=schuss.getSchaden();
 			raumschiffname="Kreuzer";
 			break;
 		case 3:
-			schiff=new Raumschiff_4(null,true);
-			schuss=new Schuesse_Raumschiff_4(null, 0, 0, null, true);
+			schiff=new Raumschiff_4(null,true,var);
+			schuss=new Schuesse_Raumschiff_4(null, 0, 0, null, true,var);
 			schussschaden=schuss.getSchaden();
 			raumschiffname="Destroyer";
 			break;

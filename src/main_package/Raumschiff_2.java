@@ -2,7 +2,8 @@ package main_package;
 
 public class Raumschiff_2 extends Raumschiff{
 
-	public Raumschiff_2(Score score,boolean test) {
+	public Raumschiff_2(Score score,boolean test,Var var) {
+		super(var);
 		raumschiff_speedx =4;
 		raumschiff_speedy = 4;
 		raumschiff_leben = 200;
@@ -23,7 +24,7 @@ public class Raumschiff_2 extends Raumschiff{
 	
 
 	public void schiessen(){
-		new Schuesse_Raumschiff_2(gegner,this.raumschiff_xpos +this.raumschiff_bild.getWidth() -Var.raumschiff_schuss2_Bild.getWidth(), this.raumschiff_ypos+this.raumschiff_bild.getHeight()/2-Var.raumschiff_schuss2_Bild.getHeight()/2, score,false);		
+		new Schuesse_Raumschiff_2(gegner,this.raumschiff_xpos +this.raumschiff_bild.getWidth() -Var.raumschiff_schuss2_Bild.getWidth(), this.raumschiff_ypos+this.raumschiff_bild.getHeight()/2-Var.raumschiff_schuss2_Bild.getHeight()/2, score,false,var);		
 	}
 
 	}

@@ -5,8 +5,10 @@ public class Gegner_Level {
 	private Gegner[] gegner;
 	private Spieltimer spieltimer;
 	private int level = 0;
+	private Var var;
 
-	public Gegner_Level(int level) {
+	public Gegner_Level(int level,Var var) {
+		this.var =var;
 		this.level = level;
 		switch (level) {
 		case 0:
@@ -57,162 +59,162 @@ public class Gegner_Level {
 		Var.anzahlGegner = 80;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length; a++) {
-			gegner[a] = new Gegner_1();
+			gegner[a] = new Gegner_1(var);
 		}
-		spieltimer = new Spieltimer(60);
+		spieltimer = new Spieltimer(60,var);
 	}
 
 	private void starteLevel2() {
 		Var.anzahlGegner = 40;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length; a++) {
-			gegner[a] = new Gegner_2();
+			gegner[a] = new Gegner_2(var);
 		}
-		spieltimer = new Spieltimer(60);
+		spieltimer = new Spieltimer(60,var);
 	}
 
 	private void starteLevel3() {
 		Var.anzahlGegner = 60;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length - 10; a++) {
-			gegner[a] = new Gegner_1();
+			gegner[a] = new Gegner_1(var);
 		}
 		for (int a = 30; a < gegner.length; a++) {
-			gegner[a] = new Gegner_2();
+			gegner[a] = new Gegner_2(var);
 		}
-		spieltimer = new Spieltimer(90);
+		spieltimer = new Spieltimer(90,var);
 	}
 
 	private void starteLevel4() {
 		Var.anzahlGegner = 55;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length - 30; a++) {
-			gegner[a] = new Gegner_1();
+			gegner[a] = new Gegner_1(var);
 		}
 		for (int a = 25; a < gegner.length - 5; a++) {
-			gegner[a] = new Gegner_2();
+			gegner[a] = new Gegner_2(var);
 		}
 		for (int a = 50; a < gegner.length; a++) {
-			gegner[a] = new Gegner_8();
+			gegner[a] = new Gegner_8(var);
 		}
-		spieltimer = new Spieltimer(90);
+		spieltimer = new Spieltimer(90,var);
 	}
 
 	private void starteLevel5() {
 		Var.anzahlGegner = 35;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length - 25; a++) {
-			gegner[a] = new Gegner_1();
+			gegner[a] = new Gegner_1(var);
 		}
 		for (int a = 10; a < gegner.length; a++) {
-			gegner[a] = new Gegner_3();
+			gegner[a] = new Gegner_3(var);
 		}
-		spieltimer = new Spieltimer(90);
+		spieltimer = new Spieltimer(90,var);
 	}
 
 	private void starteLevel6() {
 		Var.anzahlGegner = 60;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length-50; a++) {
-			gegner[a] = new Gegner_3();
+			gegner[a] = new Gegner_3(var);
 		}
 		for (int a = 10; a < gegner.length-30; a++) {
-			gegner[a] = new Gegner_2();
+			gegner[a] = new Gegner_2(var);
 		}
 		for (int a = 30; a < gegner.length; a++) {
-			gegner[a] = new Gegner_1();
+			gegner[a] = new Gegner_1(var);
 		}
-		spieltimer = new Spieltimer(90);
+		spieltimer = new Spieltimer(90,var);
 	}
 	
 	private void starteLevel7() {
 		Var.anzahlGegner = 50;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length-30; a++) {
-			gegner[a] = new Gegner_3();
+			gegner[a] = new Gegner_3(var);
 		}
 		for (int a = 20; a < gegner.length-10; a++) {
-			gegner[a] = new Gegner_2();
+			gegner[a] = new Gegner_2(var);
 		}
 		for (int a = 40; a < gegner.length; a++) {
-			gegner[a] = new Gegner_1();
+			gegner[a] = new Gegner_1(var);
 		}
-		spieltimer = new Spieltimer(120);
+		spieltimer = new Spieltimer(120,var);
 	}
 	
 	private void starteLevel8() {
 		Var.anzahlGegner = 50;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length-45; a++) {
-			gegner[a] = new Gegner_3();
+			gegner[a] = new Gegner_3(var);
 		}
 		for (int a = 5; a < gegner.length-40; a++) {
-			gegner[a] = new Gegner_4();
+			gegner[a] = new Gegner_4(var);
 		}
 		for (int a = 10; a < gegner.length-20; a++) {
-			gegner[a] = new Gegner_2();
+			gegner[a] = new Gegner_2(var);
 		}
 		for (int a = 30; a < gegner.length; a++) {
-			gegner[a] = new Gegner_1();
+			gegner[a] = new Gegner_1(var);
 		}
-		spieltimer = new Spieltimer(120);
+		spieltimer = new Spieltimer(120,var);
 	}
 	
 	private void starteLevel9() {
 		Var.anzahlGegner = 40;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length-37; a++) {
-			gegner[a] = new Gegner_5();
+			gegner[a] = new Gegner_5(var);
 		}
 		for (int a = 3; a < gegner.length-30; a++) {
-			gegner[a] = new Gegner_4();
+			gegner[a] = new Gegner_4(var);
 		}
 		for (int a = 10; a < gegner.length-10; a++) {
-			gegner[a] = new Gegner_2();
+			gegner[a] = new Gegner_2(var);
 		}
 		for (int a = 30; a < gegner.length; a++) {
-			gegner[a] = new Gegner_3();
+			gegner[a] = new Gegner_3(var);
 		}
-		spieltimer = new Spieltimer(120);
+		spieltimer = new Spieltimer(120,var);
 	}
 	
 	private void starteLevel10() {
 		Var.anzahlGegner = 20;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length-17; a++) {
-			gegner[a] = new Gegner_5();
+			gegner[a] = new Gegner_5(var);
 		}for (int a = 3; a < gegner.length-15; a++) {
-			gegner[a] = new Gegner_6();
+			gegner[a] = new Gegner_6(var);
 		}for (int a = 5; a < gegner.length-5; a++) {
-			gegner[a] = new Gegner_4();
+			gegner[a] = new Gegner_4(var);
 		}for (int a = 15; a < gegner.length; a++) {
-			gegner[a] = new Gegner_3();
+			gegner[a] = new Gegner_3(var);
 		}
-		spieltimer = new Spieltimer(120);
+		spieltimer = new Spieltimer(120,var);
 	}
 	
 	private void starteLevel11() {
 		Var.anzahlGegner = 30;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length-24; a++) {
-			gegner[a] = new Gegner_5();
+			gegner[a] = new Gegner_5(var);
 		}for (int a = 6; a < gegner.length-20; a++) {
-			gegner[a] = new Gegner_6();
+			gegner[a] = new Gegner_6(var);
 		}for (int a = 10; a < gegner.length-10; a++) {
-			gegner[a] = new Gegner_4();
+			gegner[a] = new Gegner_4(var);
 		}for (int a = 20; a < gegner.length; a++) {
-			gegner[a] = new Gegner_2();
+			gegner[a] = new Gegner_2(var);
 		}
-		spieltimer = new Spieltimer(120);
+		spieltimer = new Spieltimer(120,var);
 	}
 	
 	private void starteLevel12() {
 		Var.anzahlGegner = 1;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length; a++) {
-			gegner[a] = new Gegner_7();
+			gegner[a] = new Gegner_7(var);
 		}
-		spieltimer = new Spieltimer(120);
+		spieltimer = new Spieltimer(120,var);
 	}
 
 	public int getLevel() {

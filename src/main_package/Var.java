@@ -61,21 +61,22 @@ public class Var {
 	static int background_x1 = 0,background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
 	static int background_speed = 40;
 	
-	static ArrayList<Schuesse> geschossliste= new ArrayList<Schuesse>();
+	private ArrayList<Schuesse> geschossliste= new ArrayList<Schuesse>();
 	
 	static String name = "Error";
 	
 	static int anzahlGegner = 0;
 	
 	static boolean pause = false;
-	static boolean verloren = false;
-	static boolean timer_finish = false;
+	boolean verloren = false;
+	boolean timer_finish = false;
+
 	static boolean musik = true;
 	
 	static boolean moveup=false,movedown=false,moveright=false,moveleft=false,space=false,esc=false;
 	
 	public Var(){
-		//reset();
+		reset();
 		try{
 			background_1 = ImageIO.read(new File(background_1_Bildpfad));
 			background_2 = ImageIO.read(new File(background_1_Bildpfad));
@@ -113,7 +114,7 @@ public class Var {
 	
 	
 	
-	/*public void reset(){
+	public void reset(){
 		schuessegegner=0;
 		background_x1 = 0;
 		background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
@@ -129,5 +130,29 @@ public class Var {
 		 verloren = false;
 		 timer_finish = false;
 		 musik = true;
-	}*/
+	}
+	
+	
+	public ArrayList<Schuesse> getGeschossliste() {
+		return geschossliste;
+	}
+
+	public void addGeschossliste(Schuesse schuss) {
+		this.geschossliste.add(schuss);
+	}
+
+
+
+	public boolean isVerloren() {
+		return verloren;
+	}
+
+
+
+	public void setVerloren(boolean verloren) {
+		this.verloren = verloren;
+	}
+	
+	
+	
 }

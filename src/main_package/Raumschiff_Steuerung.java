@@ -8,13 +8,13 @@ public class Raumschiff_Steuerung {
 	private Raumschiff raumschiff;
 	private Timer timer;
 
-	public Raumschiff_Steuerung(Raumschiff raumschiff) {
+	public Raumschiff_Steuerung(Raumschiff raumschiff,Var var) {
 		this.raumschiff = raumschiff;
 		timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (Var.pause != true && Var.verloren != true) {
+				if (Var.pause != true && var.verloren != true) {
 					if (Var.moveup == true) {
 						if (raumschiff.gibRaumschiff_ypos() > 5) {
 							raumschiff.setY_Pos(raumschiff.gibRaumschiff_ypos() - raumschiff.gibRaumschiff_speedy());

@@ -8,13 +8,13 @@ public class Schild_Steuerung {
 	private Raumschiff raumschiff;
 	private Timer timer_1;
 
-	public Schild_Steuerung(Raumschiff raumschiff) {
+	public Schild_Steuerung(Raumschiff raumschiff,Var var) {
 		this.raumschiff = raumschiff;
 		timer_1 = new Timer();
 		timer_1.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (Var.pause != true && Var.verloren != true) {	
+				if (Var.pause != true && var.verloren != true) {	
 					if (raumschiff.gibRaumschiff_schild() < raumschiff.gibRaumschiff_schildMax()){
 						raumschiff.setRaumschiff_schildanzeigen(true);
 						raumschiff.setSchild(raumschiff.gibRaumschiff_schild() + raumschiff.gibRaumschiff_schildPlus());

@@ -21,6 +21,7 @@ public abstract class Raumschiff {
 	protected int raumschiff_schildPlus = 5;
 	protected Score score;
 	protected Timer timer;
+	protected Var var;
 	protected int geschoss_periode;
 	protected Gegner[] gegner;
 	protected boolean raumschiff_schildanzeigen = true;
@@ -29,8 +30,8 @@ public abstract class Raumschiff {
 	protected boolean schieﬂenErlaubt = true;
 	protected int counter = 0;
 	protected int anzahlschuesse = 0;
-	public Raumschiff() {
-
+	public Raumschiff(Var var) {
+		this.var=var;
 	}
 
 	protected void initTimer() {
@@ -72,7 +73,7 @@ public abstract class Raumschiff {
 				setLeben(gibRaumschiff_leben() + gibRaumschiff_schild());
 				setSchild(0);
 				if (gibRaumschiff_leben()<=0){
-					Var.verloren = true;
+					var.verloren = true;
 				}
 			}
 		} else {
@@ -81,7 +82,7 @@ public abstract class Raumschiff {
 			}
 			setLeben(gibRaumschiff_leben() - schaden);
 			if (gibRaumschiff_leben()<=0){
-				Var.verloren = true;
+				var.verloren = true;
 			}
 		}
 	}

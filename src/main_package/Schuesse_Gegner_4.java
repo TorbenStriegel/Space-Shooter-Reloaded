@@ -2,8 +2,8 @@ package main_package;
 
 public class Schuesse_Gegner_4 extends Schuesse {
 	private Raumschiff schiff;
-	public Schuesse_Gegner_4(Raumschiff schiff,int xpos,int ypos) {
-		super();
+	public Schuesse_Gegner_4(Raumschiff schiff,int xpos,int ypos,Var var) {
+		super(var);
 		this.schiff=schiff;
 		schuss_xpos=xpos;
 		schuss_ypos=ypos;
@@ -11,7 +11,7 @@ public class Schuesse_Gegner_4 extends Schuesse {
 		speed = -15;
 		leben=1;
 		schuss_bild = Var.gegner_schuss4_Bild;
-		steuerung_gegner = new Schuesse_Gegner_Steuerung(this, schiff);
+		steuerung_gegner = new Schuesse_Gegner_Steuerung(this, schiff,var);
 	}
 
 	public void zerstoeren(){

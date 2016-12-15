@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public abstract class Gegner {
-
+	protected Var var;
 	protected int leben;
 	protected int leben_default;
 	protected int kollisionsSchaden;
@@ -24,8 +24,9 @@ public abstract class Gegner {
 	protected int richtungy =0; 
 	Gegner_Steuerung gegner_Steuerung;
 	/*------------------------------------------------------------*/
-	public Gegner() {
-		gegner_Steuerung = new Gegner_Steuerung(this);
+	public Gegner(Var var) {
+		this.var =var;
+		gegner_Steuerung = new Gegner_Steuerung(this,var);
 		reset();
 	}
 	/*------------------------------------------------------------*/
