@@ -19,7 +19,7 @@ public class Gegner_Kollision {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (!var.verloren && !Var.pause) {
+				if (!var.verloren && !var.pause) {
 					for (int i = 0; i < gegner_Array.length; i++) {
 						if ((raumschiff.gibRaumschiff_xpos()
 								+ raumschiff.gibRaumschiff_bild().getWidth()) >= (gegner_Array[i].gibxpos())

@@ -5,9 +5,10 @@ import java.awt.event.KeyListener;
 
 
 public class KeyHandler implements KeyListener{ //implementiere Interface um Klassen nicht selber schreiben zu müssen.
-
-	public KeyHandler() {
+	private Var var;
+	public KeyHandler(Var var) {
 		// TODO Auto-generated constructor stub
+		this.var=var;
 	}
 	
 	@Override
@@ -56,11 +57,11 @@ public class KeyHandler implements KeyListener{ //implementiere Interface um Kla
 			Var.esc=false;
 		}
 		if(taste.getKeyCode() == KeyEvent.VK_P){
-			if(Var.pause){
-				Var.pause=false;
-				Var.startCounter=true;
+			if(var.pause){
+				var.pause=false;
+				var.startCounter=true;
 			}else{
-				Var.pause=true;
+				var.pause=true;
 			}
 		}
 	}

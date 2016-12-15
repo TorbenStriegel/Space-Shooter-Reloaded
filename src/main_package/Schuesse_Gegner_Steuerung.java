@@ -24,7 +24,7 @@ public class Schuesse_Gegner_Steuerung {
 					timer.cancel();
 				}
 				if (!zerstort) {
-					if (Var.pause != true && var.verloren != true) {
+					if (var.pause != true && var.verloren != true) {
 						schuss.setSchuss_xpos();
 
 						if (schuss.gibSchuss_xpos() <0-schuss.gibImage().getWidth()) {

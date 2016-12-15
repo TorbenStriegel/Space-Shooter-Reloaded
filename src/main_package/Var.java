@@ -67,13 +67,13 @@ public class Var {
 	
 	static int anzahlGegner = 0;
 	
-	static boolean pause = false;
+	boolean pause = false;
 	boolean verloren = false;
 	boolean timer_finish = false;
 
 	static boolean musik = true;
 	static boolean zeigeLebenGegner = false;
-	static boolean startCounter = false;
+	boolean startCounter = false;
 	
 	static boolean moveup=false,movedown=false,moveright=false,moveleft=false,space=false,esc=false;
 	

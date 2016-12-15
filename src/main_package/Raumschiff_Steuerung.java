@@ -14,7 +14,7 @@ public class Raumschiff_Steuerung {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (Var.pause != true && var.verloren != true) {
+				if (var.pause != true && var.verloren != true) {
 					if (Var.moveup == true) {
 						if (raumschiff.gibRaumschiff_ypos() > 5) {
 							raumschiff.setY_Pos(raumschiff.gibRaumschiff_ypos() - raumschiff.gibRaumschiff_speedy());

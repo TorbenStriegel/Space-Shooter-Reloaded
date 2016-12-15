@@ -24,9 +24,9 @@ public class Gegner_Steuerung {
 				if (var.verloren) {
 					timer.cancel();
 				}
-				if (Var.pause != true) {
+				if (var.pause != true) {
 
-					if (Var.pause != true && var.verloren != true) {
+					if (var.pause != true && var.verloren != true) {
 						gegner.bewegen_x();
 						gegner.bewegen_y();
 						gegner.sonstige_Befehle();

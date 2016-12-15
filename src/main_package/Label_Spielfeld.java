@@ -126,11 +126,11 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			
 			beendet=false;
 		} 
-		if (Var.pause && !Var.startCounter) {
+		if (var.pause && !var.startCounter) {
 			g.setColor(new Color(100, 100, 100, 128));
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
 		}
-		else if (Var.startCounter) {
+		else if (var.startCounter) {
 
 			g.drawImage(Var.background_1, Var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
 					null);

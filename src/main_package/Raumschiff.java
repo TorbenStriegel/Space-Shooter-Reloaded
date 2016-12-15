@@ -39,7 +39,7 @@ public abstract class Raumschiff {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (Var.pause != true) {
+				if (var.pause != true) {
 					if (Var.space) {
 						if (schieﬂenErlaubt) {
 							schieﬂenErlaubt = false;

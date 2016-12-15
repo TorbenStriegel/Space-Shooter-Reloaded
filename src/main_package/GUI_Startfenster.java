@@ -105,7 +105,7 @@ public class GUI_Startfenster extends JFrame {
 		btnHighscore.setAction(action_3);
 		btnHighscore.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/15);
 		btnHighscore.setLocation(Var.spielfeld_screenwidth/2-btnHighscore.getWidth()/2,Var.spielfeld_screenheight/2+btnHighscore.getHeight()*4+10);
-		btnHighscore.setBackground(Color.RED);
+		btnHighscore.setBackground(Color.WHITE);
 		btnHighscore.setBorder(null);
 		btnHighscore.setFont(new Font("Monospaced", Font.BOLD, 30));
 		contentPane.add(btnHighscore);

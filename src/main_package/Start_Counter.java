@@ -8,17 +8,17 @@ public class Start_Counter {
 	private Timer timer;
 	private int counter = 3;
 	
-	public Start_Counter() {
+	public Start_Counter(Var var) {
 		timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (Var.startCounter) {
-					Var.pause = true;
+				if (var.startCounter) {
+					var.pause = true;
 					counter--;
 					if (counter == 0) {
-						Var.pause = false;
-						Var.startCounter = false;
+						var.pause = false;
+						var.startCounter = false;
 						counter = 3;
 					}
 				}

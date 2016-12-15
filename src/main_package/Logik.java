@@ -62,8 +62,8 @@ public class Logik {
 		Var.name = name;
 		
 	    hintergrund=new Hintergrund();
-	    Start_Counter start_Counter = new Start_Counter();
-	    keyHandler = new KeyHandler();
+	    Start_Counter start_Counter = new Start_Counter(var);
+	    keyHandler = new KeyHandler(var);
 	    score = new Score(level, raumschiffTyp,mySQL_Datenbank,var);
 	    raumschiff_Level = new Raumschiff_Level(raumschiffTyp, score,var);
 	    raumschiff = raumschiff_Level.gibRaumschiff();
@@ -78,12 +78,12 @@ public class Logik {
 	    gegner_Kollision = new Gegner_Kollision(gegner_Level,raumschiff,var);
 	    label_Spielfeld = new Label_Spielfeld(gegner_Level,raumschiff,score,spieltimer,var,start_Counter);
 
-	    gui_spiel = new GUI_Spielfeld(label_Spielfeld);
+	    gui_spiel = new GUI_Spielfeld(label_Spielfeld,var);
 	    schild = new Schild_Steuerung(raumschiff,var);
 	    if(Var.musik){
 	    	audio = new AudioPlayer();
 	    }
 	    fenster.dispose();
-		Var.startCounter = true;
+		var.startCounter = true;
 	  }
 }
