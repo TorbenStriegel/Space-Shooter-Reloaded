@@ -6,14 +6,14 @@ public class Gegner_7 extends Gegner {
 	
 	public Gegner_7() {
 		super();
-		leben_default = 500;
+		leben_default = 1000;
 		leben = leben_default;
 		kollisionsSchaden = 1000;
 		xspeed = -8;
 		yspeed = 2;
 		schuss = true;
 		gegner_bild = Var.gegner_7;
-		schuss_periode = 40;
+		schuss_periode = 60;
 	}
 
 	public void schiessen() {
