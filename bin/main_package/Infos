@@ -1,0 +1,21 @@
+Thread:
+
+public JFrame_Spielfeld() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		timer = new Timer();
+		timer.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				
+				}
+			}
+		}, 0, 2000);
