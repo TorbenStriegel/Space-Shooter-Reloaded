@@ -7,14 +7,12 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public abstract class Gegner {
-<<<<<<< HEAD
+
 	protected Var var;
-	protected int leben;
-=======
+
 
 	protected int counter = -1;
 	protected int leben = 100;
->>>>>>> 71b81ab1edbb93783e96afc87e94ad0cdba6c246
 	protected int leben_default;
 	protected int kollisionsSchaden;
 	protected int schussSchaden;

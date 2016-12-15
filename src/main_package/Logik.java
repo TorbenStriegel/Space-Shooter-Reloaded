@@ -75,12 +75,9 @@ public class Logik {
 	    	gegner_Array[i].setRaumschiff(raumschiff);
 		}
 	    raumschiff.setGegner(gegner_Array);
-	    gegner_Kollision = new Gegner_Kollision(gegner_Level,raumschiff);
-<<<<<<< HEAD
-	    label_Spielfeld = new Label_Spielfeld(gegner_Level,raumschiff,score,spieltimer,var);
-=======
-	    label_Spielfeld = new Label_Spielfeld(gegner_Level,raumschiff,score,spieltimer,start_Counter);
->>>>>>> 71b81ab1edbb93783e96afc87e94ad0cdba6c246
+	    gegner_Kollision = new Gegner_Kollision(gegner_Level,raumschiff,var);
+	    label_Spielfeld = new Label_Spielfeld(gegner_Level,raumschiff,score,spieltimer,var,start_Counter);
+
 	    gui_spiel = new GUI_Spielfeld(label_Spielfeld);
 	    schild = new Schild_Steuerung(raumschiff,var);
 	    if(Var.musik){

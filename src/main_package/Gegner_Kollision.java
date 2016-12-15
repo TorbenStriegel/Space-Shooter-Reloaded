@@ -11,7 +11,7 @@ public class Gegner_Kollision {
 	private Gegner[] gegner_Array = new Gegner[Var.anzahlGegner];
 	private int schaden = 0;
 
-	public Gegner_Kollision(Gegner_Level gegner_level, Raumschiff raumschiff) {
+	public Gegner_Kollision(Gegner_Level gegner_level, Raumschiff raumschiff,Var var) {
 		this.gegner_level = gegner_level;
 		this.raumschiff = raumschiff;
 		gegner_Array = gegner_level.getGegner_Array();
@@ -19,7 +19,7 @@ public class Gegner_Kollision {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (!Var.verloren && !Var.pause) {
+				if (!var.verloren && !Var.pause) {
 					for (int i = 0; i < gegner_Array.length; i++) {
 						if ((raumschiff.gibRaumschiff_xpos()
 								+ raumschiff.gibRaumschiff_bild().getWidth()) >= (gegner_Array[i].gibxpos())

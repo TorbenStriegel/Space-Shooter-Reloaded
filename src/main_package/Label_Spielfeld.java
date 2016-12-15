@@ -30,12 +30,10 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 	private Gegner[] gegner_Arrays = new Gegner[Var.anzahlGegner];
 	private final Action action = new SwingAction();
 
-<<<<<<< HEAD
-	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer,Var var) {
+
+	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer,Var var,Start_Counter start_Counter) {
 		this.var =var;
-=======
-	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer, Start_Counter start_Counter) {
->>>>>>> 71b81ab1edbb93783e96afc87e94ad0cdba6c246
+
 		this.gegner_level = gegner_level;
 		this.raumschiff = raumschiff;
 		this.score = score;
@@ -55,14 +53,9 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 		Graphics2D g2d = (Graphics2D) g;
 
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-<<<<<<< HEAD
-		
-		if (Var.pause != true && var.verloren != true) {
-			
-=======
 
-		if (!Var.verloren) {
->>>>>>> 71b81ab1edbb93783e96afc87e94ad0cdba6c246
+
+		if (!var.verloren) {
 			g.drawImage(Var.background_1, Var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
 					null);
 			g.drawImage(Var.background_2, Var.background_x2, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
@@ -120,10 +113,9 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			g.setColor(Color.RED);
 			g.setFont(new Font("Arial", Font.BOLD, 30));
 			g.drawString("Level:" + gegner_level.getLevel(), (Var.spielfeld_screenwidth - 150), 35);
-<<<<<<< HEAD
-			beendet=false;
-		} else if (Var.pause) {
-=======
+
+			
+
 			
 			if(Var.zeigeLebenGegner){
 				g.setColor(Color.RED);
@@ -132,14 +124,14 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			}
 			
 			
-//			beendet=false;
+			beendet=false;
 		} 
 		if (Var.pause && !Var.startCounter) {
 			g.setColor(new Color(100, 100, 100, 128));
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
 		}
 		else if (Var.startCounter) {
->>>>>>> 71b81ab1edbb93783e96afc87e94ad0cdba6c246
+
 			g.drawImage(Var.background_1, Var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
 					null);
 			g.drawImage(Var.background_2, Var.background_x2, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
@@ -149,12 +141,9 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			g.drawString(""+start_Counter.getCounter(), (Var.spielfeld_screenwidth/2-30),Var.spielfeld_screenheight/2+40);
 			g.setColor(new Color(100, 100, 100, 128));
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
-<<<<<<< HEAD
+
 		} else if (var.verloren) {
-=======
-		}
-		else if (Var.verloren) {
->>>>>>> 71b81ab1edbb93783e96afc87e94ad0cdba6c246
+
 			g.setColor(Color.BLACK);
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
 			if(var.timer_finish){
@@ -171,12 +160,9 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			if (!beendet){
 				beendet = true;
 				zeichneButton();
-<<<<<<< HEAD
+
 			}
 		
-=======
-			}*/
->>>>>>> 71b81ab1edbb93783e96afc87e94ad0cdba6c246
 		}
 		repaint();
 	}
