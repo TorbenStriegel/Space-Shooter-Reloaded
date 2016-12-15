@@ -24,15 +24,17 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 	private Raumschiff raumschiff;
 	private Score score;
 	private Spieltimer spieltimer;
+	private Start_Counter start_Counter;
 	boolean gegner = false;
 	private Gegner[] gegner_Arrays = new Gegner[Var.anzahlGegner];
 	//private final Action action = new SwingAction();
 
-	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer) {
+	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer, Start_Counter start_Counter) {
 		this.gegner_level = gegner_level;
 		this.raumschiff = raumschiff;
 		this.score = score;
 		this.spieltimer = spieltimer;
+		this.start_Counter = start_Counter;
 		gegner_Arrays = gegner_level.getGegner_Array();
 		gegner = true;
 		System.out.println("übergeben");
@@ -48,7 +50,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-		if (Var.pause != true && Var.verloren != true) {
+		if (!Var.verloren) {
 			g.drawImage(Var.background_1, Var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
 					null);
 			g.drawImage(Var.background_2, Var.background_x2, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
@@ -106,18 +108,32 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			g.setColor(Color.RED);
 			g.setFont(new Font("Arial", Font.BOLD, 30));
 			g.drawString("Level:" + gegner_level.getLevel(), (Var.spielfeld_screenwidth - 150), 35);
+			
+			if(Var.zeigeLebenGegner){
+				g.setColor(Color.RED);
+				g.setFont(new Font("Arial", Font.BOLD, 50));
+				g.drawString("Boss:" + gegner_Arrays[0].gibleben()+" Leben", (Var.spielfeld_screenwidth/2 - 80),Var.spielfeld_screenheight-35);
+			}
+			
+			
 //			beendet=false;
-		} else if (Var.pause) {
+		} 
+		if (Var.pause && !Var.startCounter) {
+			g.setColor(new Color(100, 100, 100, 128));
+			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
+		}
+		else if (Var.startCounter) {
 			g.drawImage(Var.background_1, Var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
 					null);
 			g.drawImage(Var.background_2, Var.background_x2, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
 					null);
-			g.setColor(Color.LIGHT_GRAY);
-			g.setFont(new Font("Arial", Font.BOLD, 60));
-			g.drawString("Pause", (Var.spielfeld_screenwidth / 2 - 100), (Var.spielfeld_screenheight / 2));
+			g.setColor(Color.RED);
+			g.setFont(new Font("Arial", Font.BOLD, 140));
+			g.drawString(""+start_Counter.getCounter(), (Var.spielfeld_screenwidth/2-30),Var.spielfeld_screenheight/2+40);
 			g.setColor(new Color(100, 100, 100, 128));
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
-		} else if (Var.verloren) {
+		}
+		else if (Var.verloren) {
 			g.setColor(Color.BLACK);
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
 			if(Var.timer_finish){

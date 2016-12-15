@@ -7,14 +7,15 @@ public class Gegner_7 extends Gegner {
 
 	public Gegner_7() {
 		super();
-		leben_default = 500;
+		leben_default = 5000;
 		leben = leben_default;
 		kollisionsSchaden = 1000;
 		xspeed = -20;
 		yspeed = 2;
 		schuss = true;
 		gegner_bild = Var.gegner_7;
-		schuss_periode = 40;
+		schuss_periode = 60;
+		Var.zeigeLebenGegner=true;
 	}
 
 	public void schiessen() {
@@ -51,8 +52,9 @@ public class Gegner_7 extends Gegner {
 				xspeed = -2;
 			}
 		}
-		if (leben <= 0){
+		if (counter >= 1 && schiff.gibRaumschiff_leben() > 0){
 			Var.timer_finish=true;
+			Var.verloren=true;
 		}
 	}
 }

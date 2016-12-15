@@ -3,7 +3,7 @@ package main_package;
 public class Raumschiff_4 extends Raumschiff {
 
 	public Raumschiff_4(Score score,boolean test) {
-		raumschiff_speedx = 4;
+		raumschiff_speedx = 5;
 		raumschiff_speedy = 5;
 		raumschiff_leben = 200;
 		raumschiff_leben_default=raumschiff_leben;
