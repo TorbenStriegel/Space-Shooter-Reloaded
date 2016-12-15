@@ -20,6 +20,9 @@ public class Schuesse_Gegner_Steuerung {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
+				if (var.verloren) {
+					timer.cancel();
+				}
 				if (!zerstort) {
 					if (Var.pause != true && var.verloren != true) {
 						schuss.setSchuss_xpos();

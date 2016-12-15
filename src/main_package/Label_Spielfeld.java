@@ -83,13 +83,13 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			g.setColor(Color.GRAY);
 			g.fillRect(20, 35, raumschiff.getRaumschiff_Leben_Default(), 20);
 
-			g.setColor(Color.RED);
+			g.setColor(new Color(190,60,60));
 			g.fillRect(20, 35, raumschiff.gibRaumschiff_leben(), 20);
 
 			g.setColor(Color.GRAY);
 			g.fillRect(20, 60, raumschiff.gibRaumschiff_schildMax(), 20);
 
-			g.setColor(Color.BLUE);
+			g.setColor(new Color(60,60,190));
 			g.fillRect(20, 60, raumschiff.gibRaumschiff_schild(), 20);
 
 			g.setColor(Color.YELLOW);
