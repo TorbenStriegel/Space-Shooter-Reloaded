@@ -4,6 +4,8 @@ import java.io.*;
 
 public class AudioPlayer {
 
+	Clip clip;
+	
 	public AudioPlayer() {
 
 		try {
@@ -13,7 +15,7 @@ public class AudioPlayer {
 			byte[] audio = new byte[size];
 			DataLine.Info info = new DataLine.Info(Clip.class, af, size);
 			audioInputStream.read(audio, 0, size);
-			Clip clip = (Clip) AudioSystem.getLine(info);
+			clip = (Clip) AudioSystem.getLine(info);
 			clip.open(af, audio, 0, size);
 			clip.loop(100);
 			clip.start();
@@ -23,6 +25,10 @@ public class AudioPlayer {
 			System.out.println("Musik konnte nicht geladen werden. (AudioPlayer)");
 		}
 
+	}
+	
+	public void musikStoppen(){
+		clip.stop();
 	}
 
 }

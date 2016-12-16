@@ -49,7 +49,7 @@ public class Logik {
 		*/
 			
 		
-
+		audio.musikStoppen();
 		gegner_Array = new Gegner[Var.anzahlGegner];
 		var.reset();
 		mySQL_Datenbank = new MySQL_Datenbank();

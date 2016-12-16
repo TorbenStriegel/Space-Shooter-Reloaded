@@ -67,7 +67,7 @@ public class Var {
 	
 	static int anzahlGegner = 0;
 	
-	boolean pause = false;
+	boolean pause = true;
 	boolean verloren = false;
 	boolean timer_finish = false;
 
@@ -128,7 +128,7 @@ public class Var {
 		
 		 anzahlGegner = 0;
 		
-		 pause = false;
+		 pause = true;
 		 verloren = false;
 		 timer_finish = false;
 		 musik = true;
