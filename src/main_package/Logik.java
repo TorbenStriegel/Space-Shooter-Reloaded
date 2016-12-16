@@ -61,7 +61,7 @@ public class Logik {
 	public void starten(String name,int raumschiffTyp,GUI_Startfenster fenster,int level){
 		Var.name = name;
 		
-	    hintergrund=new Hintergrund();
+	    hintergrund=new Hintergrund(var);
 	    Start_Counter start_Counter = new Start_Counter(var);
 	    keyHandler = new KeyHandler(var);
 	    score = new Score(level, raumschiffTyp,mySQL_Datenbank,var);

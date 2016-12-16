@@ -56,9 +56,9 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 
 
 		if (!var.verloren) {
-			g.drawImage(Var.background_1, Var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
+			g.drawImage(Var.background_1, var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
 					null);
-			g.drawImage(Var.background_2, Var.background_x2, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
+			g.drawImage(Var.background_2, var.background_x2, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
 					null);
 
 			if (gegner) {
@@ -131,11 +131,6 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
 		}
 		else if (var.startCounter) {
-
-			g.drawImage(Var.background_1, Var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
-					null);
-			g.drawImage(Var.background_2, Var.background_x2, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
-					null);
 			g.setColor(Color.RED);
 			g.setFont(new Font("Arial", Font.BOLD, 140));
 			g.drawString(""+start_Counter.getCounter(), (Var.spielfeld_screenwidth/2-30),Var.spielfeld_screenheight/2+40);

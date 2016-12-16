@@ -120,7 +120,7 @@ public class GUI_Startfenster extends JFrame {
 		txtName.setBackground(Color.LIGHT_GRAY);
 		txtName.setHorizontalAlignment(SwingConstants.CENTER);
 		txtName.setFont(new Font("Monospaced", Font.BOLD, 30));
-		txtName.setText("Name");
+		txtName.setText(Var.name);
 		txtName.setBounds(547, 457, 273, 51);
 		txtName.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/15);
 		txtName.setLocation(Var.spielfeld_screenwidth/2-btnStarten.getWidth()/2,Var.spielfeld_screenheight/2+btnStarten.getHeight()*2-10 );

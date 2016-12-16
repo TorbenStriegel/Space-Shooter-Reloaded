@@ -58,12 +58,12 @@ public class Var {
 	static BufferedImage raumschiff_schuss1_Bild,raumschiff_schuss2_Bild,raumschiff_schuss3_Bild,raumschiff_schuss4_Bild;
 	static BufferedImage gegner_schuss1_Bild, gegner_schuss2_Bild, gegner_schuss3_Bild,gegner_schuss4_Bild;
 	
-	static int background_x1 = 0,background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
-	static int background_speed = 40;
+	int background_x1 = 0,background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
+	int background_speed = 40;
 	
 	private ArrayList<Schuesse> geschossliste= new ArrayList<Schuesse>();
 	
-	static String name = "Error";
+	static String name = "Name";
 	
 	static int anzahlGegner = 0;
 	
@@ -124,7 +124,6 @@ public class Var {
 		
 	    geschossliste= new ArrayList<Schuesse>();
 		
-		 name = "Error";
 		
 		 anzahlGegner = 0;
 		
