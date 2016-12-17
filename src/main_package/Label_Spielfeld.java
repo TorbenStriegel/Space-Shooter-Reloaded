@@ -29,11 +29,11 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 	boolean gegner = false;
 	private Gegner[] gegner_Arrays = new Gegner[Var.anzahlGegner];
 	private final Action action = new SwingAction();
+	private Logik logik;
 
-
-	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer,Var var,Start_Counter start_Counter) {
+	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer,Var var,Start_Counter start_Counter,Logik logic) {
 		this.var =var;
-
+		logik =logic;
 		this.gegner_level = gegner_level;
 		this.raumschiff = raumschiff;
 		this.score = score;
@@ -145,6 +145,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 				g.setColor(Color.GREEN);
 				g.setFont(new Font("Arial", Font.BOLD, 60));
 				g.drawString("Dein Platz:"+score.getPlatzierung(), (Var.spielfeld_screenwidth / 2 - 200), (Var.spielfeld_screenheight / 2 - 30));
+				logik.gewonnen();
 			}else{
 				g.setColor(Color.RED);
 				g.setFont(new Font("Arial", Font.BOLD, 60));

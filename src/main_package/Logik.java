@@ -19,18 +19,18 @@ public class Logik {
 	 Schild_Steuerung schild ;
 	 GUI_Spielfeld gui_spiel;
 	 AudioPlayer audio ;
-	
-	
+	LevelTester levelTest ;
+	int level;
 	
 	Logik(){
-		
+		levelTest=new LevelTester();
 		mySQL_Datenbank = new MySQL_Datenbank();
-		start =new GUI_Startfenster(this, mySQL_Datenbank,var);
+		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest);
 		
 	}
 	
 	Logik(int reset){
-		/*raumschiff=null;
+		raumschiff=null;
 		spieltimer=null;
 		mySQL_Datenbank=null;
 		gegner_Array=null;
@@ -46,21 +46,21 @@ public class Logik {
 		schild =null;
 		gui_spiel=null;
 		audio =null;
-		*/
+		levelTest =null;
 			
-		
+		levelTest=new LevelTester();
 		audio.musikStoppen();
 		gegner_Array = new Gegner[Var.anzahlGegner];
 		var.reset();
 		mySQL_Datenbank = new MySQL_Datenbank();
-		start =new GUI_Startfenster(this, mySQL_Datenbank,var);
+		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest);
 		
 	}
 	
 
 	public void starten(String name,int raumschiffTyp,GUI_Startfenster fenster,int level){
 		Var.name = name;
-		
+		this.level = level;
 	    hintergrund=new Hintergrund(var);
 	    Start_Counter start_Counter = new Start_Counter(var);
 	    keyHandler = new KeyHandler(var);
@@ -76,7 +76,7 @@ public class Logik {
 		}
 	    raumschiff.setGegner(gegner_Array);
 	    gegner_Kollision = new Gegner_Kollision(gegner_Level,raumschiff,var);
-	    label_Spielfeld = new Label_Spielfeld(gegner_Level,raumschiff,score,spieltimer,var,start_Counter);
+	    label_Spielfeld = new Label_Spielfeld(gegner_Level,raumschiff,score,spieltimer,var,start_Counter,this);
 
 	    gui_spiel = new GUI_Spielfeld(label_Spielfeld,var);
 	    schild = new Schild_Steuerung(raumschiff,var);
@@ -86,4 +86,9 @@ public class Logik {
 	    fenster.dispose();
 		var.startCounter = true;
 	  }
+	
+	
+	public void gewonnen(){
+		levelTest.schreibeLevel(level+1);
+	}
 }

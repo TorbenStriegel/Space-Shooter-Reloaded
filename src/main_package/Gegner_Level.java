@@ -61,7 +61,7 @@ public class Gegner_Level {
 		for (int a = 0; a < gegner.length; a++) {
 			gegner[a] = new Gegner_1(var);
 		}
-		spieltimer = new Spieltimer(60,var);
+		spieltimer = new Spieltimer(6,var);
 	}
 
 	private void starteLevel2() {
