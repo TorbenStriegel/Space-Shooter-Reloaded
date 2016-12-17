@@ -59,6 +59,8 @@ public class Logik {
 	
 
 	public void starten(String name,int raumschiffTyp,GUI_Startfenster fenster,int level){
+		
+		
 		Var.name = name;
 		this.level = level;
 	    hintergrund=new Hintergrund(var);
@@ -85,6 +87,8 @@ public class Logik {
 	    }
 	    fenster.dispose();
 		var.startCounter = true;
+		new ItemGenerator(raumschiff, var,10,levelTest);
+		
 	  }
 	
 	

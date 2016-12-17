@@ -14,6 +14,7 @@ public abstract class Raumschiff {
 	protected int raumschiff_xpos = 30;
 	protected int raumschiff_ypos = Toolkit.getDefaultToolkit().getScreenSize().height / 2;
 	protected int raumschiff_speedy = 5, raumschiff_speedx = 6;
+	protected int speed_default;
 	protected int raumschiff_leben = 100;
 	protected int raumschiff_leben_default;
 	protected int raumschiff_schild = 50;
@@ -23,6 +24,7 @@ public abstract class Raumschiff {
 	protected Timer timer;
 	protected Var var;
 	protected int geschoss_periode;
+	protected int geschoss_periode_default;
 	protected Gegner[] gegner;
 	protected boolean raumschiff_schildanzeigen = true;
 	protected BufferedImage raumschiff_bild;
@@ -48,9 +50,11 @@ public abstract class Raumschiff {
 						}
 					}
 					counter++;
-					if (counter == geschoss_periode) {
+					if ((counter % geschoss_periode)==0) {
 						schieﬂenErlaubt = true;
+						counter=0;
 					}
+					
 				}
 			}
 
@@ -64,6 +68,12 @@ public abstract class Raumschiff {
 	}
 
 	public void berechneSchaden(int schaden, boolean vorne) {
+		if(schaden <0){
+			setLeben(raumschiff_leben-schaden);
+			if(gibRaumschiff_leben()>=raumschiff_leben_default){
+				setLeben(raumschiff_leben_default);
+			}
+		}else{
 		score.setAktuellerScore(-schaden);
 		if (gibRaumschiff_schild() > 0 && vorne) {
 			raumschiff_schildanzeigen = true;
@@ -84,6 +94,7 @@ public abstract class Raumschiff {
 			if (gibRaumschiff_leben()<=0){
 				var.verloren = true;
 			}
+		}
 		}
 	}
 
@@ -155,5 +166,34 @@ public abstract class Raumschiff {
 	}
 	public int gibAnzahlSchuesse(){
 		return anzahlschuesse;
+	}
+	
+	public void setPeriodeDefault(){
+		geschoss_periode= geschoss_periode_default;
+	}
+	
+	public void verbesserePeriode(int i){
+		
+			geschoss_periode-=i;
+	
+		if(geschoss_periode<4){
+			geschoss_periode=3;
+		}
+	
+	}
+	
+	public void setDefaultWerte(){
+		speed_default=raumschiff_speedx;
+		geschoss_periode_default= geschoss_periode;
+	}
+	
+	public void setSpeedDefault(){
+		raumschiff_speedx=speed_default;
+		raumschiff_speedy=speed_default;
+	}
+	
+	public void erhoeheSpeed(int i){
+		raumschiff_speedx+=i;
+		raumschiff_speedy+=i;
 	}
 }

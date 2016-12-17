@@ -84,6 +84,14 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 				}
 				}
 			
+			for (int i = 0; i < var.getItemliste().size(); i++) {
+				try {
+
+					g.drawImage(var.getItemliste().get(i).gibBild(), var.getItemliste().get(i).gibXpos(), var.getItemliste().get(i).gibYpos(), null);
+					} catch (Exception e) {
+				}
+				}
+			
 			g.setColor(Color.GRAY);
 			g.fillRect(20, 35, raumschiff.getRaumschiff_Leben_Default(), 20);
 

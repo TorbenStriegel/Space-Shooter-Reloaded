@@ -232,7 +232,7 @@ public class GUI_Startfenster extends JFrame {
 		
 		fehler = new JLabel("");
 		fehler.setHorizontalAlignment(SwingConstants.CENTER);
-		fehler.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/15);
+		fehler.setSize(Var.spielfeld_screenwidth/3, Var.spielfeld_screenheight/15);
 		fehler.setLocation(Var.spielfeld_screenwidth/2-fehler.getWidth()/2,Var.spielfeld_screenheight/2+fehler.getHeight()*6 );
 		fehler.setFont(new Font("Monospaced", Font.BOLD, 30));
 		fehler.setForeground(Color.RED);
@@ -264,7 +264,10 @@ public class GUI_Startfenster extends JFrame {
 		}else if(!levelTest.freigeschaltet(level)){
 			fehler.setText("Level gesperrt!");
 			repaint();
-		}else {
+		}else if(!levelTest.freigeschaltetSchiff(raumschiffTyp)){
+			fehler.setText("Raumschiff gesperrt!");
+			repaint();
+		}else{
 			name = txtName.getText();
 			logik.starten(name,raumschiffTyp,this,level);
 		}

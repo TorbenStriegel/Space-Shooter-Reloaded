@@ -1,9 +1,7 @@
 package main_package;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -13,27 +11,32 @@ public class LevelTester {
 	private Scanner scanner;
     private int levelfrei=0;
     private FileWriter writer;
-    private File file;
+    private int schifffrei =0;
     
   
     
 	public LevelTester() {
-		
-		 try {
-			 
-			scanner = new Scanner(new File("data.txt"));
-		 	} catch (FileNotFoundException e) {
-		 	}
-		 
-		 
-		 scannen();
-		
+		scannen();
 	}
 
 	public void scannen(){
+		 try {
+			 
+				scanner = new Scanner(new File("data.txt"));
+			 	} catch (FileNotFoundException e) {
+			 	}
 		while (scanner.hasNext()) {
 			String a =scanner.next();
-			levelfrei=Integer.parseInt(a);
+			if(a.equals("Level")){
+				String s = scanner.next();
+				levelfrei=Integer.parseInt(s);
+			}
+			
+			if(a.equals("Schiff")){
+				String s = scanner.next();
+				schifffrei=Integer.parseInt(s);
+			}
+			
 		}
 		scanner.close();
 	}
@@ -48,20 +51,69 @@ public class LevelTester {
 		
 	}
 	
+	public boolean freigeschaltetSchiff(int schiff){
+		if(schiff>schifffrei){
+			return false;
+		}
+		return true;
+		
+		
+	}
+	
 	public void schreibeLevel(int i){
 		try {
 			writer = new FileWriter(new File("data.txt"));
-			writer.write(i+"");
+			
+			for (int j = 0; j < 100000; j++) {
+				writer.write((char)(Math.random()*100)+" ");
+			}
+			writer.write("Level "+i+" ");
+			for (int j = 0; j < 100000; j++) {
+				writer.write((char)(Math.random()*100)+" ");
+			}
+			writer.write("Schiff "+schifffrei+" ");
+			for (int j = 0; j < 100000; j++) {
+				writer.write((char)(Math.random()*100)+" ");
+			}
 			writer.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		scannen();
 		
 	}
 	
+	public void schreibeSchiff(int i){
+		try {
+			writer = new FileWriter(new File("data.txt"));
+			for (int j = 0; j < 100000; j++) {
+				writer.write((char)(Math.random()*100)+" ");
+			}
+			writer.write("Level "+levelfrei+" ");
+			for (int j = 0; j < 100000; j++) {
+				writer.write((char)(Math.random()*100)+" ");
+			}
+			writer.write("Schiff "+i+" ");
+			for (int j = 0; j < 100000; j++) {
+				writer.write((char)(Math.random()*100)+" ");
+			}
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		scannen();
+		
+	}
+	
+	
 	public int getlevelfrei(){
 		return levelfrei;
+	}
+	
+	public int getSchifffrei(){
+		return schifffrei;
 	}
 	
 	

@@ -36,6 +36,13 @@ public class Var {
 	static final String gegner_schuss3_Bildpfad = "Bilder/schuss_gegner_3.png";
 	static final String gegner_schuss4_Bildpfad = "Bilder/schuss_gegner_4.png";
 	
+	static final String itemLeben_Bildpfad = "Bilder/itemLeben.png";
+	static final String itemSchild_Bildpfad = "Bilder/itemShild.png";
+	static final String itemFreischalten_Bildpfad = "Bilder/itemFreischalten.png";
+	static final String itemSpeed_Bildpfad = "Bilder/itemSpeed.png";
+	static final String itemSpeedSchuss_Bildpfad = "Bilder/itemSpeedSchuss.png";
+	
+	
 	
 	static final String raumschiffshield_1_Bildpfad = "Bilder/shield_1.png";
 	
@@ -57,11 +64,14 @@ public class Var {
 	static BufferedImage raumschiffshield_1_Bild;
 	static BufferedImage raumschiff_schuss1_Bild,raumschiff_schuss2_Bild,raumschiff_schuss3_Bild,raumschiff_schuss4_Bild;
 	static BufferedImage gegner_schuss1_Bild, gegner_schuss2_Bild, gegner_schuss3_Bild,gegner_schuss4_Bild;
+	static BufferedImage itemLeben_bild,itemShild_bild,itemFrei_bild,itemSpeed_bild,itemSchuss_bild;
+	
 	
 	int background_x1 = 0,background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
 	int background_speed = 40;
 	
 	private ArrayList<Schuesse> geschossliste= new ArrayList<Schuesse>();
+	private ArrayList<Items> itemliste= new ArrayList<Items>();
 	
 	static String name = "Name";
 	
@@ -108,6 +118,12 @@ public class Var {
 			gegner_schuss3_Bild = ImageIO.read(new File(gegner_schuss3_Bildpfad));
 			gegner_schuss4_Bild = ImageIO.read(new File(gegner_schuss4_Bildpfad));
 			System.out.println("Schüsse Gegener geladen");
+			
+			itemLeben_bild =ImageIO.read(new File(itemLeben_Bildpfad));
+			itemShild_bild =ImageIO.read(new File(itemSchild_Bildpfad));
+			itemFrei_bild =ImageIO.read(new File(itemFreischalten_Bildpfad));
+			itemSpeed_bild =ImageIO.read(new File(itemSpeed_Bildpfad));
+			itemSchuss_bild =ImageIO.read(new File(itemSpeedSchuss_Bildpfad));
 		}catch (IOException fehlermeldung){
 			fehlermeldung.printStackTrace();
 			System.out.println("Bilder nicht gefunden!!! (Var)");
@@ -123,7 +139,7 @@ public class Var {
 	    background_speed = 40;
 		
 	    geschossliste= new ArrayList<Schuesse>();
-		
+	    itemliste= new ArrayList<Items>();
 		
 		 anzahlGegner = 0;
 		
@@ -140,6 +156,15 @@ public class Var {
 
 	public void addGeschossliste(Schuesse schuss) {
 		this.geschossliste.add(schuss);
+	}
+	
+	
+	public ArrayList<Items> getItemliste() {
+		return itemliste;
+	}
+
+	public void addItemliste(Items item) {
+		this.itemliste.add(item);
 	}
 
 
