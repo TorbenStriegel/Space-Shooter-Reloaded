@@ -58,7 +58,6 @@ public class KeyHandler implements KeyListener{ //implementiere Interface um Kla
 		}
 		if(taste.getKeyCode() == KeyEvent.VK_P){
 			if(var.pause){
-				var.pause=false;
 				var.startCounter=true;
 			}else{
 				var.pause=true;
