@@ -55,6 +55,11 @@ public class Gegner_Level {
 			break;
 		}
 	}
+	
+	private void starteLevel0() {
+		new Level_Survival(this);
+	}
+	
 	private void starteLevel1() {
 		Var.anzahlGegner = 80;
 		gegner = new Gegner[Var.anzahlGegner];

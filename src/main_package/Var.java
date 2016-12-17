@@ -70,6 +70,7 @@ public class Var {
 	boolean pause = true;
 	boolean verloren = false;
 	boolean timer_finish = false;
+	boolean survival = false;
 
 	static boolean musik = true;
 	static boolean zeigeLebenGegner = false;
@@ -131,6 +132,7 @@ public class Var {
 		 verloren = false;
 		 timer_finish = false;
 		 musik = true;
+		 survival = false;
 	}
 	
 	
