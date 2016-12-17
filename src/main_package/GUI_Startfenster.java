@@ -48,9 +48,13 @@ public class GUI_Startfenster extends JFrame {
 	private Label_Start_Info labelstart;
 	private int musik=0;
 	private int raumschiffTyp =0; //0=ship_1 1=ship_2
+	LevelTester levelTest;
+	private JLabel fehler;
+	
 	 
-	public GUI_Startfenster(Logik l, MySQL_Datenbank mySQL_Datenbank,Var var) {
+	public GUI_Startfenster(Logik l, MySQL_Datenbank mySQL_Datenbank,Var var,LevelTester levelTest) {
 		this.mySQL_Datenbank = mySQL_Datenbank;
+		this.levelTest=levelTest;
 		actionm1=new SwingActionm1(this);
 		actionm2=new SwingActionm2(this);
 		actionlv1=new SwingActionlv1(this);
@@ -225,6 +229,16 @@ public class GUI_Startfenster extends JFrame {
 		btnNewButton111.setLocation(Var.spielfeld_screenwidth/2-btnNewButton_1.getWidth()*3,Var.spielfeld_screenheight/2-(int)(btnNewButton_1.getHeight()*3.5));
 		contentPane.add(btnNewButton111);
 		
+		
+		fehler = new JLabel("");
+		fehler.setHorizontalAlignment(SwingConstants.CENTER);
+		fehler.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/15);
+		fehler.setLocation(Var.spielfeld_screenwidth/2-fehler.getWidth()/2,Var.spielfeld_screenheight/2+fehler.getHeight()*6 );
+		fehler.setFont(new Font("Monospaced", Font.BOLD, 30));
+		fehler.setForeground(Color.RED);
+		contentPane.add(fehler,0);
+		
+		
 		labelstart = new Label_Start_Info(raumschiffTyp,var);
 		labelstart.setSize(Var.spielfeld_screenwidth/4,400);
 		labelstart.setLocation(Var.spielfeld_screenwidth/2-(int)(labelstart.getWidth()*1.8),Var.spielfeld_screenheight/2-labelstart.getHeight()/2);
@@ -244,18 +258,15 @@ public class GUI_Startfenster extends JFrame {
 	}
 	
 	public void starten(){
-		if(!(txtName.getText().equals("Name"))){
+		if((txtName.getText().equals("Name"))){
+			fehler.setText("Name eintragen");
+			repaint();
+		}else if(!levelTest.freigeschaltet(level)){
+			fehler.setText("Level gesperrt!");
+			repaint();
+		}else {
 			name = txtName.getText();
 			logik.starten(name,raumschiffTyp,this,level);
-		}else{
-			JLabel labelkeinname = new JLabel("Name eintragen!");
-			labelkeinname.setHorizontalAlignment(SwingConstants.CENTER);
-			labelkeinname.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/15);
-			labelkeinname.setLocation(Var.spielfeld_screenwidth/2-labelkeinname.getWidth()/2,Var.spielfeld_screenheight/2+labelkeinname.getHeight()*6 );
-			labelkeinname.setFont(new Font("Monospaced", Font.BOLD, 30));
-			labelkeinname.setForeground(Color.RED);
-			contentPane.add(labelkeinname,0);
-			repaint();
 		}
 		
 	}
