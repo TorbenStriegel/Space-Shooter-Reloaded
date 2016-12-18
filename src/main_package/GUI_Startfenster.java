@@ -48,9 +48,9 @@ public class GUI_Startfenster extends JFrame {
 	private Label_Start_Info labelstart;
 	private int musik=0;
 	private int raumschiffTyp =0; //0=ship_1 1=ship_2
-	LevelTester levelTest;
+	private LevelTester levelTest;
 	private JLabel fehler;
-	
+	private LableHighscore highscore;
 	 
 	public GUI_Startfenster(Logik l, MySQL_Datenbank mySQL_Datenbank,Var var,LevelTester levelTest) {
 		this.mySQL_Datenbank = mySQL_Datenbank;
@@ -105,14 +105,7 @@ public class GUI_Startfenster extends JFrame {
 		btnexit.setFont(new Font("Monospaced", Font.BOLD, 30));
 		contentPane.add(btnexit);
 		
-		JButton btnHighscore = new JButton("Highscore");
-		btnHighscore.setAction(action_3);
-		btnHighscore.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/15);
-		btnHighscore.setLocation(Var.spielfeld_screenwidth/2-btnHighscore.getWidth()/2,Var.spielfeld_screenheight/2+btnHighscore.getHeight()*4+10);
-		btnHighscore.setBackground(Color.WHITE);
-		btnHighscore.setBorder(null);
-		btnHighscore.setFont(new Font("Monospaced", Font.BOLD, 30));
-		contentPane.add(btnHighscore);
+		
 		
 		label = new JLabel(new ImageIcon(Var.raumschiff_2_Bildpfad));
 		label.setSize(Var.spielfeld_screenwidth/4, Var.spielfeld_screenheight/4);
@@ -245,6 +238,12 @@ public class GUI_Startfenster extends JFrame {
 		labelstart.setVisible(true);
 		contentPane.add(labelstart);
 		
+		
+		highscore =new LableHighscore(mySQL_Datenbank, level);
+		highscore.setSize((int)(Var.spielfeld_screenwidth/3.5),Var.spielfeld_screenheight/2);
+		highscore.setLocation(Var.spielfeld_screenwidth/2+(int)(highscore.getWidth()/1.3),Var.spielfeld_screenheight/2-highscore.getHeight()/2);
+		highscore.setVisible(true);
+		contentPane.add(highscore);
 		vor();
 		zuruck();
 		
@@ -338,6 +337,7 @@ public class GUI_Startfenster extends JFrame {
 		}
 		
 		lblLevel.setText("Level:"+level);
+		highscore.level(level);
 	}
 	
 	public void zurucklv(){
@@ -369,6 +369,7 @@ public class GUI_Startfenster extends JFrame {
 			level=12;
 		}
 		lblLevel.setText("Level:"+level);
+		highscore.level(level);
 	}
 	
 	public void vorm(){
@@ -521,7 +522,7 @@ public class GUI_Startfenster extends JFrame {
 			putValue(SHORT_DESCRIPTION, "");
 		}
 		public void actionPerformed(ActionEvent e) {
-			System.exit(1000);
+			System.exit(0);
 		}
 	}
 	

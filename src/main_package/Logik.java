@@ -18,9 +18,10 @@ public class Logik {
 	 Label_Spielfeld label_Spielfeld;
 	 Schild_Steuerung schild ;
 	 GUI_Spielfeld gui_spiel;
-	 AudioPlayer audio ;
+	 AudioPlayer audio;
 	LevelTester levelTest ;
-	int level;
+	
+	Start_Counter start_Counter;
 	
 	Logik(){
 		levelTest=new LevelTester();
@@ -45,26 +46,57 @@ public class Logik {
 		label_Spielfeld=null;
 		schild =null;
 		gui_spiel=null;
-		audio =null;
 		levelTest =null;
-			
+		start_Counter=null;
+		
+		var=new Var();
 		levelTest=new LevelTester();
-		audio.musikStoppen();
+		//audio.musikStoppen();
 		gegner_Array = new Gegner[Var.anzahlGegner];
 		var.reset();
 		mySQL_Datenbank = new MySQL_Datenbank();
 		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest);
+	}
+	
+	
+	
+	Logik(int reset,int weiter){
+		raumschiff=null;
+		spieltimer=null;
+		mySQL_Datenbank=null;
+		gegner_Array=null;
+		start=null;
+		hintergrund=null;
+		keyHandler=null;
+		raumschiff_Level=null;
+		score=null;
+		raumschiff_Steuerung=null;
+		gegner_Level=null;
+		gegner_Kollision=null;
+		label_Spielfeld=null;
+		schild =null;
+		gui_spiel=null;
+		levelTest =null;
+		start_Counter=null;	
+		
+		levelTest=new LevelTester();
+		//audio.musikStoppen();
+		gegner_Array = new Gegner[Var.anzahlGegner];
+		var.reset();
+		mySQL_Datenbank = new MySQL_Datenbank();
+
+		starten(var.name, var.raumschifftyp, null, var.level+1);
 		
 	}
 	
 
 	public void starten(String name,int raumschiffTyp,GUI_Startfenster fenster,int level){
-		
+		var.level=level;
+		var.raumschifftyp=raumschiffTyp;
 		
 		Var.name = name;
-		this.level = level;
 	    hintergrund=new Hintergrund(var);
-	    Start_Counter start_Counter = new Start_Counter(var);
+	    start_Counter = new Start_Counter(var);
 	    keyHandler = new KeyHandler(var);
 	    score = new Score(level, raumschiffTyp,mySQL_Datenbank,var);
 	    raumschiff_Level = new Raumschiff_Level(raumschiffTyp, score,var);
@@ -85,14 +117,14 @@ public class Logik {
 	    if(Var.musik){
 	    	audio = new AudioPlayer();
 	    }
-	    fenster.dispose();
+	  
 		var.startCounter = true;
 		new ItemGenerator(raumschiff, var,10,levelTest);
-		
+		  fenster.dispose();
 	  }
 	
 	
 	public void gewonnen(){
-		levelTest.schreibeLevel(level+1);
+		levelTest.schreibeLevel(var.level+1);
 	}
 }

@@ -7,13 +7,14 @@ public class ItemFreischalten extends Items {
 		super(schiff1, var);
 		this.tester =tester;
 		bild=var.itemFrei_bild;
-		randomerscheinen=(int)(Math.random()*50)+2000;
+		randomerscheinen=(int)(Math.random()*500)+500;
 	}
 	
 	
 	public void action(){
-		tester.schreibeSchiff(tester.getSchifffrei()+1);
 		xpos=-100;
 		ypos=-100;
+		tester.schreibeSchiff(tester.getSchifffrei()+1);
+		
 	}
 }

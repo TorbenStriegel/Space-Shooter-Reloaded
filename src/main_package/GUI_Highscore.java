@@ -12,11 +12,12 @@ public class GUI_Highscore {
     private String[] highscore_vernichteteGegner = new String[10];
 	
 	GUI_Highscore(MySQL_Datenbank mySQL_Datenbank, int level){
+		mySQL_Datenbank.Werte_auslesen(level);
 		highscore_name = mySQL_Datenbank.getHighscore_name();
 		highscore_score = mySQL_Datenbank.getHighscore_score();
 		highscore_treffergenauigkeit = mySQL_Datenbank.getHighscore_treffergenauigkeit();
 		highscore_vernichteteGegner = mySQL_Datenbank.getHighscore_vernichteteGegner();
-		mySQL_Datenbank.Werte_auslesen(level);
+		
 		String[][] rowData = {
 	    {highscore_name[0],highscore_score[0],highscore_treffergenauigkeit[0],highscore_vernichteteGegner[0]},
 	    {highscore_name[1],highscore_score[1],highscore_treffergenauigkeit[1],highscore_vernichteteGegner[1]},

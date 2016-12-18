@@ -82,9 +82,11 @@ public class Var {
 	boolean timer_finish = false;
 	boolean survival = false;
 
+	static int level=1;
 	static boolean musik = true;
 	static boolean zeigeLebenGegner = false;
 	boolean startCounter = false;
+	static int raumschifftyp;
 	
 	static boolean moveup=false,movedown=false,moveright=false,moveleft=false,space=false,esc=false;
 	
@@ -149,6 +151,7 @@ public class Var {
 		 timer_finish = false;
 		 musik = true;
 		 survival = false;
+		startCounter = false;
 	}
 	
 	
