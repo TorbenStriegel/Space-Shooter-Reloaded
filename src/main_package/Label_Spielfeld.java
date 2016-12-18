@@ -191,7 +191,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 		btnNewButton.setFont(new Font("Monospaced", Font.BOLD, 20));
 		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/10);
-		btnNewButton.setLocation(Var.spielfeld_screenwidth/2-btnNewButton.getWidth()/2,Var.spielfeld_screenheight/2+btnNewButton.getHeight()*2);
+		btnNewButton.setLocation(Var.spielfeld_screenwidth/2-btnNewButton.getWidth()-btnNewButton.getWidth()/2,Var.spielfeld_screenheight/2+btnNewButton.getHeight()*2);
 		spielfeld.getContentPane().add(btnNewButton,0);
 	}
 	
@@ -203,7 +203,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 		btnNewButton.setFont(new Font("Monospaced", Font.BOLD, 20));
 		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/10);
-		btnNewButton.setLocation(Var.spielfeld_screenwidth/2-btnNewButton.getWidth()/2,Var.spielfeld_screenheight/2+btnNewButton.getHeight()*3-100);
+		btnNewButton.setLocation(Var.spielfeld_screenwidth/2+btnNewButton.getWidth()-btnNewButton.getWidth()/2,Var.spielfeld_screenheight/2+btnNewButton.getHeight()*2);
 		spielfeld.getContentPane().add(btnNewButton,0);
 	}
 	

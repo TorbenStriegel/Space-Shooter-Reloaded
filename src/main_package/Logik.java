@@ -119,7 +119,7 @@ public class Logik {
 	    }
 	  
 		var.startCounter = true;
-		new ItemGenerator(raumschiff, var,10,levelTest);
+		new ItemGenerator(raumschiff, var,level,levelTest);
 		  fenster.dispose();
 	  }
 	
