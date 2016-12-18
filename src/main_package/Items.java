@@ -19,7 +19,7 @@ public abstract class Items {
 	public Items(Raumschiff schiff1,Var var) {
 		var.addItemliste(this);
 		this.schiff =schiff1;
-		randomerscheinen=(int)(Math.random()*800)+100;
+		randomerscheinen=(int)(Math.random()*700)+100;
 		bild=var.itemLeben_bild;
 		timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
