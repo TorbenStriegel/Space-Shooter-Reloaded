@@ -30,7 +30,7 @@ public class Logik {
 		levelTest=new LevelTester();
 		mySQL_Datenbank = new MySQL_Datenbank();
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

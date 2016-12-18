@@ -1,6 +1,7 @@
 package main_package;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
@@ -22,6 +23,7 @@ public class GUI_Ladescreen extends JFrame {
 		
 		contentPane = new JPanel();
 		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setBackground(Color.BLACK);
 		setContentPane(contentPane);
 		
 		
@@ -31,7 +33,7 @@ public class GUI_Ladescreen extends JFrame {
 		logo.setSize(Var.spielfeld_screenwidth,Var.spielfeld_screenheight);
 		contentPane.add(logo);
 		
-		JLabel hintergrund = new JLabel(new ImageIcon(Var.background_1));
+		JLabel hintergrund = new JLabel(new ImageIcon(Var.background_3));
 		hintergrund.setLocation(0,0);
 		hintergrund.setSize(Var.spielfeld_screenwidth,Var.spielfeld_screenheight);
 		contentPane.add(hintergrund);

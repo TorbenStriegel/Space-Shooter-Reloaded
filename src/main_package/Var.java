@@ -13,7 +13,8 @@ public class Var {
 	static int spielfeld_screenwidth = Toolkit.getDefaultToolkit().getScreenSize().width;  	// Fragt Weite vom Bildschirm ab
 	static int spielfeld_screenheight = Toolkit.getDefaultToolkit().getScreenSize().height; // Fragt Höhe vom Bildschirm ab
 	
-	static final String background_1_Bildpfad = "Bilder/hintergrund.jpg";
+	static final String background_1_Bildpfad = "Bilder/hintergrund_1.jpg";
+	static final String background_3_Bildpfad = "Bilder/hintergrund_2.jpg";
 	 
 	static int schuessegegner=0;
 	
@@ -61,7 +62,7 @@ public class Var {
 	
 	static final String sound_1 = "Sounds/sound_1.wav";
 	
-	static BufferedImage background_1,background_2; //Hintergrund
+	static BufferedImage background_1,background_2,background_3; //Hintergrund
 
 	static BufferedImage gegner_1,gegner_2,gegner_3,gegner_4,gegner_5,gegner_6,gegner_7,gegner_8;
 	static BufferedImage raumschiff_1,raumschiff_2,raumschiff_3,raumschiff_4;
@@ -102,6 +103,7 @@ public class Var {
 			System.out.println("Logo geladen");
 			background_1 = ImageIO.read(new File(background_1_Bildpfad));
 			background_2 = ImageIO.read(new File(background_1_Bildpfad));
+			background_3 = ImageIO.read(new File(background_3_Bildpfad));
 			System.out.println("Hintergrund geladen");
 			gegner_1 = ImageIO.read(new File(gegner_1_Bildpfad));
 			gegner_2 = ImageIO.read(new File(gegner_2_Bildpfad));
