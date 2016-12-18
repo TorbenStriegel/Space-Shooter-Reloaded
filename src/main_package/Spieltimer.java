@@ -18,6 +18,7 @@ public class Spieltimer {
 			public void run() {
 				if (!var.pause&&!var.verloren){
 					zeit_Millisekunden--;
+					var.timer_finish = false;
 					if (zeit_Millisekunden<= 0) {
 						var.verloren = true;
 						var.timer_finish = true;

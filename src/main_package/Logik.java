@@ -19,15 +19,24 @@ public class Logik {
 	 Schild_Steuerung schild ;
 	 GUI_Spielfeld gui_spiel;
 	 AudioPlayer audio;
-	LevelTester levelTest ;
+	LevelTester levelTest;
+	Level_Survival level_Survival;
+	GUI_Ladescreen gUI_Ladescreen;
 	
 	Start_Counter start_Counter;
 	
 	Logik(){
+		gUI_Ladescreen = new GUI_Ladescreen(true);
 		levelTest=new LevelTester();
 		mySQL_Datenbank = new MySQL_Datenbank();
-		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest);
-		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest);	
+		gUI_Ladescreen.dispose();
 	}
 	
 	Logik(int reset){
@@ -48,6 +57,8 @@ public class Logik {
 		gui_spiel=null;
 		levelTest =null;
 		start_Counter=null;
+		level_Survival=null;
+		gUI_Ladescreen=null;
 		
 		var=new Var();
 		levelTest=new LevelTester();
@@ -78,6 +89,8 @@ public class Logik {
 		gui_spiel=null;
 		levelTest =null;
 		start_Counter=null;	
+		level_Survival=null;
+		gUI_Ladescreen=null;
 		
 		levelTest=new LevelTester();
 		//audio.musikStoppen();
@@ -86,16 +99,16 @@ public class Logik {
 		mySQL_Datenbank = new MySQL_Datenbank();
 
 		starten(var.name, var.raumschifftyp, null, var.level+1);
-		
 	}
 	
 
 	public void starten(String name,int raumschiffTyp,GUI_Startfenster fenster,int level){
+		gUI_Ladescreen = new GUI_Ladescreen(false);
 		var.level=level;
 		var.raumschifftyp=raumschiffTyp;
-		
 		Var.name = name;
-	    hintergrund=new Hintergrund(var);
+		fenster.dispose();
+		hintergrund=new Hintergrund(var);
 	    start_Counter = new Start_Counter(var);
 	    keyHandler = new KeyHandler(var);
 	    score = new Score(level, raumschiffTyp,mySQL_Datenbank,var);
@@ -111,16 +124,14 @@ public class Logik {
 	    raumschiff.setGegner(gegner_Array);
 	    gegner_Kollision = new Gegner_Kollision(gegner_Level,raumschiff,var);
 	    label_Spielfeld = new Label_Spielfeld(gegner_Level,raumschiff,score,spieltimer,var,start_Counter,this);
-
 	    gui_spiel = new GUI_Spielfeld(label_Spielfeld,var);
 	    schild = new Schild_Steuerung(raumschiff,var);
+	    new ItemGenerator(raumschiff, var,level,levelTest);
 	    if(Var.musik){
 	    	audio = new AudioPlayer();
 	    }
-	  
 		var.startCounter = true;
-		new ItemGenerator(raumschiff, var,level,levelTest);
-		  fenster.dispose();
+		gUI_Ladescreen.dispose();
 	  }
 	
 	

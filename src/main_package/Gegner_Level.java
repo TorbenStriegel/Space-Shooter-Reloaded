@@ -57,7 +57,7 @@ public class Gegner_Level {
 	}
 	
 	private void starteLevel0() {
-		new Level_Survival(this);
+		new Level_Survival(var);
 	}
 	
 	private void starteLevel1() {
@@ -66,10 +66,15 @@ public class Gegner_Level {
 		for (int a = 0; a < gegner.length; a++) {
 			gegner[a] = new Gegner_1(var);
 		}
-		spieltimer = new Spieltimer(60,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(60,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 
-	private void starteLevel2() {
+	void starteLevel2() {
 		Var.anzahlGegner = 40;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length; a++) {

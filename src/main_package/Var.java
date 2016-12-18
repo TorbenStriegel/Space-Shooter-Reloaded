@@ -50,6 +50,8 @@ public class Var {
 	static final String raumschiff_schuss2_Bildpfad = "Bilder/schuss_ship_2.png";
 	static final String raumschiff_schuss3_Bildpfad = "Bilder/schuss_ship_3.png";
 	static final String raumschiff_schuss4_Bildpfad = "Bilder/schuss_ship_4.png";
+	
+	static final String logo_1_Bildpfad = "Bilder/logo_1.png";
 		
 	static String musik_default = "Musik/musik_Star_Wars.wav";
 	static final String musik_1 = "Musik/musik_standart.wav";
@@ -57,11 +59,14 @@ public class Var {
 	static final String musik_3 = "Musik/musik_Pirates_of_the_Caribbean.wav";
 	static final String musik_4 = "Musik/musik_The_Dark_Knight_Rises.wav";
 	
+	static final String sound_1 = "Sounds/sound_1.wav";
+	
 	static BufferedImage background_1,background_2; //Hintergrund
 
 	static BufferedImage gegner_1,gegner_2,gegner_3,gegner_4,gegner_5,gegner_6,gegner_7,gegner_8;
 	static BufferedImage raumschiff_1,raumschiff_2,raumschiff_3,raumschiff_4;
 	static BufferedImage raumschiffshield_1_Bild;
+	static BufferedImage logo_1;
 	static BufferedImage raumschiff_schuss1_Bild,raumschiff_schuss2_Bild,raumschiff_schuss3_Bild,raumschiff_schuss4_Bild;
 	static BufferedImage gegner_schuss1_Bild, gegner_schuss2_Bild, gegner_schuss3_Bild,gegner_schuss4_Bild;
 	static BufferedImage itemLeben_bild,itemShild_bild,itemFrei_bild,itemSpeed_bild,itemSchuss_bild;
@@ -93,6 +98,8 @@ public class Var {
 	public Var(){
 		reset();
 		try{
+			logo_1 = ImageIO.read(new File(logo_1_Bildpfad));
+			System.out.println("Logo geladen");
 			background_1 = ImageIO.read(new File(background_1_Bildpfad));
 			background_2 = ImageIO.read(new File(background_1_Bildpfad));
 			System.out.println("Hintergrund geladen");
@@ -121,12 +128,12 @@ public class Var {
 			gegner_schuss3_Bild = ImageIO.read(new File(gegner_schuss3_Bildpfad));
 			gegner_schuss4_Bild = ImageIO.read(new File(gegner_schuss4_Bildpfad));
 			System.out.println("Schüsse Gegener geladen");
-			
 			itemLeben_bild =ImageIO.read(new File(itemLeben_Bildpfad));
 			itemShild_bild =ImageIO.read(new File(itemSchild_Bildpfad));
 			itemFrei_bild =ImageIO.read(new File(itemFreischalten_Bildpfad));
 			itemSpeed_bild =ImageIO.read(new File(itemSpeed_Bildpfad));
 			itemSchuss_bild =ImageIO.read(new File(itemSpeedSchuss_Bildpfad));
+			System.out.println("Items geladen");
 		}catch (IOException fehlermeldung){
 			fehlermeldung.printStackTrace();
 			System.out.println("Bilder nicht gefunden!!! (Var)");
