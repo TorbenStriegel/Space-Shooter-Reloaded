@@ -52,7 +52,7 @@ public class GUI_Startfenster extends JFrame {
 	private JLabel fehler;
 	private LableHighscore highscore;
 	 
-	public GUI_Startfenster(Logik l, MySQL_Datenbank mySQL_Datenbank,Var var,LevelTester levelTest) {
+	public GUI_Startfenster(Logik l, MySQL_Datenbank mySQL_Datenbank,Var var,LevelTester levelTest,JFrame frame) {
 		this.mySQL_Datenbank = mySQL_Datenbank;
 		this.levelTest=levelTest;
 		actionm1=new SwingActionm1(this);
@@ -251,7 +251,11 @@ public class GUI_Startfenster extends JFrame {
 		bildlabel.setLocation(0,0);
 		bildlabel.setSize(Var.spielfeld_screenwidth,Var.spielfeld_screenheight);
 		contentPane.add(bildlabel);
-		
+		try{
+		frame.dispose();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		requestFocus();
 		setVisible(true);
 	}

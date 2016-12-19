@@ -161,6 +161,7 @@ public class Var {
 		 musik = true;
 		 survival = false;
 		startCounter = false;
+		zeigeLebenGegner = false;
 	}
 	
 	

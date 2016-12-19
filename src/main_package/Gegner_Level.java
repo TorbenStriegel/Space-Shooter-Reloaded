@@ -225,7 +225,7 @@ public class Gegner_Level {
 		for (int a = 0; a < gegner.length; a++) {
 			gegner[a] = new Gegner_7(var);
 		}
-		spieltimer = new Spieltimer(120,var);
+		spieltimer = new Spieltimer(50,var);
 	}
 
 	public int getLevel() {

@@ -1,5 +1,7 @@
 package main_package;
 
+import javax.swing.JFrame;
+
 public class Logik {
 	
 	Raumschiff raumschiff;
@@ -22,7 +24,6 @@ public class Logik {
 	LevelTester levelTest;
 	Level_Survival level_Survival;
 	GUI_Ladescreen gUI_Ladescreen;
-	
 	Start_Counter start_Counter;
 	
 	Logik(){
@@ -35,11 +36,12 @@ public class Logik {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest);	
+		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest,null);	
 		gUI_Ladescreen.dispose();
 	}
 	
-	Logik(int reset){
+	Logik(int reset, JFrame label_spielfeld){
+		//audio.musikStoppen();
 		raumschiff=null;
 		spieltimer=null;
 		mySQL_Datenbank=null;
@@ -58,15 +60,13 @@ public class Logik {
 		levelTest =null;
 		start_Counter=null;
 		level_Survival=null;
-		gUI_Ladescreen=null;
-		
+		gUI_Ladescreen=null;	
 		var=new Var();
 		levelTest=new LevelTester();
-		//audio.musikStoppen();
 		gegner_Array = new Gegner[Var.anzahlGegner];
 		var.reset();
 		mySQL_Datenbank = new MySQL_Datenbank();
-		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest);
+		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest,label_spielfeld);
 	}
 	
 	
@@ -93,7 +93,6 @@ public class Logik {
 		gUI_Ladescreen=null;
 		
 		levelTest=new LevelTester();
-		//audio.musikStoppen();
 		gegner_Array = new Gegner[Var.anzahlGegner];
 		var.reset();
 		mySQL_Datenbank = new MySQL_Datenbank();
@@ -103,7 +102,6 @@ public class Logik {
 	
 
 	public void starten(String name,int raumschiffTyp,GUI_Startfenster fenster,int level){
-		gUI_Ladescreen = new GUI_Ladescreen(false);
 		var.level=level;
 		var.raumschifftyp=raumschiffTyp;
 		Var.name = name;
@@ -118,6 +116,7 @@ public class Logik {
 	    gegner_Level = new Gegner_Level(level,var);
 	    gegner_Array = gegner_Level.getGegner_Array();
 	    spieltimer = gegner_Level.getSpieltimer();
+	    score.setSpieltimer(spieltimer);
 	    for (int i = 0; i < gegner_Array.length; i++) {
 	    	gegner_Array[i].setRaumschiff(raumschiff);
 		}
@@ -131,7 +130,6 @@ public class Logik {
 	    	audio = new AudioPlayer();
 	    }
 		var.startCounter = true;
-		gUI_Ladescreen.dispose();
 	  }
 	
 	

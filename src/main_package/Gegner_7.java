@@ -8,8 +8,7 @@ public class Gegner_7 extends Gegner {
 	public Gegner_7(Var var) {
 		super(var);
 
-		leben_default = 3000;
-
+		leben_default = 5000;
 		leben = leben_default;
 		kollisionsSchaden = 1000;
 		xspeed = -20;

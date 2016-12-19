@@ -49,6 +49,7 @@ public class AudioPlayer {
 	
 	public void musikStoppen(){
 		clip.stop();
+		System.out.println("stop");
 	}
 
 }
