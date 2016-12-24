@@ -63,17 +63,17 @@ public class LevelTester {
 	public void schreibeLevel(int i){
 		if(i>levelfrei){
 		try {
-			writer = new FileWriter(new File("data.txt"));
+			writer = new FileWriter(new File(".data.txt"));
 			
-			for (int j = 0; j < 10000; j++) {
+			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
 			writer.write("Level "+i+" ");
-			for (int j = 0; j < 10000; j++) {
+			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
 			writer.write("Schiff "+schifffrei+" ");
-			for (int j = 0; j < 10000; j++) {
+			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
 			writer.close();

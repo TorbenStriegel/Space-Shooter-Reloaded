@@ -13,6 +13,10 @@ public class Raumschiff_Level {
 			raumschiff = new Raumschiff_3(score,false,var);
 		}else if (raumschiffTyp == 3){
 			raumschiff = new Raumschiff_4(score,false,var);
+		}else if (raumschiffTyp == 4){
+			raumschiff = new Raumschiff_5(score,false,var);
+		}else if (raumschiffTyp == 5){
+			raumschiff = new Raumschiff_6(score,false,var);
 		}
 	}
 	public Raumschiff gibRaumschiff(){

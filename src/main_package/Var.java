@@ -22,6 +22,10 @@ public class Var {
 	static final String raumschiff_2_Bildpfad = "Bilder/ship_2.png";
 	static final String raumschiff_3_Bildpfad = "Bilder/ship_3.png";
 	static final String raumschiff_4_Bildpfad = "Bilder/ship_4.png";
+	static final String raumschiff_5_Bildpfad = "Bilder/ship_5.png";
+	static final String raumschiff_6_Bildpfad = "Bilder/ship_6.png";
+	
+	
 	
 	static final String gegner_1_Bildpfad = "Bilder/gegner_1.png";
 	static final String gegner_2_Bildpfad = "Bilder/gegner_2.png";
@@ -51,6 +55,8 @@ public class Var {
 	static final String raumschiff_schuss2_Bildpfad = "Bilder/schuss_ship_2.png";
 	static final String raumschiff_schuss3_Bildpfad = "Bilder/schuss_ship_3.png";
 	static final String raumschiff_schuss4_Bildpfad = "Bilder/schuss_ship_4.png";
+	static final String raumschiff_schuss5_Bildpfad = "Bilder/schuss_ship_5.png";
+	static final String raumschiff_schuss6_Bildpfad = "Bilder/schuss_ship_6.png";
 	
 	static final String logo_1_Bildpfad = "Bilder/logo_1.png";
 		
@@ -65,10 +71,10 @@ public class Var {
 	static BufferedImage background_1,background_2,background_3; //Hintergrund
 
 	static BufferedImage gegner_1,gegner_2,gegner_3,gegner_4,gegner_5,gegner_6,gegner_7,gegner_8;
-	static BufferedImage raumschiff_1,raumschiff_2,raumschiff_3,raumschiff_4;
+	static BufferedImage raumschiff_1,raumschiff_2,raumschiff_3,raumschiff_4,raumschiff_5,raumschiff_6;
 	static BufferedImage raumschiffshield_1_Bild;
 	static BufferedImage logo_1;
-	static BufferedImage raumschiff_schuss1_Bild,raumschiff_schuss2_Bild,raumschiff_schuss3_Bild,raumschiff_schuss4_Bild;
+	static BufferedImage raumschiff_schuss1_Bild,raumschiff_schuss2_Bild,raumschiff_schuss3_Bild,raumschiff_schuss4_Bild,raumschiff_schuss5_Bild,raumschiff_schuss6_Bild;
 	static BufferedImage gegner_schuss1_Bild, gegner_schuss2_Bild, gegner_schuss3_Bild,gegner_schuss4_Bild;
 	static BufferedImage itemLeben_bild,itemShild_bild,itemFrei_bild,itemSpeed_bild,itemSchuss_bild;
 	
@@ -118,12 +124,16 @@ public class Var {
 			raumschiff_2 = ImageIO.read(new File(raumschiff_2_Bildpfad));
 			raumschiff_3 = ImageIO.read(new File(raumschiff_3_Bildpfad));
 			raumschiff_4 = ImageIO.read(new File(raumschiff_4_Bildpfad));
+			raumschiff_5 = ImageIO.read(new File(raumschiff_5_Bildpfad));
+			raumschiff_6 = ImageIO.read(new File(raumschiff_6_Bildpfad));
 			raumschiffshield_1_Bild=ImageIO.read(new File(raumschiffshield_1_Bildpfad));
 			System.out.println("Raumschiffe geladen");
 			raumschiff_schuss1_Bild = ImageIO.read(new File(raumschiff_schuss1_Bildpfad));
 			raumschiff_schuss2_Bild = ImageIO.read(new File(raumschiff_schuss2_Bildpfad));
 			raumschiff_schuss3_Bild = ImageIO.read(new File(raumschiff_schuss3_Bildpfad));
 			raumschiff_schuss4_Bild = ImageIO.read(new File(raumschiff_schuss4_Bildpfad));
+			raumschiff_schuss5_Bild = ImageIO.read(new File(raumschiff_schuss5_Bildpfad));
+			raumschiff_schuss6_Bild = ImageIO.read(new File(raumschiff_schuss6_Bildpfad));
 			System.out.println("Schüsse Raumschiff geladen");
 			gegner_schuss1_Bild = ImageIO.read(new File(gegner_schuss1_Bildpfad));
 			gegner_schuss2_Bild = ImageIO.read(new File(gegner_schuss2_Bildpfad));

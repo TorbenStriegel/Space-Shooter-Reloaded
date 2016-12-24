@@ -278,7 +278,7 @@ public class GUI_Startfenster extends JFrame {
 	}
 	public void vor(){
 		raumschiffTyp++;
-		if(raumschiffTyp>3){
+		if(raumschiffTyp>5){
 			raumschiffTyp=0;
 		}
 		if(raumschiffTyp==0){
@@ -289,6 +289,10 @@ public class GUI_Startfenster extends JFrame {
 			label.setIcon(new ImageIcon(Var.raumschiff_3_Bildpfad));
 		}else if(raumschiffTyp==3){
 			label.setIcon(new ImageIcon(Var.raumschiff_4_Bildpfad));
+		}else if(raumschiffTyp==4){
+			label.setIcon(new ImageIcon(Var.raumschiff_5_Bildpfad));
+		}else if(raumschiffTyp==5){
+			label.setIcon(new ImageIcon(Var.raumschiff_6_Bildpfad));
 		}
 		labelstart.aendern(raumschiffTyp);
 		
@@ -297,7 +301,7 @@ public class GUI_Startfenster extends JFrame {
 	public void zuruck(){
 		raumschiffTyp--;
 		if(raumschiffTyp<0){
-			raumschiffTyp=3;
+			raumschiffTyp=5;
 		}
 		if(raumschiffTyp==0){
 			label.setIcon(new ImageIcon(Var.raumschiff_1_Bildpfad));
@@ -307,6 +311,10 @@ public class GUI_Startfenster extends JFrame {
 			label.setIcon(new ImageIcon(Var.raumschiff_3_Bildpfad));
 		}else if(raumschiffTyp==3){
 			label.setIcon(new ImageIcon(Var.raumschiff_4_Bildpfad));
+		}else if(raumschiffTyp==4){
+			label.setIcon(new ImageIcon(Var.raumschiff_5_Bildpfad));
+		}else if(raumschiffTyp==5){
+			label.setIcon(new ImageIcon(Var.raumschiff_6_Bildpfad));
 		}
 		labelstart.aendern(raumschiffTyp);
 	}
