@@ -40,72 +40,18 @@ public class Logik {
 		
 	}
 	
-	Logik(int reset, JFrame label_spielfeld){
-		//audio.musikStoppen();
-		raumschiff=null;
-		spieltimer=null;
-		mySQL_Datenbank=null;
-		gegner_Array=null;
-		start=null;
-		hintergrund=null;
-		keyHandler=null;
-		raumschiff_Level=null;
-		score=null;
-		raumschiff_Steuerung=null;
-		gegner_Level=null;
-		gegner_Kollision=null;
-		label_Spielfeld=null;
-		schild =null;
-		gui_spiel=null;
-		levelTest =null;
-		start_Counter=null;
-		level_Survival=null;
-		gUI_Ladescreen=null;	
-		
-		levelTest=new LevelTester();
-		gegner_Array = new Gegner[Var.anzahlGegner];
-		var.reset();
-		mySQL_Datenbank = new MySQL_Datenbank();
-		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest,label_spielfeld);
-	}
 	
-	
-	
-	Logik(int reset,int weiter){
-		raumschiff=null;
-		spieltimer=null;
-		mySQL_Datenbank=null;
-		gegner_Array=null;
-		start=null;
-		hintergrund=null;
-		keyHandler=null;
-		raumschiff_Level=null;
-		score=null;
-		raumschiff_Steuerung=null;
-		gegner_Level=null;
-		gegner_Kollision=null;
-		label_Spielfeld=null;
-		schild =null;
-		gui_spiel=null;
-		levelTest =null;
-		start_Counter=null;	
-		level_Survival=null;
-		gUI_Ladescreen=null;
-		
-		levelTest=new LevelTester();
-		gegner_Array = new Gegner[Var.anzahlGegner];
-		var.reset();
-		mySQL_Datenbank = new MySQL_Datenbank();
-
-		starten(var.name, var.raumschifftyp, null, var.level+1);
-	}
 	
 
 	public void starten(String name,int raumschiffTyp,GUI_Startfenster fenster,int level){
 		var.level=level;
 		var.raumschifftyp=raumschiffTyp;
 		Var.name = name;
-		fenster.dispose();
+		try {
+			fenster.dispose();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		hintergrund=new Hintergrund(var);
 	    start_Counter = new Start_Counter(var);
 	    keyHandler = new KeyHandler(var);
@@ -132,6 +78,51 @@ public class Logik {
 		var.startCounter = true;
 	  }
 	
+	public void restart(JFrame label_spielfeld){
+				audio.musikStoppen();
+				spieltimer.beenden();
+				refernzenlöschen();
+				levelTest=new LevelTester();
+				gegner_Array = new Gegner[Var.anzahlGegner];
+				var.reset();
+				mySQL_Datenbank = new MySQL_Datenbank();
+				start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest,label_spielfeld);
+	}
+	
+	public void weiter(){
+		audio.musikStoppen();
+		spieltimer.beenden();
+		refernzenlöschen();
+		levelTest=new LevelTester();
+		gegner_Array = new Gegner[Var.anzahlGegner];
+		var.reset();
+		mySQL_Datenbank = new MySQL_Datenbank();
+
+		starten(var.name, var.raumschifftyp, null, var.level+1);
+	}
+	
+	private void refernzenlöschen(){
+	 raumschiff=null;
+	 spieltimer=null;
+	 mySQL_Datenbank=null;
+	 gegner_Array =null;
+	 start=null;
+	 hintergrund=null;
+	 keyHandler=null;
+	 raumschiff_Level=null;
+	 score=null;
+	 raumschiff_Steuerung=null;
+	 gegner_Level=null;
+	 gegner_Kollision=null;
+	 label_Spielfeld=null;
+	 schild =null;
+	 gui_spiel=null;
+	 audio=null;
+	 levelTest=null;
+	 level_Survival=null;
+	 gUI_Ladescreen=null;
+	 start_Counter=null;
+	}
 	
 	public void gewonnen(){
 		levelTest.schreibeLevel(var.level+1);

@@ -155,7 +155,10 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 				g.setFont(new Font("Arial", Font.BOLD, 60));
 				g.drawString("Dein Platz:"+score.getPlatzierung(), (Var.spielfeld_screenwidth / 2 - 200), (Var.spielfeld_screenheight / 2 - 30));
 				logik.gewonnen();
-//				zeichneWeiterButton();
+				if (!beendet){
+					zeichneWeiterButton();
+				}
+				
 			}else{
 				g.setColor(Color.RED);
 				g.setFont(new Font("Arial", Font.BOLD, 60));
@@ -195,17 +198,17 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 		spielfeld.getContentPane().add(btnNewButton,0);
 	}
 	
-//	public void zeichneWeiterButton(){
-//		JButton btnNewButton = new JButton("Weiter");
-//		btnNewButton.setAction(action1);
-//		btnNewButton.setBorder(null);
-//		btnNewButton.setBackground(Color.WHITE);
-//		btnNewButton.setFont(new Font("Monospaced", Font.BOLD, 20));
-//		btnNewButton.setForeground(Color.BLACK);
-//		btnNewButton.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/10);
-//		btnNewButton.setLocation(Var.spielfeld_screenwidth/2+btnNewButton.getWidth()-btnNewButton.getWidth()/2,Var.spielfeld_screenheight/2+btnNewButton.getHeight()*2);
-//		spielfeld.getContentPane().add(btnNewButton,0);
-//	}
+	public void zeichneWeiterButton(){
+		JButton btnNewButton = new JButton("Weiter");
+		btnNewButton.setAction(action1);
+		btnNewButton.setBorder(null);
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setFont(new Font("Monospaced", Font.BOLD, 20));
+		btnNewButton.setForeground(Color.BLACK);
+		btnNewButton.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/10);
+		btnNewButton.setLocation(Var.spielfeld_screenwidth/2+btnNewButton.getWidth()-btnNewButton.getWidth()/2,Var.spielfeld_screenheight/2+btnNewButton.getHeight()*2);
+		spielfeld.getContentPane().add(btnNewButton,0);
+	}
 	
 	private class SwingAction extends AbstractAction {
 		
@@ -216,7 +219,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 		public void actionPerformed(ActionEvent e) {
 			
 			
-			new Logik(1,spielfeld);
+			logik.restart(spielfeld);
 		}
 	}
 	
@@ -227,9 +230,10 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			putValue(SHORT_DESCRIPTION, "");
 		}
 		public void actionPerformed(ActionEvent e) {
-			
+			System.out.println("druck");
 			spielfeld.dispose();
-			new Logik(1,1);
+			
+			logik.weiter();
 		}
 	}
 

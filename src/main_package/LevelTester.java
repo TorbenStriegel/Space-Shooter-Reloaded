@@ -88,15 +88,15 @@ public class LevelTester {
 	public void schreibeSchiff(int i){
 		try {
 			writer = new FileWriter(new File(".data.txt"));
-			for (int j = 0; j < 100000; j++) {
+			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
 			writer.write("Level "+levelfrei+" ");
-			for (int j = 0; j < 100000; j++) {
+			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
 			writer.write("Schiff "+i+" ");
-			for (int j = 0; j < 100000; j++) {
+			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
 			writer.close();

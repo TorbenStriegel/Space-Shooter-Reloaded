@@ -9,6 +9,7 @@ public class Spieltimer {
 	private int zeit_Millisekunden = 0;
 	private int zeit_Start = 0;
 	private Var var;
+	private boolean beendet=false;
 	
 	public Spieltimer(int millisekunden,Var vari) {
 		zeit_Millisekunden = millisekunden;
@@ -18,14 +19,23 @@ public class Spieltimer {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (!var.pause&&!var.verloren){
+				try {
+					if (!var.pause&&!var.verloren){
 					zeit_Millisekunden--;
 					var.timer_finish = false;
-					if (zeit_Millisekunden<= 0) {
-						var.verloren = true;
-						var.timer_finish = true;
+						if (zeit_Millisekunden<= 0) {
+							var.verloren = true;
+							var.timer_finish = true;
+						}
 					}
+					
+					if(beendet){
+						timer.cancel();
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
 				}
+				
 			}
 		}, 0, 1000);
 	}
@@ -35,6 +45,10 @@ public class Spieltimer {
 	}
 	public int getZeit_Millisekunden() {
 		return zeit_Millisekunden;
+	}
+	
+	public void beenden(){
+		beendet=true;
 	}
 }
 
