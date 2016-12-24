@@ -8,10 +8,12 @@ public class Spieltimer {
 	private Timer timer;
 	private int zeit_Millisekunden = 0;
 	private int zeit_Start = 0;
+	private Var var;
 	
-	public Spieltimer(int millisekunden,Var var) {
+	public Spieltimer(int millisekunden,Var vari) {
 		zeit_Millisekunden = millisekunden;
 		zeit_Start = zeit_Millisekunden;
+		this.var =vari;
 		timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override

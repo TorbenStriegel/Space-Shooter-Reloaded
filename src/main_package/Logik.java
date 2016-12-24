@@ -35,9 +35,9 @@ public class Logik {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest,null);	
-		gUI_Ladescreen.dispose();
+		}gUI_Ladescreen.dispose();
+		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest,new JFrame());	
+		
 	}
 	
 	Logik(int reset, JFrame label_spielfeld){
@@ -61,7 +61,7 @@ public class Logik {
 		start_Counter=null;
 		level_Survival=null;
 		gUI_Ladescreen=null;	
-		var=new Var();
+		
 		levelTest=new LevelTester();
 		gegner_Array = new Gegner[Var.anzahlGegner];
 		var.reset();

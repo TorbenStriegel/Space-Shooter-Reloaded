@@ -22,7 +22,7 @@ public class LevelTester {
 	public void scannen(){
 		 try {
 			 
-				scanner = new Scanner(new File("data.txt"));
+				scanner = new Scanner(new File(".data.txt"));
 			 	} catch (FileNotFoundException e) {
 			 	}
 		while (scanner.hasNext()) {
