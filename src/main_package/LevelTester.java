@@ -87,7 +87,7 @@ public class LevelTester {
 	
 	public void schreibeSchiff(int i){
 		try {
-			writer = new FileWriter(new File("data.txt"));
+			writer = new FileWriter(new File(".data.txt"));
 			for (int j = 0; j < 100000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
