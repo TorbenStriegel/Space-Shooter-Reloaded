@@ -48,8 +48,12 @@ public class AudioPlayer {
 	}
 	
 	public void musikStoppen(){
-		clip.stop();
-		System.out.println("stop");
+		try {
+			clip.stop();
+			System.out.println("Musik wurde gestoppt");
+		} catch (Exception e) {
+			System.out.println("Musik konnte nicht gestoppt werden!");
+		}
 	}
 
 }

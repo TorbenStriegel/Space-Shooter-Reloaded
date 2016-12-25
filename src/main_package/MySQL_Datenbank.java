@@ -92,13 +92,14 @@ public class MySQL_Datenbank {
 			System.out.println("Verbindung zum Server hergestellt.");
 			statement = connection.createStatement();
 			result = statement.executeQuery("SELECT * FROM `Highscore` where Level = "+level+" ORDER BY Score DESC");
-			while (result.next() && counter<10) {
+			while (result.next()) {
 				if(Integer.parseInt(result.getString(5)) <= ereichterScore){
 					platzierung = counter + 1;
 					System.out.println("Erreichter Platz:"+platzierung);
 					break;
 				}else{
 					counter++;
+					platzierung = counter + 1;
 					}
 			}
 			counter=0;
@@ -136,7 +137,7 @@ public class MySQL_Datenbank {
 
 	public int Werte_eintragen(int raumschiffTyp, int level, String name, int score, int treffergenauigkeit, int vernichtete_Gegner) {
 		try {
-			System.out.println("Versuche eine Verbindung zum Server herzustellen.");
+			System.out.println("Versuche eine Verbindung zum Server herzustellen. (Werte eintragen)");
 			connection = DriverManager.getConnection(MySQL_URL);
 			System.out.println("Verbindung zum Server hergestellt.");
 			statement = connection.createStatement();

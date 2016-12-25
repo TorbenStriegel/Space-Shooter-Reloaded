@@ -14,11 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
+public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle
+												// Funktionen vorhanden sind
 
-
-public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Funktionen vorhanden sind
-	
-	private boolean beendet=false;
+	private boolean beendet = false;
 	private JFrame spielfeld;
 	private Var var;
 	private Gegner_Level gegner_level;
@@ -32,9 +31,10 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 	private final Action action1 = new SwingAction1();
 	private Logik logik;
 
-	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer,Var var,Start_Counter start_Counter,Logik logic) {
-		this.var =var;
-		logik =logic;
+	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer,
+			Var var, Start_Counter start_Counter, Logik logic) {
+		this.var = var;
+		logik = logic;
 		this.gegner_level = gegner_level;
 		this.raumschiff = raumschiff;
 		this.score = score;
@@ -43,7 +43,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 		gegner_Arrays = gegner_level.getGegner_Array();
 		gegner = true;
 		System.out.println("übergeben");
-		 beendet=false;
+		beendet = false;
 	}
 
 	@Override
@@ -54,7 +54,6 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 		Graphics2D g2d = (Graphics2D) g;
 
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
 
 		if (!var.verloren) {
 			g.drawImage(Var.background_1, var.background_x1, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight,
@@ -80,29 +79,32 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			for (int i = 0; i < var.getGeschossliste().size(); i++) {
 				try {
 
-					g.drawImage(var.getGeschossliste().get(i).gibImage(), var.getGeschossliste().get(i).gibSchuss_xpos(), var.getGeschossliste().get(i).gibSchuss_ypos(), null);
-					} catch (Exception e) {
+					g.drawImage(var.getGeschossliste().get(i).gibImage(),
+							var.getGeschossliste().get(i).gibSchuss_xpos(),
+							var.getGeschossliste().get(i).gibSchuss_ypos(), null);
+				} catch (Exception e) {
 				}
-				}
-			
+			}
+
 			for (int i = 0; i < var.getItemliste().size(); i++) {
 				try {
 
-					g.drawImage(var.getItemliste().get(i).gibBild(), var.getItemliste().get(i).gibXpos(), var.getItemliste().get(i).gibYpos(), null);
-					} catch (Exception e) {
+					g.drawImage(var.getItemliste().get(i).gibBild(), var.getItemliste().get(i).gibXpos(),
+							var.getItemliste().get(i).gibYpos(), null);
+				} catch (Exception e) {
 				}
-				}
-			
+			}
+
 			g.setColor(Color.GRAY);
 			g.fillRect(20, 35, raumschiff.getRaumschiff_Leben_Default(), 20);
 
-			g.setColor(new Color(190,60,60));
+			g.setColor(new Color(190, 60, 60));
 			g.fillRect(20, 35, raumschiff.gibRaumschiff_leben(), 20);
 
 			g.setColor(Color.GRAY);
 			g.fillRect(20, 60, raumschiff.gibRaumschiff_schildMax(), 20);
 
-			g.setColor(new Color(60,60,190));
+			g.setColor(new Color(60, 60, 190));
 			g.fillRect(20, 60, raumschiff.gibRaumschiff_schild(), 20);
 
 			g.setColor(Color.YELLOW);
@@ -114,35 +116,33 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 			g.setColor(Color.GREEN);
 			g.drawString("Zeit:" + spieltimer.getZeit_Millisekunden(), Var.spielfeld_screenwidth / 2, 140);
 
-			if(spieltimer.getZeit_Millisekunden()<=10){
+			if (spieltimer.getZeit_Millisekunden() <= 10) {
 				g.setFont(new Font("Arial", Font.BOLD, 90));
-				g.drawString(""+spieltimer.getZeit_Millisekunden(), Var.spielfeld_screenwidth / 2, Var.spielfeld_screenheight/2);
+				g.drawString("" + spieltimer.getZeit_Millisekunden(), Var.spielfeld_screenwidth / 2,
+						Var.spielfeld_screenheight / 2);
 			}
-			
+
 			g.setColor(Color.RED);
 			g.setFont(new Font("Arial", Font.BOLD, 30));
 			g.drawString("Level:" + gegner_level.getLevel(), (Var.spielfeld_screenwidth - 150), 35);
 
-			
-
-			
-			if(Var.zeigeLebenGegner){
+			if (Var.zeigeLebenGegner) {
 				g.setColor(Color.RED);
 				g.setFont(new Font("Arial", Font.BOLD, 50));
-				g.drawString("Boss:" + gegner_Arrays[0].gibleben()+" Leben", (Var.spielfeld_screenwidth/2 - 140),Var.spielfeld_screenheight-35);
+				g.drawString("Boss:" + gegner_Arrays[0].gibleben() + " Leben", (Var.spielfeld_screenwidth / 2 - 160),
+						Var.spielfeld_screenheight - 35);
 			}
-			
-			
-			beendet=false;
-		} 
+
+			beendet = false;
+		}
 		if (var.pause && !var.startCounter) {
 			g.setColor(new Color(100, 100, 100, 128));
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
-		}
-		else if (var.startCounter) {
+		} else if (var.startCounter) {
 			g.setColor(Color.RED);
 			g.setFont(new Font("Arial", Font.BOLD, 140));
-			g.drawString(""+start_Counter.getCounter(), (Var.spielfeld_screenwidth/2-30),Var.spielfeld_screenheight/2+40);
+			g.drawString("" + start_Counter.getCounter(), (Var.spielfeld_screenwidth / 2 - 30),
+					Var.spielfeld_screenheight / 2 + 40);
 			g.setColor(new Color(100, 100, 100, 128));
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
 
@@ -150,89 +150,88 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle Fun
 
 			g.setColor(Color.BLACK);
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
-			if(var.timer_finish){
+			if (var.timer_finish) {
 				g.setColor(Color.GREEN);
 				g.setFont(new Font("Arial", Font.BOLD, 60));
-				g.drawString("Dein Platz:"+score.getPlatzierung(), (Var.spielfeld_screenwidth / 2 - 200), (Var.spielfeld_screenheight / 2 - 30));
+				g.drawString("Dein Platz:" + score.getPlatzierung(), (Var.spielfeld_screenwidth / 2 - 200),
+						(Var.spielfeld_screenheight / 2 - 30));
 				logik.gewonnen();
-				if (!beendet){
+				if (!beendet) {
 					zeichneWeiterButton();
 				}
-				
-			}else{
+
+			} else {
 				g.setColor(Color.RED);
 				g.setFont(new Font("Arial", Font.BOLD, 60));
 				g.drawString("GAME OVER", (Var.spielfeld_screenwidth / 2 - 210), (Var.spielfeld_screenheight / 2 - 30));
 			}
 			g.setFont(new Font("Arial", Font.BOLD, 30));
-			g.drawString("Dein Score: " + score.getFinalScore(), (Var.spielfeld_screenwidth / 2 - 150),(Var.spielfeld_screenheight / 2 + 10));
-			if (!beendet){
+			g.drawString("Dein Score: " + score.getFinalScore(), (Var.spielfeld_screenwidth / 2 - 150),
+					(Var.spielfeld_screenheight / 2 + 10));
+			if (!beendet) {
 				beendet = true;
 				zeichneButton();
 
 			}
-		
+
 		}
 		repaint();
 	}
-	
-	
-	
-		
 
-
-	
-	public void setSpielfeld(JFrame jFrame_Spielfeld){
-		spielfeld=jFrame_Spielfeld;
+	public void setSpielfeld(JFrame jFrame_Spielfeld) {
+		spielfeld = jFrame_Spielfeld;
 	}
-	
-	public void zeichneButton(){
+
+	public void zeichneButton() {
 		JButton btnNewButton = new JButton("Neues Spiel");
 		btnNewButton.setAction(action);
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setFont(new Font("Monospaced", Font.BOLD, 20));
 		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/10);
-		btnNewButton.setLocation(Var.spielfeld_screenwidth/2-btnNewButton.getWidth()-btnNewButton.getWidth()/2,Var.spielfeld_screenheight/2+btnNewButton.getHeight()*2);
-		spielfeld.getContentPane().add(btnNewButton,0);
+		btnNewButton.setSize(Var.spielfeld_screenwidth / 5, Var.spielfeld_screenheight / 10);
+		btnNewButton.setLocation(Var.spielfeld_screenwidth / 2 - btnNewButton.getWidth() - btnNewButton.getWidth() / 2,
+				Var.spielfeld_screenheight / 2 + btnNewButton.getHeight() * 2);
+		spielfeld.getContentPane().add(btnNewButton, 0);
 	}
-	
-	public void zeichneWeiterButton(){
+
+	public void zeichneWeiterButton() {
 		JButton btnNewButton = new JButton("Weiter");
 		btnNewButton.setAction(action1);
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setFont(new Font("Monospaced", Font.BOLD, 20));
 		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setSize(Var.spielfeld_screenwidth/5, Var.spielfeld_screenheight/10);
-		btnNewButton.setLocation(Var.spielfeld_screenwidth/2+btnNewButton.getWidth()-btnNewButton.getWidth()/2,Var.spielfeld_screenheight/2+btnNewButton.getHeight()*2);
-		spielfeld.getContentPane().add(btnNewButton,0);
+		btnNewButton.setSize(Var.spielfeld_screenwidth / 5, Var.spielfeld_screenheight / 10);
+		btnNewButton.setLocation(Var.spielfeld_screenwidth / 2 + btnNewButton.getWidth() - btnNewButton.getWidth() / 2,
+				Var.spielfeld_screenheight / 2 + btnNewButton.getHeight() * 2);
+		spielfeld.getContentPane().add(btnNewButton, 0);
 	}
-	
+
 	private class SwingAction extends AbstractAction {
-		
+
 		public SwingAction() {
 			putValue(NAME, "Menü");
 			putValue(SHORT_DESCRIPTION, "");
 		}
+
 		public void actionPerformed(ActionEvent e) {
-			
-			
+
 			logik.restart(spielfeld);
 		}
 	}
-	
+
 	private class SwingAction1 extends AbstractAction {
-		
+
 		public SwingAction1() {
 			putValue(NAME, "Weiter");
 			putValue(SHORT_DESCRIPTION, "");
 		}
+
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("druck");
 			spielfeld.dispose();
-			
+
 			logik.weiter();
 		}
 	}

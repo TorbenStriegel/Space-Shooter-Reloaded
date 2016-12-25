@@ -76,7 +76,7 @@ public class Logik {
 	}
 
 	public void restart(JFrame label_spielfeld) {
-//		audio.musikStoppen();
+		audio.musikStoppen();
 		spieltimer.beenden();
 		refernzenlöschen();
 		levelTest = new LevelTester();
@@ -87,7 +87,7 @@ public class Logik {
 	}
 
 	public void weiter() {
-		// audio.musikStoppen();
+		audio.musikStoppen();
 		spieltimer.beenden();
 		refernzenlöschen();
 		levelTest = new LevelTester();

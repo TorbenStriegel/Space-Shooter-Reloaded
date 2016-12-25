@@ -69,7 +69,7 @@ public class Gegner_Level {
 			gegner[a] = new Gegner_1(var);
 		}
 		if (!var.survival) {
-			spieltimer = new Spieltimer(60,var);
+			spieltimer = new Spieltimer(5,var);
 		}
 		if (var.survival) {
 			spieltimer = new Spieltimer(30,var);
