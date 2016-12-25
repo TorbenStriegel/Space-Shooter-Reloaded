@@ -39,11 +39,9 @@ public class Score {
 		timer_2.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (var.verloren && !MySQL_hochgeladen && var.timer_finish) {
-//					zeitdazurechnen();
-					System.out.println("Wird in Score eingetragen");
+				if (var.verloren && !MySQL_hochgeladen && var.timer_finish && !Var.survival) {
+					zeitdazurechnen();
 					scoreEintragen();
-					System.out.println("Platzierung wird berechnet");
 					platzierungBerechnen();
 					MySQL_hochgeladen = true;
 				}

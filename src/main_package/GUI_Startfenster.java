@@ -97,12 +97,12 @@ public class GUI_Startfenster extends JFrame {
 		
 		JButton btnexit = new JButton("X");
 		btnexit.setAction(actionbeenden);
-		btnexit.setSize(Var.spielfeld_screenwidth/15, Var.spielfeld_screenheight/15);
+		btnexit.setSize(Var.spielfeld_screenwidth/20, Var.spielfeld_screenheight/15);
 		btnexit.setLocation(Var.spielfeld_screenwidth-btnexit.getWidth(),0 );
 		btnexit.setBackground(Color.RED);
 		btnexit.setBorder(null);
 		btnexit.setForeground(Color.BLACK);
-		btnexit.setFont(new Font("Monospaced", Font.BOLD, 30));
+		btnexit.setFont(new Font("Arial", Font.BOLD, 40));
 		contentPane.add(btnexit);
 		
 		

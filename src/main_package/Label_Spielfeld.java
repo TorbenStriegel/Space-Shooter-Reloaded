@@ -146,7 +146,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle
 			g.setColor(new Color(100, 100, 100, 128));
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
 
-		} else if (var.verloren) {
+		} else if (var.verloren && !Var.survival) {
 
 			g.setColor(Color.BLACK);
 			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);

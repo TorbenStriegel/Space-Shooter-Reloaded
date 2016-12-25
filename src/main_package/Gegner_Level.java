@@ -14,7 +14,7 @@ public class Gegner_Level {
 		this.logik = logik;
 		switch (level) {
 		case 0:
-			starteLevel1();
+			starteLevel0();
 			break;
 		case 1:
 			starteLevel1();
@@ -53,13 +53,15 @@ public class Gegner_Level {
 			starteLevel12();
 			break;
 		default:
-			System.out.println("ungültiges Level");
+			System.out.println("Ungültiges Level!");
 			break;
 		}
 	}
 	
 	private void starteLevel0() {
 		new Level_Survival(var,logik);
+		starteLevel1();
+		var.level++;
 	}
 	
 	private void starteLevel1() {
@@ -69,7 +71,7 @@ public class Gegner_Level {
 			gegner[a] = new Gegner_1(var);
 		}
 		if (!var.survival) {
-			spieltimer = new Spieltimer(5,var);
+			spieltimer = new Spieltimer(60,var);
 		}
 		if (var.survival) {
 			spieltimer = new Spieltimer(30,var);
@@ -82,7 +84,12 @@ public class Gegner_Level {
 		for (int a = 0; a < gegner.length; a++) {
 			gegner[a] = new Gegner_2(var);
 		}
-		spieltimer = new Spieltimer(60,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(60,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 
 	private void starteLevel3() {
@@ -94,7 +101,12 @@ public class Gegner_Level {
 		for (int a = 30; a < gegner.length; a++) {
 			gegner[a] = new Gegner_2(var);
 		}
-		spieltimer = new Spieltimer(90,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(90,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 
 	private void starteLevel4() {
@@ -110,7 +122,12 @@ public class Gegner_Level {
 			gegner[a] = new Gegner_3(var);
 
 		}
-		spieltimer = new Spieltimer(90,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(90,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 
 	private void starteLevel5() {
@@ -122,7 +139,12 @@ public class Gegner_Level {
 		for (int a = 10; a < gegner.length; a++) {
 			gegner[a] = new Gegner_3(var);
 		}
-		spieltimer = new Spieltimer(90,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(90,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 
 	private void starteLevel6() {
@@ -137,7 +159,12 @@ public class Gegner_Level {
 		for (int a = 30; a < gegner.length; a++) {
 			gegner[a] = new Gegner_1(var);
 		}
-		spieltimer = new Spieltimer(90,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(90,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 	
 	private void starteLevel7() {
@@ -152,7 +179,12 @@ public class Gegner_Level {
 		for (int a = 40; a < gegner.length; a++) {
 			gegner[a] = new Gegner_1(var);
 		}
-		spieltimer = new Spieltimer(120,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(120,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 	
 	private void starteLevel8() {
@@ -170,7 +202,12 @@ public class Gegner_Level {
 		for (int a = 30; a < gegner.length; a++) {
 			gegner[a] = new Gegner_1(var);
 		}
-		spieltimer = new Spieltimer(120,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(120,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 	
 	private void starteLevel9() {
@@ -188,7 +225,12 @@ public class Gegner_Level {
 		for (int a = 30; a < gegner.length; a++) {
 			gegner[a] = new Gegner_3(var);
 		}
-		spieltimer = new Spieltimer(120,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(120,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 	
 	private void starteLevel10() {
@@ -203,7 +245,12 @@ public class Gegner_Level {
 		}for (int a = 15; a < gegner.length; a++) {
 			gegner[a] = new Gegner_3(var);
 		}
-		spieltimer = new Spieltimer(120,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(120,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 	
 	private void starteLevel11() {
@@ -218,7 +265,12 @@ public class Gegner_Level {
 		}for (int a = 20; a < gegner.length; a++) {
 			gegner[a] = new Gegner_2(var);
 		}
-		spieltimer = new Spieltimer(120,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(120,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(30,var);
+		}
 	}
 	
 	private void starteLevel12() {
@@ -227,7 +279,12 @@ public class Gegner_Level {
 		for (int a = 0; a < gegner.length; a++) {
 			gegner[a] = new Gegner_7(var);
 		}
-		spieltimer = new Spieltimer(50,var);
+		if (!var.survival) {
+			spieltimer = new Spieltimer(60,var);
+		}
+		if (var.survival) {
+			spieltimer = new Spieltimer(60,var);
+		}
 	}
 
 	public int getLevel() {
