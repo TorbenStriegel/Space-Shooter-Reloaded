@@ -21,7 +21,7 @@ public class AudioPlayer {
 			clip.start();
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			System.out.println("Musik konnte nicht geladen werden. (AudioPlayer)");
 		}
 
@@ -41,7 +41,7 @@ public class AudioPlayer {
 			clip.start();
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			System.out.println("Musik konnte nicht geladen werden. (AudioPlayer)");
 		}
 

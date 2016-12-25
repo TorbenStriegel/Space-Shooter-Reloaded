@@ -6,10 +6,12 @@ public class Gegner_Level {
 	private Spieltimer spieltimer;
 	private int level = 0;
 	private Var var;
+	private Logik logik;
 
-	public Gegner_Level(int level,Var var) {
+	public Gegner_Level(int level,Var var, Logik logik) {
 		this.var =var;
 		this.level = level;
+		this.logik = logik;
 		switch (level) {
 		case 0:
 			starteLevel1();
@@ -50,14 +52,14 @@ public class Gegner_Level {
 		case 12:
 			starteLevel12();
 			break;
-
 		default:
+			System.out.println("ungültiges Level");
 			break;
 		}
 	}
 	
 	private void starteLevel0() {
-		new Level_Survival(var);
+		new Level_Survival(var,logik);
 	}
 	
 	private void starteLevel1() {

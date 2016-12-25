@@ -40,7 +40,7 @@ public class Score {
 			@Override
 			public void run() {
 				if (var.verloren && !MySQL_hochgeladen && var.timer_finish) {
-					zeitdazurechnen();
+//					zeitdazurechnen();
 					System.out.println("Wird in Score eingetragen");
 					scoreEintragen();
 					System.out.println("Platzierung wird berechnet");

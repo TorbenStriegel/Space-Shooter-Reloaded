@@ -50,7 +50,7 @@ public class MySQL_Datenbank {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+//					e.printStackTrace();
 				}
 		}
 	}
