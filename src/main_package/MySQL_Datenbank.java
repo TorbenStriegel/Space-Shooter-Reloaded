@@ -27,7 +27,7 @@ public class MySQL_Datenbank {
 			Arrays.fill(highscore_score, null);
 			Arrays.fill(highscore_treffergenauigkeit, null);
 			Arrays.fill(highscore_vernichteteGegner, null);
-			System.out.println("Versuche eine Verbindung zum Server herzustellen.");
+			System.out.println("Versuche eine Verbindung zum Server herzustellen. (Highscore abfrage)");
 			connection = DriverManager.getConnection(MySQL_URL);
 			System.out.println("Verbindung zum Server hergestellt.");
 			statement = connection.createStatement();
@@ -87,7 +87,7 @@ public class MySQL_Datenbank {
 	
 	public int platzierungBerechnen(int level, double ereichterScore) {
 		try {
-			System.out.println("Versuche eine Verbindung zum Server herzustellen.");
+			System.out.println("Versuche eine Verbindung zum Server herzustellen.(Plazierung berechnen)");
 			connection = DriverManager.getConnection(MySQL_URL);
 			System.out.println("Verbindung zum Server hergestellt.");
 			statement = connection.createStatement();

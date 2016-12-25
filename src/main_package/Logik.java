@@ -8,7 +8,7 @@ public class Logik {
 	Spieltimer spieltimer;
 	MySQL_Datenbank mySQL_Datenbank;
 	Gegner[] gegner_Array = new Gegner[Var.anzahlGegner];
-	Var var =new Var();;
+	Var var;
 	GUI_Startfenster start;
 	Hintergrund hintergrund;
 	KeyHandler keyHandler;
@@ -28,15 +28,16 @@ public class Logik {
 	
 	Logik(){
 		gUI_Ladescreen = new GUI_Ladescreen(true);
+		Var var = new Var();
 		levelTest=new LevelTester();
 		mySQL_Datenbank = new MySQL_Datenbank();
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}gUI_Ladescreen.dispose();
+		}
 		start =new GUI_Startfenster(this, mySQL_Datenbank,var,levelTest,new JFrame());	
+		gUI_Ladescreen.dispose();
 		
 	}
 	
@@ -47,11 +48,6 @@ public class Logik {
 		var.level=level;
 		var.raumschifftyp=raumschiffTyp;
 		Var.name = name;
-		try {
-			fenster.dispose();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
 		hintergrund=new Hintergrund(var);
 	    start_Counter = new Start_Counter(var);
 	    keyHandler = new KeyHandler(var);
@@ -75,6 +71,11 @@ public class Logik {
 	    if(Var.musik){
 	    	audio = new AudioPlayer();
 	    }
+	    try {
+			fenster.dispose();
+		} catch (Exception e) {
+		
+		}
 		var.startCounter = true;
 	  }
 	

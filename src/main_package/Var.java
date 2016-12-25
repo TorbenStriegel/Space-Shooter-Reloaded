@@ -14,7 +14,6 @@ public class Var {
 	static int spielfeld_screenheight = Toolkit.getDefaultToolkit().getScreenSize().height; // Fragt Höhe vom Bildschirm ab
 	
 	static final String background_1_Bildpfad = "Bilder/hintergrund_1.jpg";
-	static final String background_3_Bildpfad = "Bilder/hintergrund_2.jpg";
 	 
 	static int schuessegegner=0;
 	
@@ -57,8 +56,6 @@ public class Var {
 	static final String raumschiff_schuss4_Bildpfad = "Bilder/schuss_ship_4.png";
 	static final String raumschiff_schuss5_Bildpfad = "Bilder/schuss_ship_5.png";
 	static final String raumschiff_schuss6_Bildpfad = "Bilder/schuss_ship_6.png";
-	
-	static final String logo_1_Bildpfad = "Bilder/logo_1.png";
 		
 	static String musik_default = "Musik/musik_Star_Wars.wav";
 	static final String musik_1 = "Musik/musik_standart.wav";
@@ -68,12 +65,11 @@ public class Var {
 	
 	static final String sound_1 = "Sounds/sound_1.wav";
 	
-	static BufferedImage background_1,background_2,background_3; //Hintergrund
+	static BufferedImage background_1,background_2; //Hintergrund
 
 	static BufferedImage gegner_1,gegner_2,gegner_3,gegner_4,gegner_5,gegner_6,gegner_7,gegner_8;
 	static BufferedImage raumschiff_1,raumschiff_2,raumschiff_3,raumschiff_4,raumschiff_5,raumschiff_6;
 	static BufferedImage raumschiffshield_1_Bild;
-	static BufferedImage logo_1;
 	static BufferedImage raumschiff_schuss1_Bild,raumschiff_schuss2_Bild,raumschiff_schuss3_Bild,raumschiff_schuss4_Bild,raumschiff_schuss5_Bild,raumschiff_schuss6_Bild;
 	static BufferedImage gegner_schuss1_Bild, gegner_schuss2_Bild, gegner_schuss3_Bild,gegner_schuss4_Bild;
 	static BufferedImage itemLeben_bild,itemShild_bild,itemFrei_bild,itemSpeed_bild,itemSchuss_bild;
@@ -105,11 +101,8 @@ public class Var {
 	public Var(){
 		reset();
 		try{
-			logo_1 = ImageIO.read(new File(logo_1_Bildpfad));
-			System.out.println("Logo geladen");
 			background_1 = ImageIO.read(new File(background_1_Bildpfad));
 			background_2 = ImageIO.read(new File(background_1_Bildpfad));
-			background_3 = ImageIO.read(new File(background_3_Bildpfad));
 			System.out.println("Hintergrund geladen");
 			gegner_1 = ImageIO.read(new File(gegner_1_Bildpfad));
 			gegner_2 = ImageIO.read(new File(gegner_2_Bildpfad));
