@@ -87,7 +87,6 @@ public class Logik {
 	}
 
 	public void weiter() {
-		audio.musikStoppen();
 		spieltimer.beenden();
 		refernzenlöschen();
 		levelTest = new LevelTester();

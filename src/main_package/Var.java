@@ -75,8 +75,8 @@ public class Var {
 	static BufferedImage itemLeben_bild,itemShild_bild,itemFrei_bild,itemSpeed_bild,itemSchuss_bild;
 	
 	
-	int background_x1 = 0,background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
-	int background_speed = 40;
+	static int background_x1 = 0,background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
+	static int background_speed = 40;
 	
 	private ArrayList<Schuesse> geschossliste= new ArrayList<Schuesse>();
 	private ArrayList<Items> itemliste= new ArrayList<Items>();
@@ -150,9 +150,6 @@ public class Var {
 	
 	public void reset(){
 		schuessegegner=0;
-		background_x1 = 0;
-		background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
-	    background_speed = 40;
 		
 	    geschossliste= new ArrayList<Schuesse>();
 	    itemliste= new ArrayList<Items>();
