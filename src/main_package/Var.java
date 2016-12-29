@@ -92,6 +92,8 @@ public class Var {
 	
 	static boolean survival = false;
 
+	boolean keinReset =false;
+	int gegnerAusSpielfeld=0;
 	static int level=1;
 	static boolean musik = true;
 	static boolean zeigeLebenGegner = false;
@@ -160,9 +162,9 @@ public class Var {
 		gegner_Array=new Gegner[0];
 	    geschossliste= new ArrayList<Schuesse>();
 	    itemliste= new ArrayList<Items>();
-		
+	    keinReset =false;
 		 anzahlGegner = 0;
-		
+		 gegnerAusSpielfeld=0;
 		 pause = true;
 		 verloren = false;
 		 timer_finish = false;
@@ -177,6 +179,8 @@ public class Var {
 	    itemliste= new ArrayList<Items>();
 		 verloren = false;
 		 timer_finish = false;
+		 gegnerAusSpielfeld=0;
+		 keinReset =false;
 	}
 	
 	

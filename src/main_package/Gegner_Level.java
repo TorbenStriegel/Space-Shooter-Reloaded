@@ -60,6 +60,7 @@ public class Gegner_Level {
 	private void starteLevel0() {
 		new Level_Survival(var,logik);
 		starteLevel1();
+		level++;
 		var.level++;
 	}
 	

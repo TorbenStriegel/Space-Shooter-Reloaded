@@ -26,12 +26,12 @@ public class LevelTester {
 			 
 		while (scanner.hasNext()) {
 			String a =scanner.next();
-			if(a.equals("Level")){
+			if(a.equals("123")){
 				String s = scanner.next();
 				levelfrei=Integer.parseInt(s);
 			}
 			
-			if(a.equals("Schiff")){
+			if(a.equals("234")){
 				String s = scanner.next();
 				schifffrei=Integer.parseInt(s);
 			}
@@ -69,11 +69,11 @@ public class LevelTester {
 			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
-			writer.write("Level "+i+" ");
+			writer.write("123 "+i+" ");
 			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
-			writer.write("Schiff "+schifffrei+" ");
+			writer.write("234 "+schifffrei+" ");
 			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
@@ -92,11 +92,11 @@ public class LevelTester {
 			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
-			writer.write("Level "+levelfrei+" ");
+			writer.write("123 "+levelfrei+" ");
 			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}
-			writer.write("Schiff "+i+" ");
+			writer.write("234 "+i+" ");
 			for (int j = 0; j < 1000; j++) {
 				writer.write((char)(Math.random()*100)+" ");
 			}

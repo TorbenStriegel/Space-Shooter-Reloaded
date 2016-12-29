@@ -54,7 +54,7 @@ public class Logik {
 		gegner_Level = new Gegner_Level(level, var, this);
 		var.setGegnerArray(gegner_Level.getGegner_Array());
 		if(var.survival){
-			spieltimer = new Spieltimer(10, var);
+			spieltimer = new Spieltimer(5, var);
 		}else{
 			spieltimer = new Spieltimer(60, var);
 		}
@@ -67,7 +67,7 @@ public class Logik {
 		label_Spielfeld = new Label_Spielfeld(gegner_Level, raumschiff, score, spieltimer, var, start_Counter, this);
 		gui_spiel = new GUI_Spielfeld(label_Spielfeld, var);
 		schild = new Schild_Steuerung(raumschiff, var);
-		new ItemGenerator(raumschiff, var, level, levelTest);
+		new ItemGenerator(raumschiff, var, (int)(Math.random()*12), levelTest);
 		if (Var.musik) {
 			audio = new AudioPlayer();
 		}
@@ -103,14 +103,19 @@ public class Logik {
 	}
 	
 	public void survival(){
+		for (int i = 0; i < var.getGegnerArray().length; i++) {
+			var.getGegnerArrayIndex(i).cancelSteuerung();;
+		}
+		var.keinReset=true;
+		if(var.gegnerAusSpielfeld>=var.getGegnerArray().length){
 		var.survivalReset();
-		spieltimer.setTime(10);
+		spieltimer.setTime(5);
 		gegner_Level.levelWeiter();
 		var.setGegnerArray(gegner_Level.getGegner_Array());
 		for (int i = 0; i < var.getGegnerArray().length; i++) {
 			var.getGegnerArrayIndex(i).setRaumschiff(raumschiff);
 		}
-		
+		}
 	}
 
 	private void refernzenlöschen() {
