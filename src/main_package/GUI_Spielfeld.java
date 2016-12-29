@@ -28,6 +28,9 @@ public class GUI_Spielfeld {
 		label_Spielfeld.setVisible(true);
 		label_Spielfeld.setSpielfeld(jFrame_Spielfeld);
 	}
+	public void loescheSpielfeld(){
+		jFrame_Spielfeld.dispose();
+	}
 	
 	
 

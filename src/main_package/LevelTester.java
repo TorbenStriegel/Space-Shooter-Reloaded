@@ -23,8 +23,7 @@ public class LevelTester {
 		 try {
 			 
 				scanner = new Scanner(new File(".data.txt"));
-			 	} catch (FileNotFoundException e) {
-			 	}
+			 
 		while (scanner.hasNext()) {
 			String a =scanner.next();
 			if(a.equals("Level")){
@@ -39,6 +38,8 @@ public class LevelTester {
 			
 		}
 		scanner.close();
+		} catch (FileNotFoundException e) {
+		}
 	}
 	
 	

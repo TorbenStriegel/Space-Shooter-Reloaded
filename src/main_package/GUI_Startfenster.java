@@ -37,7 +37,6 @@ public class GUI_Startfenster extends JFrame {
 	private final Action action;
 	private final Action action_1;
 	private final Action action_2;
-	private final Action action_3;
 	private final Action actionbeenden;
 	private MySQL_Datenbank mySQL_Datenbank;
 	private JLabel label;
@@ -62,8 +61,6 @@ public class GUI_Startfenster extends JFrame {
 		action = new SwingAction(this);
 		action_1 = new SwingAction_1(this);
 		action_2 = new SwingAction_2(this);
-		action_3  = new SwingAction_3(mySQL_Datenbank);
-
 		actionbeenden  = new SwingActioab();
 		logik=l;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -473,15 +470,7 @@ public class GUI_Startfenster extends JFrame {
 			fenster.starten();
 		}
 	}
-	private class SwingAction_3 extends AbstractAction {
-		public SwingAction_3(MySQL_Datenbank mySQL_Datenbank) {
-			putValue(NAME, "Highscoreliste");
-			putValue(SHORT_DESCRIPTION, "");
-		}
-		public void actionPerformed(ActionEvent e) {
-			new GUI_Highscore(mySQL_Datenbank,level);
-		}
-	}
+	
 	private class SwingActionlv1 extends AbstractAction {
 		GUI_Startfenster fenster;
 		public SwingActionlv1(GUI_Startfenster fenster) {

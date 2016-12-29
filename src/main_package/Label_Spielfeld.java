@@ -229,7 +229,7 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("druck");
+			
 			spielfeld.dispose();
 
 			logik.weiter();

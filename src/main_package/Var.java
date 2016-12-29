@@ -149,6 +149,11 @@ public class Var {
 	
 	
 	public void reset(){
+		
+		
+		 background_x1 = 0;
+		 background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
+		 background_speed = 40;
 		schuessegegner=0;
 		
 	    geschossliste= new ArrayList<Schuesse>();

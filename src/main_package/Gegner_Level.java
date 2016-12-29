@@ -71,7 +71,7 @@ public class Gegner_Level {
 			gegner[a] = new Gegner_1(var);
 		}
 		if (!var.survival) {
-			spieltimer = new Spieltimer(60,var);
+			spieltimer = new Spieltimer(6,var);
 		}
 		if (var.survival) {
 			spieltimer = new Spieltimer(30,var);
@@ -85,7 +85,7 @@ public class Gegner_Level {
 			gegner[a] = new Gegner_2(var);
 		}
 		if (!var.survival) {
-			spieltimer = new Spieltimer(60,var);
+			spieltimer = new Spieltimer(6,var);
 		}
 		if (var.survival) {
 			spieltimer = new Spieltimer(30,var);
@@ -102,7 +102,7 @@ public class Gegner_Level {
 			gegner[a] = new Gegner_2(var);
 		}
 		if (!var.survival) {
-			spieltimer = new Spieltimer(90,var);
+			spieltimer = new Spieltimer(9,var);
 		}
 		if (var.survival) {
 			spieltimer = new Spieltimer(30,var);
@@ -191,7 +191,7 @@ public class Gegner_Level {
 		Var.anzahlGegner = 50;
 		gegner = new Gegner[Var.anzahlGegner];
 		for (int a = 0; a < gegner.length-45; a++) {
-			gegner[a] = new Gegner_3(var);
+			gegner[a] = new Gegner_8(var);
 		}
 		for (int a = 5; a < gegner.length-40; a++) {
 			gegner[a] = new Gegner_4(var);

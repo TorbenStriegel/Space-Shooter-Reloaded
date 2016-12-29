@@ -10,23 +10,21 @@ public class Level_Survival {
 	private Timer timer;
 	private boolean level_lauft = false;
 	
-	public Level_Survival(Var var,Logik logik) {
+	public Level_Survival(Var vari,Logik logic) {
 		Var.survival = true;
-		this.var = var;
-		this.logik = logik;
+		this.var = vari;
+		this.logik = logic;
 		timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (!var.pause) {
-					if (!level_lauft) {
-						level_lauft = true;
-					}else if(var.timer_finish){
-						level_lauft = false;
+				
+					if(var.timer_finish){
 						logik.weiter();
+					var.timer_finish=false;
 //						var.startCounter=true;
 					}
-				}
+				
 					
 			}
 		}, 0, 700);

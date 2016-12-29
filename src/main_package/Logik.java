@@ -41,6 +41,7 @@ public class Logik {
 	}
 
 	public void starten(String name, int raumschiffTyp, GUI_Startfenster fenster, int level) {
+		
 		var.level = level;
 		var.raumschifftyp = raumschiffTyp;
 		Var.name = name;
@@ -81,25 +82,26 @@ public class Logik {
 		refernzenlöschen();
 		levelTest = new LevelTester();
 		gegner_Array = new Gegner[Var.anzahlGegner];
-		var.reset();
+		var=new Var();
 		mySQL_Datenbank = new MySQL_Datenbank();
 		start = new GUI_Startfenster(this, mySQL_Datenbank, var, levelTest, label_spielfeld);
 	}
 
 	public void weiter() {
+		gui_spiel.loescheSpielfeld();
+		audio.musikStoppen();
 		spieltimer.beenden();
 		refernzenlöschen();
 		levelTest = new LevelTester();
 		gegner_Array = new Gegner[Var.anzahlGegner];
-		var.reset();
-		mySQL_Datenbank = new MySQL_Datenbank();
+		var=new Var();
+	
 		starten(var.name, var.raumschifftyp, null, var.level + 1);
 	}
 
 	private void refernzenlöschen() {
 		raumschiff = null;
 		spieltimer = null;
-		mySQL_Datenbank = null;
 		gegner_Array = null;
 		start = null;
 		hintergrund = null;
@@ -116,6 +118,7 @@ public class Logik {
 		levelTest = null;
 		gUI_Ladescreen = null;
 		start_Counter = null;
+		var =null;
 	}
 
 	public void gewonnen() {
