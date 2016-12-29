@@ -6,6 +6,7 @@ import java.util.TimerTask;
 public class Hintergrund {
 	Timer timer;
 	int variable = 5;
+	private boolean cancel=false; 
 
 	public Hintergrund(Var var) {
 		timer = new Timer();
@@ -23,8 +24,15 @@ public class Hintergrund {
 				} else {
 					Var.background_x2 = (Var.spielfeld_screenwidth - variable);
 				}
+				if(cancel){
+					timer.cancel();
+				}
 			}
 		}, 0, Var.background_speed);
 	}
 
+	public void setCancel(){
+		cancel=true;
+	}
+	
 }

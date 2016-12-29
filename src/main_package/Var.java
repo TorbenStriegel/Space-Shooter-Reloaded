@@ -80,6 +80,7 @@ public class Var {
 	
 	private ArrayList<Schuesse> geschossliste= new ArrayList<Schuesse>();
 	private ArrayList<Items> itemliste= new ArrayList<Items>();
+	private Gegner[] gegner_Array=new Gegner[0];
 	
 	static String name = "Name";
 	
@@ -156,6 +157,7 @@ public class Var {
 		 background_speed = 40;
 		schuessegegner=0;
 		
+		gegner_Array=new Gegner[0];
 	    geschossliste= new ArrayList<Schuesse>();
 	    itemliste= new ArrayList<Items>();
 		
@@ -169,6 +171,27 @@ public class Var {
 		zeigeLebenGegner = false;
 	}
 	
+	public void survivalReset(){
+		gegner_Array=new Gegner[0];
+	    geschossliste= new ArrayList<Schuesse>();
+	    itemliste= new ArrayList<Items>();
+		 verloren = false;
+		 timer_finish = false;
+	}
+	
+	
+	public Gegner[] getGegnerArray(){
+		return gegner_Array;
+	}
+	
+	
+	public Gegner getGegnerArrayIndex(int index){
+		return gegner_Array[index];
+	}
+	
+	public void setGegnerArray(Gegner[] gegner){
+		gegner_Array=gegner;
+	}
 	
 	public ArrayList<Schuesse> getGeschossliste() {
 		return geschossliste;

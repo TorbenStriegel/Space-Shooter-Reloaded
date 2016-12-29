@@ -25,7 +25,6 @@ public abstract class Raumschiff {
 	protected Var var;
 	protected int geschoss_periode;
 	protected int geschoss_periode_default;
-	protected Gegner[] gegner;
 	protected boolean raumschiff_schildanzeigen = true;
 	protected BufferedImage raumschiff_bild;
 	protected BufferedImage raumschiffshild_bild;
@@ -98,10 +97,7 @@ public abstract class Raumschiff {
 		}
 	}
 
-	public void setGegner(Gegner[] gegner) {
-		this.gegner = gegner;
-	}
-
+	
 	public void setX_Pos(int x_Pos) {
 		raumschiff_xpos = x_Pos;
 	}

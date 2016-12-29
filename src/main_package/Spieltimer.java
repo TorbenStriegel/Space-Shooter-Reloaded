@@ -24,7 +24,9 @@ public class Spieltimer {
 					zeit_Millisekunden--;
 					var.timer_finish = false;
 						if (zeit_Millisekunden<= 0) {
+							if(!var.survival){
 							var.verloren = true;
+							}
 							var.timer_finish = true;
 						}
 					}
@@ -49,6 +51,10 @@ public class Spieltimer {
 	
 	public void beenden(){
 		beendet=true;
+	}
+	
+	public void setTime(int sec){
+		zeit_Millisekunden = sec;
 	}
 }
 

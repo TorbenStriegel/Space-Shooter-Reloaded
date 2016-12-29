@@ -20,8 +20,11 @@ public class Level_Survival {
 			public void run() {
 				
 					if(var.timer_finish){
-						logik.weiter();
+						logik.survival();
 					var.timer_finish=false;
+					
+					var.verloren=false;
+					
 //						var.startCounter=true;
 					}
 				

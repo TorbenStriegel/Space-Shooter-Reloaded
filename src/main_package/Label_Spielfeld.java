@@ -20,27 +20,25 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle
 	private boolean beendet = false;
 	private JFrame spielfeld;
 	private Var var;
-	private Gegner_Level gegner_level;
 	private Raumschiff raumschiff;
 	private Score score;
 	private Spieltimer spieltimer;
 	private Start_Counter start_Counter;
 	boolean gegner = false;
-	private Gegner[] gegner_Arrays = new Gegner[Var.anzahlGegner];
+	Gegner_Level gegner_Level;
 	private final Action action = new SwingAction();
 	private final Action action1 = new SwingAction1();
 	private Logik logik;
 
-	public Label_Spielfeld(Gegner_Level gegner_level, Raumschiff raumschiff, Score score, Spieltimer spieltimer,
+	public Label_Spielfeld(Gegner_Level gegner_Level,Raumschiff raumschiff, Score score, Spieltimer spieltimer,
 			Var var, Start_Counter start_Counter, Logik logic) {
 		this.var = var;
 		logik = logic;
-		this.gegner_level = gegner_level;
 		this.raumschiff = raumschiff;
 		this.score = score;
 		this.spieltimer = spieltimer;
 		this.start_Counter = start_Counter;
-		gegner_Arrays = gegner_level.getGegner_Array();
+		this.gegner_Level=gegner_Level;
 		gegner = true;
 		System.out.println("übergeben");
 		beendet = false;
@@ -62,8 +60,8 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle
 					null);
 
 			if (gegner) {
-				for (int i = 0; i < gegner_Arrays.length; i++) {
-					g.drawImage(gegner_Arrays[i].getImage(), gegner_Arrays[i].gibxpos(), gegner_Arrays[i].gibypos(),
+				for (int i = 0; i < var.getGegnerArray().length; i++) {
+					g.drawImage(var.getGegnerArray()[i].getImage(), var.getGegnerArray()[i].gibxpos(), var.getGegnerArray()[i].gibypos(),
 							null);
 				}
 			}
@@ -114,22 +112,23 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle
 			g.drawString("Treffergenauigkeit:" + score.getTreffergenauigkeit() + "%",
 					Var.spielfeld_screenwidth / 2 - 120, 100);
 			g.setColor(Color.GREEN);
+			if(!var.survival){
 			g.drawString("Zeit:" + spieltimer.getZeit_Millisekunden(), Var.spielfeld_screenwidth / 2, 140);
-
+			
 			if (spieltimer.getZeit_Millisekunden() <= 10) {
 				g.setFont(new Font("Arial", Font.BOLD, 90));
 				g.drawString("" + spieltimer.getZeit_Millisekunden(), Var.spielfeld_screenwidth / 2,
 						Var.spielfeld_screenheight / 2);
 			}
-
+			}
 			g.setColor(Color.RED);
 			g.setFont(new Font("Arial", Font.BOLD, 30));
-			g.drawString("Level:" + gegner_level.getLevel(), (Var.spielfeld_screenwidth - 150), 35);
+			g.drawString("Level:" + gegner_Level.getLevel(), (Var.spielfeld_screenwidth - 150), 35);
 
 			if (Var.zeigeLebenGegner) {
 				g.setColor(Color.RED);
 				g.setFont(new Font("Arial", Font.BOLD, 50));
-				g.drawString("Boss:" + gegner_Arrays[0].gibleben() + " Leben", (Var.spielfeld_screenwidth / 2 - 160),
+				g.drawString("Boss:" + var.getGegnerArray()[0].gibleben() + " Leben", (Var.spielfeld_screenwidth / 2 - 160),
 						Var.spielfeld_screenheight - 35);
 			}
 
