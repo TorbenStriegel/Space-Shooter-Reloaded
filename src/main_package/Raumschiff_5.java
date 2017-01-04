@@ -25,7 +25,7 @@ public class Raumschiff_5 extends Raumschiff {
 	
 	@Override
 	public void schiessen(){
-		new Schuesse_Raumschiff_5(gegner,this.raumschiff_xpos +this.raumschiff_bild.getWidth() -Var.raumschiff_schuss1_Bild.getWidth()-5, this.raumschiff_ypos +Var.raumschiff_schuss1_Bild.getHeight()/2+3, score,false,var);
-		new Schuesse_Raumschiff_5(gegner,this.raumschiff_xpos +this.raumschiff_bild.getWidth() -Var.raumschiff_schuss1_Bild.getWidth()-5, this.raumschiff_ypos +this.raumschiff_bild.getHeight()-Var.raumschiff_schuss1_Bild.getHeight()/2-10, score,false,var);
+		new Schuesse_Raumschiff_5(var.getGegnerArray(),this.raumschiff_xpos +this.raumschiff_bild.getWidth() -Var.raumschiff_schuss1_Bild.getWidth()-5, this.raumschiff_ypos +Var.raumschiff_schuss1_Bild.getHeight()/2+3, score,false,var);
+		new Schuesse_Raumschiff_5(var.getGegnerArray(),this.raumschiff_xpos +this.raumschiff_bild.getWidth() -Var.raumschiff_schuss1_Bild.getWidth()-5, this.raumschiff_ypos +this.raumschiff_bild.getHeight()-Var.raumschiff_schuss1_Bild.getHeight()/2-10, score,false,var);
 	}
 }

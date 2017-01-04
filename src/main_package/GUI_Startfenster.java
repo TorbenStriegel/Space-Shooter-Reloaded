@@ -37,7 +37,6 @@ public class GUI_Startfenster extends JFrame {
 	private final Action action;
 	private final Action action_1;
 	private final Action action_2;
-	private final Action action_3;
 	private final Action actionbeenden;
 	private MySQL_Datenbank mySQL_Datenbank;
 	private JLabel label;
@@ -51,7 +50,7 @@ public class GUI_Startfenster extends JFrame {
 	private LevelTester levelTest;
 	private JLabel fehler;
 	private LableHighscore highscore;
-	 
+
 	public GUI_Startfenster(Logik l, MySQL_Datenbank mySQL_Datenbank,Var var,LevelTester levelTest,JFrame frame) {
 		this.mySQL_Datenbank = mySQL_Datenbank;
 		this.levelTest=levelTest;
@@ -62,8 +61,6 @@ public class GUI_Startfenster extends JFrame {
 		action = new SwingAction(this);
 		action_1 = new SwingAction_1(this);
 		action_2 = new SwingAction_2(this);
-		action_3  = new SwingAction_3(mySQL_Datenbank);
-
 		actionbeenden  = new SwingActioab();
 		logik=l;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -139,6 +136,8 @@ public class GUI_Startfenster extends JFrame {
 		});
 		contentPane.add(txtName);
 		
+		
+		
 		JButton btnNewButton_1 = new JButton(">");
 		btnNewButton_1.setAction(action);
 		btnNewButton_1.setBorder(null);
@@ -169,6 +168,26 @@ public class GUI_Startfenster extends JFrame {
 		
 		contentPane.add(lblLevel);
 		
+		
+		JLabel freigeschaltetLevel = new JLabel("Level freigeschaltet:"+levelTest.getlevelfrei());
+		freigeschaltetLevel.setHorizontalAlignment(SwingConstants.CENTER);
+		freigeschaltetLevel.setSize(Var.spielfeld_screenwidth/4, Var.spielfeld_screenheight/15);
+		freigeschaltetLevel.setLocation(Var.spielfeld_screenwidth/5-freigeschaltetLevel.getWidth()/2,Var.spielfeld_screenheight/6*5-freigeschaltetLevel.getHeight()/2 );
+		freigeschaltetLevel.setFont(new Font("Monospaced", Font.BOLD, 20));
+		freigeschaltetLevel.setForeground(Color.WHITE);
+		
+		contentPane.add(freigeschaltetLevel);
+		
+		JLabel freigeschaltetSchiff = new JLabel("Schiff freigeschaltet:"+(levelTest.getSchifffrei()+1));
+		freigeschaltetSchiff.setHorizontalAlignment(SwingConstants.CENTER);
+		freigeschaltetSchiff.setSize(Var.spielfeld_screenwidth/4, Var.spielfeld_screenheight/15);
+		freigeschaltetSchiff.setLocation(Var.spielfeld_screenwidth/5-freigeschaltetSchiff.getWidth()/2,Var.spielfeld_screenheight/6 *5+freigeschaltetSchiff.getHeight()/2 );
+		freigeschaltetSchiff.setFont(new Font("Monospaced", Font.BOLD, 20));
+		freigeschaltetSchiff.setForeground(Color.WHITE);
+		if(levelTest.getSchifffrei()>5){
+			freigeschaltetSchiff.setText("Schiff freigeschaltet:Alle");
+		}
+		contentPane.add(freigeschaltetSchiff);
 		
 		musiklabel = new JLabel("Standart");
 		musiklabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -349,6 +368,9 @@ public class GUI_Startfenster extends JFrame {
 		}
 		
 		lblLevel.setText("Level:"+level);
+		if(level==0){
+			lblLevel.setText("Level:Survival");
+		}
 		highscore.level(level);
 	}
 	
@@ -381,6 +403,9 @@ public class GUI_Startfenster extends JFrame {
 			level=12;
 		}
 		lblLevel.setText("Level:"+level);
+		if(level==0){
+			lblLevel.setText("Level:Survival");
+		}
 		highscore.level(level);
 	}
 	
@@ -473,15 +498,7 @@ public class GUI_Startfenster extends JFrame {
 			fenster.starten();
 		}
 	}
-	private class SwingAction_3 extends AbstractAction {
-		public SwingAction_3(MySQL_Datenbank mySQL_Datenbank) {
-			putValue(NAME, "Highscoreliste");
-			putValue(SHORT_DESCRIPTION, "");
-		}
-		public void actionPerformed(ActionEvent e) {
-			new GUI_Highscore(mySQL_Datenbank,level);
-		}
-	}
+	
 	private class SwingActionlv1 extends AbstractAction {
 		GUI_Startfenster fenster;
 		public SwingActionlv1(GUI_Startfenster fenster) {

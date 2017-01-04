@@ -26,7 +26,8 @@ public abstract class Gegner {
 	protected boolean raumschiff_uebergeben = false;
 	protected BufferedImage gegner_bild = Var.gegner_1;
 	protected int richtungy =0; 
-	Gegner_Steuerung gegner_Steuerung;
+	protected Gegner_Steuerung gegner_Steuerung;
+	
 	/*------------------------------------------------------------*/
 	public Gegner(Var var) {
 		this.var =var;
@@ -34,6 +35,10 @@ public abstract class Gegner {
 		reset();
 	}
 	/*------------------------------------------------------------*/
+	
+	public void cancelSteuerung(){
+		gegner_Steuerung.cancel();
+	}
 	
 	public void bewegen_x(){
 		xpos = xpos+xspeed;
@@ -54,10 +59,15 @@ public abstract class Gegner {
 	}
 	
 	public void reset(){
-		ypos=(int) (Math.random()*(Var.spielfeld_screenheight-80));
-		xpos=Var.spielfeld_screenwidth+ (int) (Math.random()*1500);
-		leben = leben_default;
-		counter++;
+	if(var.keinReset){
+		 var.gegnerAusSpielfeld++;
+		 xspeed=0;
+	}
+	ypos=(int) (Math.random()*(Var.spielfeld_screenheight-80));
+	xpos=Var.spielfeld_screenwidth+ (int) (Math.random()*1500);
+	leben = leben_default;
+	counter++;
+		
 	}
 	public void sonstige_Befehle(){
 

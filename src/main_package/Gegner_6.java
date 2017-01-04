@@ -47,10 +47,15 @@ public class Gegner_6 extends Gegner{
 	
 	
 		public void reset(){
+			
 			ypos=(int) (Math.random()*(Var.spielfeld_screenheight-80));
 			xpos=Var.spielfeld_screenwidth+ (int) (Math.random()*1500);
 			leben = leben_default;
 			xspeed=-10;
+			if(var.keinReset){
+				 var.gegnerAusSpielfeld++;
+				 xspeed=0;
+			}
 		}
 	
 }

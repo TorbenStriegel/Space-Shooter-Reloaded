@@ -24,7 +24,7 @@ public class Raumschiff_3 extends Raumschiff {
 	
 	
 	public void schiessen(){
-		new Schuesse_Raumschiff_3(gegner,this.raumschiff_xpos +this.raumschiff_bild.getWidth() -Var.raumschiff_schuss3_Bild.getWidth()*2-10, this.raumschiff_ypos +Var.raumschiff_schuss3_Bild.getHeight()/2+5, score,false,var);
-		new Schuesse_Raumschiff_3(gegner,this.raumschiff_xpos +this.raumschiff_bild.getWidth() -Var.raumschiff_schuss3_Bild.getWidth()*2-10, this.raumschiff_ypos +this.raumschiff_bild.getHeight()-Var.raumschiff_schuss3_Bild.getHeight()/2-20, score,false,var);
+		new Schuesse_Raumschiff_3(var.getGegnerArray(),this.raumschiff_xpos +this.raumschiff_bild.getWidth() -Var.raumschiff_schuss3_Bild.getWidth()*2-10, this.raumschiff_ypos +Var.raumschiff_schuss3_Bild.getHeight()/2+5, score,false,var);
+		new Schuesse_Raumschiff_3(var.getGegnerArray(),this.raumschiff_xpos +this.raumschiff_bild.getWidth() -Var.raumschiff_schuss3_Bild.getWidth()*2-10, this.raumschiff_ypos +this.raumschiff_bild.getHeight()-Var.raumschiff_schuss3_Bild.getHeight()/2-20, score,false,var);
 		}
 }

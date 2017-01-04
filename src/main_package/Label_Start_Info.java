@@ -49,6 +49,18 @@ public class Label_Start_Info extends JLabel {
 			schussschaden=schuss.getSchaden();
 			raumschiffname="Destroyer";
 			break;
+		case 4:
+			schiff=new Raumschiff_5(null,true,var);
+			schuss=new Schuesse_Raumschiff_5(null, 0, 0, null, true,var);
+			schussschaden=schuss.getSchaden();
+			raumschiffname="Destroyer???";
+			break;
+		case 5:
+			schiff=new Raumschiff_6(null,true,var);
+			schuss=new Schuesse_Raumschiff_6(null, 0, 0, null, true,var,0,0);
+			schussschaden=schuss.getSchaden();
+			raumschiffname="??????????????????";
+			break;
 			
 		default:
 			break;
@@ -63,7 +75,7 @@ public class Label_Start_Info extends JLabel {
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setFont(new Font("Monospaced", Font.BOLD, 20));
 		g.setColor(Color.WHITE);
-		g.drawString("Raumschiff "+raumschiffname, 20,20);
+		g.drawString(raumschiffname, 20,20);
 		g.drawString("Leben: ", 20, this.getHeight()/10*2);
 		g.fillRect(20, this.getHeight()/10*2+10,schiff.getRaumschiff_Leben_Default()/2 , 20);
 		g.drawString("Schild: ", 20,this.getHeight()/10*3+10);

@@ -8,7 +8,7 @@ public class Gegner_Steuerung {
 	Timer timer;
 	Gegner gegner;
 	private int counter = 0;
-	 
+	private boolean cancel;
 
 	public Gegner_Steuerung(Gegner gegner,Var var) {
 		this.gegner = gegner;
@@ -21,7 +21,8 @@ public class Gegner_Steuerung {
 
 			@Override
 			public void run() {
-				if (var.verloren) {
+				if (var.verloren||(cancel&&gegner.gibxpos()<-300)) {
+					var.gegnerAusSpielfeld++;
 					timer.cancel();
 				}
 				if (var.pause != true) {
@@ -30,7 +31,7 @@ public class Gegner_Steuerung {
 						gegner.bewegen_x();
 						gegner.bewegen_y();
 						gegner.sonstige_Befehle();
-						if (gegner.gibxpos() < -gegner.getImage().getWidth()) {
+						if (gegner.gibxpos() < -gegner.getImage().getWidth()&&!var.keinReset) {
 							gegner.reset();
 							counter = 0;
 						}
@@ -50,7 +51,15 @@ public class Gegner_Steuerung {
 
 				}
 			}
+			
+			
+			
 		}, 0, 13);
 
+	}
+	
+	
+	public void cancel(){
+		cancel=true;
 	}
 }

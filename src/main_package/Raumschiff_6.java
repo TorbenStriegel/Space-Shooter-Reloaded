@@ -25,9 +25,9 @@ public class Raumschiff_6 extends Raumschiff {
 	
 	@Override
 	public void schiessen(){
-		new Schuesse_Raumschiff_6(gegner,this.raumschiff_xpos +this.raumschiff_bild.getWidth()/2, this.raumschiff_ypos +this.raumschiff_bild.getHeight()/2+Var.raumschiff_schuss1_Bild.getHeight()*6, score,false,var,20,0);
-		new Schuesse_Raumschiff_6(gegner,this.raumschiff_xpos +this.raumschiff_bild.getWidth()/2, this.raumschiff_ypos +this.raumschiff_bild.getHeight()/2+Var.raumschiff_schuss1_Bild.getHeight()*9, score,false,var,0,1);
-		new Schuesse_Raumschiff_6(gegner,this.raumschiff_xpos +this.raumschiff_bild.getWidth()/2, this.raumschiff_ypos +this.raumschiff_bild.getHeight()/2-Var.raumschiff_schuss1_Bild.getHeight()*11, score,false,var,0,-1);
-		new Schuesse_Raumschiff_6(gegner,this.raumschiff_xpos +this.raumschiff_bild.getWidth()/2, this.raumschiff_ypos +this.raumschiff_bild.getHeight()/2-Var.raumschiff_schuss1_Bild.getHeight()*8, score,false,var,20,0);
+		new Schuesse_Raumschiff_6(var.getGegnerArray(),this.raumschiff_xpos +this.raumschiff_bild.getWidth()/2, this.raumschiff_ypos +this.raumschiff_bild.getHeight()/2+Var.raumschiff_schuss1_Bild.getHeight()*6, score,false,var,20,0);
+		new Schuesse_Raumschiff_6(var.getGegnerArray(),this.raumschiff_xpos +this.raumschiff_bild.getWidth()/2, this.raumschiff_ypos +this.raumschiff_bild.getHeight()/2+Var.raumschiff_schuss1_Bild.getHeight()*9, score,false,var,0,1);
+		new Schuesse_Raumschiff_6(var.getGegnerArray(),this.raumschiff_xpos +this.raumschiff_bild.getWidth()/2, this.raumschiff_ypos +this.raumschiff_bild.getHeight()/2-Var.raumschiff_schuss1_Bild.getHeight()*11, score,false,var,0,-1);
+		new Schuesse_Raumschiff_6(var.getGegnerArray(),this.raumschiff_xpos +this.raumschiff_bild.getWidth()/2, this.raumschiff_ypos +this.raumschiff_bild.getHeight()/2-Var.raumschiff_schuss1_Bild.getHeight()*8, score,false,var,20,0);
 	}
 }

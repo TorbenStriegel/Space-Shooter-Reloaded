@@ -44,7 +44,7 @@ public class MySQL_Datenbank {
 			statement.close();
 			result.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Zu schnell Level gewechselt! (Datenbank)");
 		} finally {
 			if (connection != null)
 				try {

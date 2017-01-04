@@ -7,7 +7,6 @@ public class Logik {
 	Raumschiff raumschiff;
 	Spieltimer spieltimer;
 	MySQL_Datenbank mySQL_Datenbank;
-	Gegner[] gegner_Array = new Gegner[Var.anzahlGegner];
 	Var var;
 	GUI_Startfenster start;
 	Hintergrund hintergrund;
@@ -16,7 +15,7 @@ public class Logik {
 	Score score;
 	Raumschiff_Steuerung raumschiff_Steuerung;
 	Gegner_Level gegner_Level;
-	Gegner_Kollision gegner_Kollision;
+	Raumschiff_Kollision gegner_Kollision;
 	Label_Spielfeld label_Spielfeld;
 	Schild_Steuerung schild;
 	GUI_Spielfeld gui_spiel;
@@ -41,6 +40,7 @@ public class Logik {
 	}
 
 	public void starten(String name, int raumschiffTyp, GUI_Startfenster fenster, int level) {
+		
 		var.level = level;
 		var.raumschifftyp = raumschiffTyp;
 		Var.name = name;
@@ -52,18 +52,22 @@ public class Logik {
 		raumschiff = raumschiff_Level.gibRaumschiff();
 		raumschiff_Steuerung = new Raumschiff_Steuerung(raumschiff, var);
 		gegner_Level = new Gegner_Level(level, var, this);
-		gegner_Array = gegner_Level.getGegner_Array();
-		spieltimer = gegner_Level.getSpieltimer();
-		score.setSpieltimer(spieltimer);
-		for (int i = 0; i < gegner_Array.length; i++) {
-			gegner_Array[i].setRaumschiff(raumschiff);
+		var.setGegnerArray(gegner_Level.getGegner_Array());
+		if(var.survival){
+			spieltimer = new Spieltimer(5, var);
+		}else{
+			spieltimer = new Spieltimer(60, var);
 		}
-		raumschiff.setGegner(gegner_Array);
-		gegner_Kollision = new Gegner_Kollision(gegner_Level, raumschiff, var);
+		
+		score.setSpieltimer(spieltimer);
+		for (int i = 0; i < var.getGegnerArray().length; i++) {
+			var.getGegnerArrayIndex(i).setRaumschiff(raumschiff);
+		}
+		gegner_Kollision = new Raumschiff_Kollision(raumschiff, var);
 		label_Spielfeld = new Label_Spielfeld(gegner_Level, raumschiff, score, spieltimer, var, start_Counter, this);
 		gui_spiel = new GUI_Spielfeld(label_Spielfeld, var);
 		schild = new Schild_Steuerung(raumschiff, var);
-		new ItemGenerator(raumschiff, var, level, levelTest);
+		new ItemGenerator(raumschiff, var, (int)(Math.random()*12), levelTest);
 		if (Var.musik) {
 			audio = new AudioPlayer();
 		}
@@ -76,31 +80,47 @@ public class Logik {
 	}
 
 	public void restart(JFrame label_spielfeld) {
+		hintergrund.setCancel();
 		audio.musikStoppen();
 		spieltimer.beenden();
 		refernzenlöschen();
 		levelTest = new LevelTester();
-		gegner_Array = new Gegner[Var.anzahlGegner];
-		var.reset();
+		var=new Var();
 		mySQL_Datenbank = new MySQL_Datenbank();
 		start = new GUI_Startfenster(this, mySQL_Datenbank, var, levelTest, label_spielfeld);
 	}
 
 	public void weiter() {
+		hintergrund.setCancel();
+		gui_spiel.loescheSpielfeld();
+		audio.musikStoppen();
 		spieltimer.beenden();
 		refernzenlöschen();
 		levelTest = new LevelTester();
-		gegner_Array = new Gegner[Var.anzahlGegner];
-		var.reset();
-		mySQL_Datenbank = new MySQL_Datenbank();
+		var=new Var();
+	
 		starten(var.name, var.raumschifftyp, null, var.level + 1);
+	}
+	
+	public void survival(){
+		for (int i = 0; i < var.getGegnerArray().length; i++) {
+			var.getGegnerArrayIndex(i).cancelSteuerung();;
+		}
+		var.keinReset=true;
+		if(var.gegnerAusSpielfeld>=var.getGegnerArray().length){
+		var.survivalReset();
+		spieltimer.setTime(5);
+		gegner_Level.levelWeiter();
+		var.setGegnerArray(gegner_Level.getGegner_Array());
+		for (int i = 0; i < var.getGegnerArray().length; i++) {
+			var.getGegnerArrayIndex(i).setRaumschiff(raumschiff);
+		}
+		}
 	}
 
 	private void refernzenlöschen() {
 		raumschiff = null;
 		spieltimer = null;
-		mySQL_Datenbank = null;
-		gegner_Array = null;
 		start = null;
 		hintergrund = null;
 		keyHandler = null;
@@ -116,6 +136,7 @@ public class Logik {
 		levelTest = null;
 		gUI_Ladescreen = null;
 		start_Counter = null;
+		var =null;
 	}
 
 	public void gewonnen() {

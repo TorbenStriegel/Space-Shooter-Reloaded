@@ -80,6 +80,7 @@ public class Var {
 	
 	private ArrayList<Schuesse> geschossliste= new ArrayList<Schuesse>();
 	private ArrayList<Items> itemliste= new ArrayList<Items>();
+	private Gegner[] gegner_Array=new Gegner[0];
 	
 	static String name = "Name";
 	
@@ -91,6 +92,8 @@ public class Var {
 	
 	static boolean survival = false;
 
+	boolean keinReset =false;
+	int gegnerAusSpielfeld=0;
 	static int level=1;
 	static boolean musik = true;
 	static boolean zeigeLebenGegner = false;
@@ -149,13 +152,19 @@ public class Var {
 	
 	
 	public void reset(){
+		
+		
+		 background_x1 = 0;
+		 background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
+		 background_speed = 40;
 		schuessegegner=0;
 		
+		gegner_Array=new Gegner[0];
 	    geschossliste= new ArrayList<Schuesse>();
 	    itemliste= new ArrayList<Items>();
-		
+	    keinReset =false;
 		 anzahlGegner = 0;
-		
+		 gegnerAusSpielfeld=0;
 		 pause = true;
 		 verloren = false;
 		 timer_finish = false;
@@ -164,6 +173,29 @@ public class Var {
 		zeigeLebenGegner = false;
 	}
 	
+	public void survivalReset(){
+		gegner_Array=new Gegner[0];
+	    geschossliste= new ArrayList<Schuesse>();
+	    itemliste= new ArrayList<Items>();
+		 verloren = false;
+		 timer_finish = false;
+		 gegnerAusSpielfeld=0;
+		 keinReset =false;
+	}
+	
+	
+	public Gegner[] getGegnerArray(){
+		return gegner_Array;
+	}
+	
+	
+	public Gegner getGegnerArrayIndex(int index){
+		return gegner_Array[index];
+	}
+	
+	public void setGegnerArray(Gegner[] gegner){
+		gegner_Array=gegner;
+	}
 	
 	public ArrayList<Schuesse> getGeschossliste() {
 		return geschossliste;
