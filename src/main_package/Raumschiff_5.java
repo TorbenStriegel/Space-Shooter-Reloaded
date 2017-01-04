@@ -13,7 +13,7 @@ public class Raumschiff_5 extends Raumschiff {
 		raumschiff_schildMax = raumschiff_schild;
 		raumschiff_bild=Var.raumschiff_5;
 		raumschiffshild_bild=Var.raumschiffshield_1_Bild;
-		geschoss_periode=12;
+		geschoss_periode=16;
 		anzahlschuesse=2;
 		if (!test) {
 			initTimer();

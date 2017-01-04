@@ -54,7 +54,7 @@ public class Logik {
 		gegner_Level = new Gegner_Level(level, var, this);
 		var.setGegnerArray(gegner_Level.getGegner_Array());
 		if(var.survival){
-			spieltimer = new Spieltimer(5, var);
+			spieltimer = new Spieltimer(3, var);
 		}else{
 			spieltimer = new Spieltimer(60, var);
 		}
@@ -109,7 +109,7 @@ public class Logik {
 		var.keinReset=true;
 		if(var.gegnerAusSpielfeld>=var.getGegnerArray().length){
 		var.survivalReset();
-		spieltimer.setTime(5);
+		spieltimer.setTime(3);
 		gegner_Level.levelWeiter();
 		var.setGegnerArray(gegner_Level.getGegner_Array());
 		for (int i = 0; i < var.getGegnerArray().length; i++) {

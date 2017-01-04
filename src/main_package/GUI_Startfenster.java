@@ -184,7 +184,7 @@ public class GUI_Startfenster extends JFrame {
 		freigeschaltetSchiff.setLocation(Var.spielfeld_screenwidth/5-freigeschaltetSchiff.getWidth()/2,Var.spielfeld_screenheight/6 *5+freigeschaltetSchiff.getHeight()/2 );
 		freigeschaltetSchiff.setFont(new Font("Monospaced", Font.BOLD, 20));
 		freigeschaltetSchiff.setForeground(Color.WHITE);
-		if(levelTest.getSchifffrei()>5){
+		if(levelTest.getSchifffrei()>=5){
 			freigeschaltetSchiff.setText("Schiff freigeschaltet:Alle");
 		}
 		contentPane.add(freigeschaltetSchiff);

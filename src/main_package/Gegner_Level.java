@@ -225,6 +225,42 @@ public class Gegner_Level {
 			gegner[a] = new Gegner_7(var);
 		}
 	}
+	
+	private void starteLevelSurvival() {
+		Var.anzahlGegner = 20;
+		gegner = new Gegner[Var.anzahlGegner];
+		for (int a = 0; a < gegner.length; a++) {
+			int i = (int)(Math.random()*8+1);
+			switch (i) {
+		
+			case 1:
+				gegner[a]= new Gegner_1(var);
+				break;
+			case 2:
+				gegner[a]= new Gegner_2(var);
+				break;
+			case 3:
+				gegner[a]= new Gegner_3(var);
+				break;
+			case 4:
+				gegner[a]= new Gegner_4(var);
+				break;
+			case 5:
+				gegner[a]= new Gegner_5(var);
+				break;
+			case 6:
+				gegner[a]= new Gegner_6(var);
+				break;
+		
+			case 8:
+				gegner[a]= new Gegner_8(var);
+				break;
+			default:
+				gegner[a]= new Gegner_3(var);
+				break;
+			}
+		}
+	}
 
 	public int getLevel() {
 		return level;
@@ -274,7 +310,7 @@ public class Gegner_Level {
 			starteLevel11();
 			break;
 		case 12:
-			starteLevel12();
+			starteLevelSurvival();
 			break;
 		default:
 			System.out.println("Ungültiges Level!");

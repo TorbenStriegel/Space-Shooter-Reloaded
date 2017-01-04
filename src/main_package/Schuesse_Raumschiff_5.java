@@ -7,7 +7,7 @@ public class Schuesse_Raumschiff_5 extends Schuesse{
 		schuss_xpos=xpos;
 		schuss_ypos=ypos;
 		schussSchaden = 20;
-		speed = 30;
+		speed = 40;
 		leben=20;
 		schuss_bild = Var.raumschiff_schuss5_Bild;
 		if (!test) {
@@ -21,6 +21,10 @@ public class Schuesse_Raumschiff_5 extends Schuesse{
 		steuerung.zerstoeren();
 		steuerung=null;
 		
+	}
+	public void setSchuss_xpos(){
+		schuss_xpos +=speed;
+		schuss_ypos=(int)(Math.sin((schuss_xpos/15)*(0.2))*20)+schuss_ypos;
 	}
 	
 }
