@@ -32,7 +32,7 @@ public class MySQL_Datenbank {
 			System.out.println("Verbindung zum Server hergestellt.");
 			statement = connection.createStatement();
 			result = statement.executeQuery("SELECT * FROM `Highscore` where Level = "+level+" ORDER BY Score DESC");
-			while (result.next() && counter<10) {
+			while (result.next() && counter<9) {
 				highscore_name[counter] = result.getString(4);
 				highscore_score[counter] = result.getString(5);
 				highscore_treffergenauigkeit[counter] = result.getString(6);

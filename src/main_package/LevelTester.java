@@ -39,6 +39,7 @@ public class LevelTester {
 		}
 		scanner.close();
 		} catch (FileNotFoundException e) {
+			System.out.println(".data.txt nicht gefunden");
 		}
 	}
 	

@@ -109,7 +109,7 @@ public class Logik {
 		var.keinReset=true;
 		if(var.gegnerAusSpielfeld>=var.getGegnerArray().length){
 		var.survivalReset();
-		spieltimer.setTime(5);
+		spieltimer.setTime(30);
 		gegner_Level.levelWeiter();
 		var.setGegnerArray(gegner_Level.getGegner_Array());
 		for (int i = 0; i < var.getGegnerArray().length; i++) {
