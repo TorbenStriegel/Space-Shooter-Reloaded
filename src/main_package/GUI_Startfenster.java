@@ -175,7 +175,9 @@ public class GUI_Startfenster extends JFrame {
 		freigeschaltetLevel.setLocation(Var.spielfeld_screenwidth/5-freigeschaltetLevel.getWidth()/2,Var.spielfeld_screenheight/6*5-freigeschaltetLevel.getHeight()/2 );
 		freigeschaltetLevel.setFont(new Font("Monospaced", Font.BOLD, 20));
 		freigeschaltetLevel.setForeground(Color.WHITE);
-		
+		if(levelTest.getlevelfrei()>=12){
+			freigeschaltetLevel.setText("Level freigeschaltet:Alle");
+		}
 		contentPane.add(freigeschaltetLevel);
 		
 		JLabel freigeschaltetSchiff = new JLabel("Schiff freigeschaltet:"+(levelTest.getSchifffrei()+1));
@@ -265,6 +267,8 @@ public class GUI_Startfenster extends JFrame {
 		contentPane.add(highscore);
 		vor();
 		zuruck();
+		vorm();
+		zuruckm();
 		
 		JLabel bildlabel = new JLabel(new ImageIcon(Var.background_1));
 		bildlabel.setLocation(0,0);
@@ -446,7 +450,7 @@ public class GUI_Startfenster extends JFrame {
 			musiklabel.setText("Standart");
 		}else if(musik==1){
 			musik=0;
-			Var.musik = true;
+			Var.musik = false;
 			musiklabel.setText("Keine Musik");
 		}else if(musik==2){
 			musik=1;
@@ -460,6 +464,7 @@ public class GUI_Startfenster extends JFrame {
 			musiklabel.setText("Starwars");
 		}else if(musik==4){
 			musik=3;
+			Var.musik = true;
 			Var.musik_default=Var.musik_4;
 			musiklabel.setText("Batman-The Dark Night");
 		}

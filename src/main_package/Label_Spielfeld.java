@@ -173,6 +173,19 @@ public class Label_Spielfeld extends JLabel { // Erbt von JLabel, damit alle
 
 			}
 
+		}else if(raumschiff.gibRaumschiff_leben()<=0){
+			g.setColor(Color.BLACK);
+			g.fillRect(0, 0, Var.spielfeld_screenwidth, Var.spielfeld_screenheight);
+			g.setColor(Color.GREEN);
+			g.setFont(new Font("Arial", Font.BOLD, 60));
+			g.drawString("Verloren", (Var.spielfeld_screenwidth / 2 - 200),
+					(Var.spielfeld_screenheight / 2 - 30));
+			logik.gewonnen();
+			if (!beendet) {
+				beendet = true;
+				zeichneButton();
+
+			}
 		}
 		repaint();
 	}
