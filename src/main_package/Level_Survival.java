@@ -21,10 +21,8 @@ public class Level_Survival {
 				
 					if(var.timer_finish){
 						logik.survival();
-					var.timer_finish=false;
-					
-					var.verloren=false;
-					
+						var.timer_finish=false;
+						var.verloren=false;
 //						var.startCounter=true;
 					}
 				

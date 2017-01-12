@@ -153,7 +153,7 @@ public class Var {
 	
 	public void reset(){
 		
-		
+		survival  = false;
 		 background_x1 = 0;
 		 background_x2 = Toolkit.getDefaultToolkit().getScreenSize().width; 
 		 background_speed = 40;
@@ -171,6 +171,8 @@ public class Var {
 		 musik = true;
 		startCounter = false;
 		zeigeLebenGegner = false;
+		 gegnerAusSpielfeld=0;
+		keinReset =false;
 	}
 	
 	public void survivalReset(){
