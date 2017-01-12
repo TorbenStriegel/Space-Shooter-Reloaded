@@ -33,6 +33,11 @@ public class Schuesse_Raumschiff_Steuerung {
 							zerstort = true;
 						}
 
+						/*hier wird getsetet ob der Schuss Gegner trifft oder nicht. Man hat 2 punkte.
+						 *  Diese Testen ob sie innerhalb des Bildes vom Raumschiff sind. 
+						 *  Wenn sie es sind wird die Methode getroffen aufgerufen. 
+						 */
+						
 						Point p1 = new Point();
 						p1.setLocation(schuss.gibSchuss_xpos() + schuss.gibImage().getWidth(), schuss.gibSchuss_ypos());
 						Point p2 = new Point();

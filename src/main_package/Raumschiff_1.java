@@ -2,6 +2,10 @@ package main_package;
 
 public class Raumschiff_1 extends Raumschiff {
 
+	/* durch Polymorphie und Vererbung sind die einzelnen Klassen von den Raumschiffen sehr klein
+	 */
+	
+	
 	public Raumschiff_1(Score score,boolean test,Var var) {
 		super(var);
 		raumschiff_speedx = 6;

@@ -3,7 +3,11 @@ package main_package;
 import javax.swing.JFrame;
 
 public class Logik {
-
+/* in der Klasse Logik werden fast alle Referenzen gespeichert,
+ *  damit man diese nach einem Spiel löschen kann und danach ein neues spiel starten kann.
+ *  Die Methoden sind zum Neustart oder um ein weiteres Level ohne das Menü zu betreten zu spielen
+ *  Die Methode survival ändert die Gegner sodass im Survival modus neue Gegner kommen
+ */
 	Raumschiff raumschiff;
 	Spieltimer spieltimer;
 	MySQL_Datenbank mySQL_Datenbank;

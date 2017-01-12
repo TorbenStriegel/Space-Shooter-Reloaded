@@ -1,7 +1,8 @@
 package main_package;
 
 public class Schuesse_Gegner_1 extends Schuesse{
-
+	/* durch Polymorphie und Vererbung sind die einzelnen Klassen von den Schüssen sehr klein
+	 */
 	public Schuesse_Gegner_1(Raumschiff schiff,int xpos,int ypos,Var var) {
 		super(var);
 		schuss_xpos=xpos;

@@ -14,6 +14,9 @@ public class Raumschiff_Kollision {
 		timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
+			
+			/*hier wird getsetet ob das Raumschiff die Gegner trifft
+			 */
 			public void run() {
 				if (!var.verloren && !var.pause) {
 					for (int i = 0; i < var.getGegnerArray().length; i++) {
