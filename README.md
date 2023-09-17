@@ -5,6 +5,7 @@ Space-Shooter-Reloaded is a project developed during school years in Java. It is
 ![image](https://github.com/TorbenStriegel/Space-Shooter-Reloaded/assets/29056807/a6e3218a-4e94-4fbf-bf1f-8371e3ae07bb)
 ![image](https://github.com/TorbenStriegel/Space-Shooter-Reloaded/assets/29056807/e7a195ed-dc12-4884-b84b-020b15cc14ce)
 
+You can find more information in the [documentation](https://github.com/TorbenStriegel/Space-Shooter-Reloaded/files/12642892/Documentation.pdf)
 
 ## Instructions
 **Space Invader**, or here, **Space Shooter**, is one of the earliest video games, first released in 1978. It falls under the category of "shoot-'em-up" video games, and to this day, there are hundreds of thousands of remakes of this classic game. The objective of the game is not only to survive but also to attain the highest possible score to climb the leaderboard.
